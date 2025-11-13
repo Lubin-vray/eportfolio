@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Eportfolio{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('css/style.css')}}">
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         {% block stylesheets %}
@@ -11,48 +11,69 @@
 
     </head>
     <body>
-        {% block body %}
-            <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Eportfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarColor02">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                    <a class="nav-link active" href="#">Home
+                    <a class="nav-link active" href="/">Menu
                         <span class="visually-hidden">(current)</span>
                     </a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="#">Loisires et Activités</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="#">Les compétences</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                    </div>
-                    </li>
+                    <a class="nav-link" href="#">Contact</a>
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control me-sm-2" type="search" placeholder="Search">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Mode</button>
                 </form>
+            </div>
+        </div>
+        </nav>
+        {% block body %}
+        {% endblock %}
+        <footer class="mt-auto">
+            <div class="container">
+                <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>About Us</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac ante mollis quam tristique convallis.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                    <li><a href="#" class="text-decoration-none text-white">Home</a></li>
+                    <li><a href="#" class="text-decoration-none text-white">Services</a></li>
+                    <li><a href="#" class="text-decoration-none text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Follow Us</h5>
+                    <ul class="list-inline social-icons">
+                    <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-facebook"></i></a></li>
+                    <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-instagram"></i></a></li>
+                    </ul>
+                </div>
+                </div>
+                <hr class="mb-4">
+                <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>&copy; 2023 Your Company. All rights reserved.</p>
+                </div>
                 </div>
             </div>
-            </nav>
+        </footer>
+                        
         
-        {% endblock %}
     </body>
 </html>
