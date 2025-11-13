@@ -199,9 +199,14 @@
     scroll-behavior: smooth;
   }
 }
+.example-wrapper {
+  margin-left: 20vw;
+  margin-right: 20vw;
+}
 
 body {
   margin: 0;
+  margin-left: 30;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
@@ -224,13 +229,17 @@ hr {
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-weight: 500;
+  font-weight: 0.5rem;
   line-height: 1.2;
   color: var(--bs-heading-color);
 }
 
 h1, .h1 {
+  
   font-size: calc(1.375rem + 1.5vw);
+
+}
+.h1, .h2,.h3,.h4,.h5{
   text-align: center;
 }
 @media (min-width: 1200px) {
@@ -250,6 +259,7 @@ h2, .h2 {
 
 h3, .h3 {
   font-size: calc(1.3rem + 0.6vw);
+
 }
 @media (min-width: 1200px) {
   h3, .h3 {
@@ -415,7 +425,15 @@ kbd kbd {
 figure {
   margin: 0 0 1rem;
 }
-
+.tete {
+  width: 20rem;               /* Taille de l’image */
+  height: 25rem;
+  border-radius: 50%;         /* Rend l’image parfaitement ronde */
+  object-fit: cover;          /* Coupe l’image proprement si elle n’est pas carrée */
+  border: 4px solid #2d2f36;  /* Bordure discrète gris foncé */
+  display: block;             /* Permet de centrer avec margin auto */
+  margin: -3px auto -3px;     /* Centre l’image et ajoute de l’espace autour */
+}
 img,
 svg {
   vertical-align: middle;
@@ -3479,6 +3497,7 @@ textarea.form-control-lg {
   border: var(--bs-dropdown-border-width) solid var(--bs-dropdown-border-color);
   border-radius: var(--bs-dropdown-border-radius);
 }
+
 .dropdown-menu[data-bs-popper] {
   top: 100%;
   left: 0;
@@ -4391,6 +4410,13 @@ textarea.form-control-lg {
 [data-bs-theme=dark] .navbar-toggler-icon {
   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
+.box {
+  display: flex;
+  flex-wrap: wrap; /* Permet le retour à la ligne sur petits écrans */
+  gap: 1rem;        /* Espacement entre les cartes */
+  justify-content: center; /* Centrage horizontal */
+  padding: 1rem;
+}
 
 .card {
   --bs-card-spacer-y: 1rem;
@@ -4415,14 +4441,16 @@ textarea.form-control-lg {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 0;
-  height: var(--bs-card-height);
+  min-width: 30rem;
+  max-width: 30rem;
+  height: 22rem;
   color: var(--bs-body-color);
   word-wrap: break-word;
   background-color: var(--bs-card-bg);
   background-clip: border-box;
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
+  flex: 1 1; /* Largeur minimale de chaque carte */
 }
 .card > hr {
   margin-right: 0;
@@ -4473,6 +4501,9 @@ textarea.form-control-lg {
 }
 
 .card-header {
+  font-size: 1.5rem;
+  font-weight: 2rem;
+  text-align: center;
   padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
   margin-bottom: 0;
   color: var(--bs-card-cap-color);
@@ -4577,6 +4608,11 @@ textarea.form-control-lg {
   .card-group > .card:not(:first-child) > .card-footer {
     border-bottom-left-radius: 0;
   }
+}
+.img-card {
+  object-fit:cover;
+  width: 28rem;
+  height: 17rem;
 }
 
 .accordion {
@@ -8837,17 +8873,17 @@ textarea.form-control-lg {
 
 .bg-secondary {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) !important;
+  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-success {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
+  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-info {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-info-rgb), var(--bs-bg-opacity)) !important;
+  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-warning {
@@ -8857,7 +8893,7 @@ textarea.form-control-lg {
 
 .bg-danger {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-danger-rgb), var(--bs-bg-opacity)) !important;
+  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-light {
@@ -12352,8 +12388,11 @@ h5,
 h6,
 .h6 {
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+  
 }
-
+.h1 {
+  font-size: 3.5rem;
+}
 legend {
   color: #fff;
 }
@@ -12534,6 +12573,7 @@ footer {
     padding: 3rem 0;
   }
 
-  .social-icons a {
-    font-size: 1.25rem;
-  }
+.social-icons a {
+  font-size: 1.25rem;
+}
+
