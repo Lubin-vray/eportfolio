@@ -51,7 +51,7 @@
   --bs-warning-rgb: 248, 148, 6;
   --bs-danger-rgb: 238, 95, 91;
   --bs-light-rgb: 233, 236, 239;
-  --bs-dark-rgb: 39, 43, 48;
+  --bs-dark-rgb: #343a40;
   --bs-primary-text-emphasis: #17191b;
   --bs-secondary-text-emphasis: #313436;
   --bs-success-text-emphasis: #274e27;
@@ -85,7 +85,7 @@
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
-  --bs-body-color: #aaa;
+  --bs-body-color: rgb(185, 185, 185);
   --bs-body-color-rgb: 170, 170, 170;
   --bs-body-bg: #272b30;
   --bs-body-bg-rgb: 39, 43, 48;
@@ -231,6 +231,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 
 h1, .h1 {
   font-size: calc(1.375rem + 1.5vw);
+  text-align: center;
 }
 @media (min-width: 1200px) {
   h1, .h1 {
@@ -753,6 +754,7 @@ progress {
 .container-lg,
 .container-md,
 .container-sm {
+  background-color: #343a40;
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
   width: 100%;
@@ -3971,7 +3973,7 @@ textarea.form-control-lg {
   --bs-navbar-active-color: rgba(var(--bs-emphasis-color-rgb), 1);
   --bs-navbar-brand-padding-y: 0.3125rem;
   --bs-navbar-brand-margin-end: 1rem;
-  --bs-navbar-brand-font-size: 1.25rem;
+  --bs-navbar-brand-font-size: 2rem;
   --bs-navbar-brand-color: rgba(var(--bs-emphasis-color-rgb), 1);
   --bs-navbar-brand-hover-color: rgba(var(--bs-emphasis-color-rgb), 1);
   --bs-navbar-nav-link-padding-x: 0.5rem;
@@ -4048,6 +4050,7 @@ textarea.form-control-lg {
 
 .navbar-collapse {
   flex-grow: 1;
+  font-size: 1.5rem;
   flex-basis: 100%;
   align-items: center;
 }

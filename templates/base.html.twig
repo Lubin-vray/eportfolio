@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Eportfolio{% endblock %}</title>
-        <link rel="stylesheet" href="{{ asset('css/style.css')}}">
+        <link id="theme" rel="stylesheet" href="{{ asset('css/style.css')}}">
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         {% block stylesheets %}
         {% endblock %}
@@ -34,7 +34,7 @@
                     <a class="nav-link" href="#">Contact</a>
                 </ul>
                 <form class="d-flex">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Mode</button>
+                    <button class="btn btn-secondary my-2 my-sm-0" id="switch" type="button">
                 </form>
             </div>
         </div>
@@ -74,6 +74,29 @@
             </div>
         </footer>
                         
-        
+    <script>
+        const style1 = "{{ asset('css/style.css') }}";
+        const style2 = "{{ asset('css/bootstrap.css') }}"; // ou ton autre fichier
+
+        const bouton = document.getElementById("switch");
+        const lienCSS = document.getElementById("theme");
+
+        // Si tu veux garder le choix après reload, récupère depuis localStorage
+        const saved = localStorage.getItem('themeHref');
+        if (saved) {
+            lienCSS.setAttribute('href', saved);
+        }
+
+        bouton.addEventListener("click", () => {
+            const current = lienCSS.getAttribute("href");
+            if (current === style1) {
+            lienCSS.setAttribute("href", style2);
+            localStorage.setItem('themeHref', style2);
+            } else {
+            lienCSS.setAttribute("href", style1);
+            localStorage.setItem('themeHref', style1);
+            }
+        });
+    </script>
     </body>
 </html>
