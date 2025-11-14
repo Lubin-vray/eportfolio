@@ -36,6 +36,19 @@ final class PortfolioControleurController extends AbstractController
             'controller_name' => 'PortfolioControleurController',
         ]);
     }
-    
+    #[Route('/cv', name: 'portfolio_cv')]
+    public function cv(): Response
+    {
+        return $this->render('portfolio_controleur/cv.html.twig', [
+            'controller_name' => 'PortfolioControleurController',
+        ]);
+    }
+    #[Route('/page-CV', name: 'portfolio_page_cv')]
+    public function pagecv(): Response
+    {
+        return $this->render('portfolio_controleur/page-CV.html.twig', [
+            'controller_name' => 'PortfolioControleurController',
+        ]);
+    }
    
 }

@@ -3474,7 +3474,7 @@ textarea.form-control-lg {
   --bs-dropdown-padding-x: 0;
   --bs-dropdown-padding-y: 0.5rem;
   --bs-dropdown-spacer: 0.125rem;
-  --bs-dropdown-font-size: 1rem;
+  --bs-dropdown-font-size: 1.4rem;
   --bs-dropdown-color: var(--bs-body-color);
   --bs-dropdown-bg: #3a3f44;
   --bs-dropdown-border-color: rgba(0, 0, 0, 0.6);
@@ -3498,7 +3498,7 @@ textarea.form-control-lg {
   position: absolute;
   z-index: var(--bs-dropdown-zindex);
   display: none;
-  min-width: var(--bs-dropdown-min-width);
+  min-width: 12rem;
   padding: var(--bs-dropdown-padding-y) var(--bs-dropdown-padding-x);
   margin: 0;
   font-size: var(--bs-dropdown-font-size);
@@ -4521,6 +4521,7 @@ textarea.form-control-lg {
 }
 
 .card-body {
+  text-align: center;
   flex: 1 1 auto;
   padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
   color: var(--bs-card-color);

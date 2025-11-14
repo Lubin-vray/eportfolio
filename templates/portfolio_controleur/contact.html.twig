@@ -1,6 +1,45 @@
 {% extends 'base.html.twig' %}
-
-
-
 {% block body %}
+
+  <main class="container mb-5">
+    <h1 class="mb-4 text-center">Contactez-moi</h1>
+
+    <div class="row mb-5">
+      <div class="col-md-6">
+        <h2>Me contacter directement</h1>
+        <ul class="list-unstyled">
+          <li><h4>Email : <a href="lubin.vray@gmail.com" class="text-info">lubin.vray@gmail.com</a></h4></li>
+          <li><h4>GitHub : <a href="https://github.com/Lubin-vray" target="_blank" class="text-info">Lubin-vray</a></h4></li>
+          <li><h4>Instagram : <a href="https://www.instagram.com/_lubin_63/" target="_blank" class="text-info">_lubin_63</a></h4></li>
+          <li><h4>Téléphone : <a href="" target="_blank" class="text-info">07 67 74 84 27</a></h4></li>
+        </ul>
+      </div>
+
+      <div class="col-md-6">
+        <h2>Envoyer un message</h2>
+        <form action="#" method="post" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="inputName" class="form-label">Nom / Prénom</label>
+            <input type="text" class="form-control" id="inputName" name="name" required>
+            <div class="invalid-feedback">Merci d’indiquer votre nom.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail" name="email" required>
+            <div class="invalid-feedback">Merci d’indiquer une adresse e-mail valide.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="inputMessage" class="form-label">Message</label>
+            <textarea class="form-control" id="inputMessage" name="message" rows="5" required></textarea>
+            <div class="invalid-feedback">Le message ne peut pas être vide.</div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
 {% endblock %}

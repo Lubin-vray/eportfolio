@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+  <div class="container mt-5">
+    <h1 class="mb-4">Rentrez vos informations pour télécharger le CV</h1>
+
+    <form id="contactForm" action="/cv" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="inputName" class="form-label">Nom / Prénom</label>
+        <input type="text" class="form-control" id="inputName" name="name" required>
+        <div class="invalid-feedback">Merci d’indiquer votre nom.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="inputEmail" class="form-label">Email</label>
+        <input type="email" class="form-control" id="inputEmail" name="email" required>
+        <div class="invalid-feedback">Merci d’indiquer une adresse e-mail valide.</div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+     <br><br><br><br>
+  </div>
+ <br><br><br><br>
+ <script>
+    (function () {
+      'use strict';
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', function(event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    })();
+  </script>
+
+{% endblock %}
