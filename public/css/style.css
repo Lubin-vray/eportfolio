@@ -781,6 +781,9 @@ progress {
   margin-right: auto;
   margin-left: auto;
 }
+.containertxt {
+  background-color: #222529;
+}
 
 @media (min-width: 576px) {
   .container-sm, .container {
@@ -833,7 +836,15 @@ progress {
   padding-left: calc(var(--bs-gutter-x) * 0.5);
   margin-top: var(--bs-gutter-y);
 }
-
+.row-img{
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap:wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
 .col {
   flex: 1 0 0;
 }
@@ -895,7 +906,7 @@ progress {
 
 .col-4 {
   flex: 0 0 auto;
-  width: 33.33333333%;
+  width: 50%;
 }
 
 .col-5 {
@@ -1088,7 +1099,9 @@ progress {
   }
   .col-sm-3 {
     flex: 0 0 auto;
-    width: 25%;
+    width: 50%;
+    padding: 1rem;
+    margin-top: 1rem;
   }
   .col-sm-4 {
     flex: 0 0 auto;
@@ -1434,7 +1447,7 @@ progress {
   }
   .col-lg-5 {
     flex: 0 0 auto;
-    width: 41.66666667%;
+    width: 40%;
   }
   .col-lg-6 {
     flex: 0 0 auto;
@@ -1442,7 +1455,7 @@ progress {
   }
   .col-lg-7 {
     flex: 0 0 auto;
-    width: 58.33333333%;
+    width: 60%;
   }
   .col-lg-8 {
     flex: 0 0 auto;
@@ -4418,6 +4431,7 @@ textarea.form-control-lg {
   padding: 1rem;
 }
 
+
 .card {
   --bs-card-spacer-y: 1rem;
   --bs-card-spacer-x: 1rem;
@@ -4444,6 +4458,37 @@ textarea.form-control-lg {
   min-width: 30rem;
   max-width: 30rem;
   height: 22rem;
+  color: var(--bs-body-color);
+  word-wrap: break-word;
+  background-color: var(--bs-card-bg);
+  background-clip: border-box;
+  border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+  border-radius: var(--bs-card-border-radius);
+  flex: 1 1; /* Largeur minimale de chaque carte */
+}
+.card2 {
+  --bs-card-spacer-y: 1rem;
+  --bs-card-spacer-x: 1rem;
+  --bs-card-title-spacer-y: 0.5rem;
+  --bs-card-title-color: ;
+  --bs-card-subtitle-color: ;
+  --bs-card-border-width: var(--bs-border-width);
+  --bs-card-border-color: rgba(0, 0, 0, 0.6);
+  --bs-card-border-radius: var(--bs-border-radius);
+  --bs-card-box-shadow: ;
+  --bs-card-inner-border-radius: calc(var(--bs-border-radius) - (var(--bs-border-width)));
+  --bs-card-cap-padding-y: 0.5rem;
+  --bs-card-cap-padding-x: 1rem;
+  --bs-card-cap-bg: #515960;
+  --bs-card-cap-color: ;
+  --bs-card-height: ;
+  --bs-card-color: ;
+  --bs-card-bg: #32383e;
+  --bs-card-img-overlay-padding: 1rem;
+  --bs-card-group-margin: 0.75rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   color: var(--bs-body-color);
   word-wrap: break-word;
   background-color: var(--bs-card-bg);
@@ -4613,6 +4658,11 @@ textarea.form-control-lg {
   object-fit:cover;
   width: 28rem;
   height: 17rem;
+}
+.img-card-2 {
+  object-fit:cover;
+  width: 20rem;
+  height: 13rem;
 }
 
 .accordion {
