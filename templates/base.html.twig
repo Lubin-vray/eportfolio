@@ -27,17 +27,8 @@
                     <li class="nav-item">
                         <a class="nav-link {% if app.request.pathinfo == '/loisirs' %}active{% endif %}" href="/loisirs">Loisirs et Activités</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="competencesDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Compétences
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="competencesDropdown">
-                            <li><a class="dropdown-item" href="/competences#Administrer">Administrer</a></li>
-                            <li><a class="dropdown-item" href="/competences#Connecter">Connecter</a></li>
-                            <li><a class="dropdown-item" href="/competences#Programmer">Programmer</a></li>
-                            <li><a class="dropdown-item" href="/competences#Projets">Projet</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link {% if app.request.pathinfo == '/contact' %}active{% endif %}" href="/competences">Compétences</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if app.request.pathinfo == '/contact' %}active{% endif %}" href="/contact">Contact</a>

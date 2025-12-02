@@ -12680,3 +12680,58 @@ input:checked + .slider:before {
 .icon_footer {
     width: 3rem;
 }
+.sae-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px var(--bg-container-2);
+}
+
+
+/* Colonnes */
+.col-left,
+.col-right {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Image */
+.sae-image img {
+  width: 32rem;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+.subtitle {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .sae-block {
+    flex-direction: column !important;
+  }
+
+  .col-left,
+  .col-right {
+    padding: 10px;
+  }
+
+  .subtitle {
+    font-size: 1.5em;
+  }
+
+  .paragraph {
+    font-size: 1em;
+  }
+}
+.boutton_sae {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

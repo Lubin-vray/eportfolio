@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<div class="example-wrapper"> 
+    <div class="container">
+    <!-- En-tête -->
+    <header class="section">
+      <h1 class="title">SAÉ 1.01 : Se sensibiliser à l’hygiène informatique et à la cybersécurité</h1>
+      <p class="subtitle">BUT Réseaux & Télécommunications – Semestre 1</p>
+    </header>
+
+    <!-- Bloc principal -->
+    <section class="section sae-block row">
+      <div class="sae-image col-left">
+        <img src="images/cyber.jpg" alt="Cybersécurité">
+      </div>
+      <div class="sae-text col-right">
+        <h2 class="subtitle">🎯 Le but</h2>
+        <p class="paragraph">
+          Développer une culture de la cybersécurité et adopter des comportements responsables face aux menaces numériques.
+        </p>
+
+        <h2 class="subtitle">📌 Contexte</h2>
+        <p class="paragraph">
+          Dans un monde où les attaques informatiques se multiplient, il est essentiel que tout professionnel du numérique
+          maîtrise les bases de l’hygiène informatique. Cette SAÉ place les étudiants en situation réelle de sensibilisation
+          et de mise en pratique des règles de sécurité.
+        </p>
+
+        <h2 class="subtitle">🧠 Apprentissages critiques</h2>
+        <ul class="list">
+          <li>Identifier les menaces courantes (malwares, phishing, failles).</li>
+          <li>Mettre en place des bonnes pratiques (mots de passe robustes, mises à jour, sauvegardes).</li>
+          <li>Utiliser des outils de protection (antivirus, pare-feu, VPN).</li>
+          <li>Adopter une posture responsable dans l’usage des outils numériques.</li>
+        </ul>
+
+        <h2 class="subtitle">⚙️ Réalisations</h2>
+        <p class="paragraph">
+          Nous avons étudié différents scénarios d’attaques, mis en place des environnements sécurisés, et testé des outils
+          de protection. Les étudiants ont également rédigé un guide de bonnes pratiques destiné à sensibiliser leurs pairs.
+        </p>
+
+        <!-- Ajout : citation inspirante -->
+        <blockquote class="citation">
+          "La cybersécurité n’est pas une option, c’est une responsabilité."  
+          <span class="auteur">– Programme BUT R&T</span>
+        </blockquote>
+
+        <!-- Ajout : bouton centré -->
+        <div class="boutton_sae">
+          <a href="/sae1" class="btn btn-primary">Découvrir plus</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ajout : encadré complémentaire -->
+    <section class="section highlight">
+      <h2 class="subtitle">🔎 Points forts de cette SAÉ</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Travail en équipe</h3>
+          <p>Collaboration pour analyser des scénarios et proposer des solutions.</p>
+        </div>
+        <div class="card">
+          <h3>Pratique concrète</h3>
+          <p>Manipulation d’outils de sécurité et mise en place de protections réelles.</p>
+        </div>
+        <div class="card">
+          <h3>Réflexion critique</h3>
+          <p>Développement d’une posture professionnelle face aux enjeux numériques.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<br><br><br><br>
+{% endblock %}

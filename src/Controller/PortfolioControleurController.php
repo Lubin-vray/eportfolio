@@ -50,5 +50,47 @@ final class PortfolioControleurController extends AbstractController
             'controller_name' => 'PortfolioControleurController',
         ]);
     }
+    #[Route('/competences/sae1', name: 'portfolio_sae1')]
+    public function sae1(): Response
+    {
+        return $this->render('portfolio_controleur/sae/sae1.html.twig', [
+            'controller_name' => 'PortfolioControleurController',
+        ]);
+    }
+    #[Route('/competences/sae2', name: 'portfolio_sae2')]
+    public function sae2(): Response
+    {
+        return $this->render('portfolio_controleur/sae/sae2.html.twig', [
+            'controller_name' => 'PortfolioControleurController',
+        ]);
+    }
+    #[Route('/competences/sae3', name: 'portfolio_sae3')]
+    public function sae3(): Response
+    {
+        return $this->render('portfolio_controleur/sae/sae3.html.twig', [
+            'controller_name' => 'PortfolioControleurController',
+        ]);
+    }
+    #[Route('/competences/sae4', name: 'portfolio_sae4')]
+    public function sae4(): Response
+    {
+        return $this->render('portfolio_controleur/sae/sae4.html.twig', [
+            'controller_name' => 'PortfolioControleurController',
+        ]);
+    }
+    #[Route('/competences/sae5', name: 'portfolio_sae5')]
+    public function sae5(): Response
+    {
+        return $this->render('portfolio_controleur/sae/sae5.html.twig', [
+            'controller_name' => 'PortfolioControleurController',
+        ]);
+    }
+    #[Route('/competences/saeportfolio', name: 'portfolio_saeportfolio')]
+    public function saeportfolio(): Response
+    {
+        return $this->render('portfolio_controleur/sae/saeportfolio.html.twig', [
+            'controller_name' => 'PortfolioControleurController',
+        ]);
+    }
    
 }
