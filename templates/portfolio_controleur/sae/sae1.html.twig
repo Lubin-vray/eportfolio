@@ -1,6 +1,5 @@
 {% extends 'base.html.twig' %}
 
-
 {% block body %}
 <div class="example-wrapper"> 
     <div class="container">
@@ -13,22 +12,26 @@
     <!-- Bloc principal -->
     <section class="section sae-block row">
       <div class="sae-image col-left">
-        <img src="images/cyber.jpg" alt="Cybersécurité">
+        <img src="{{ asset('image/hacker.jpg') }}" alt="Cybersécurité">
+        <img src="{{ asset('image/securite.jpg') }}" alt="Cybersécurité">
       </div>
+      
       <div class="sae-text col-right">
         <h2 class="subtitle">🎯 Le but</h2>
         <p class="paragraph">
-          Développer une culture de la cybersécurité et adopter des comportements responsables face aux menaces numériques.
+          La SAÉ 1.01 du BUT Réseaux & Télécommunications vise à développer une culture solide de la cybersécurité 
+          et à adopter des comportements responsables face aux menaces numériques. 
+          Elle constitue une première étape essentielle dans la formation des étudiants en R&T.
         </p>
 
         <h2 class="subtitle">📌 Contexte</h2>
         <p class="paragraph">
-          Dans un monde où les attaques informatiques se multiplient, il est essentiel que tout professionnel du numérique
-          maîtrise les bases de l’hygiène informatique. Cette SAÉ place les étudiants en situation réelle de sensibilisation
-          et de mise en pratique des règles de sécurité.
+          Dans un monde où les attaques informatiques se multiplient, il est indispensable que tout futur professionnel 
+          du numérique maîtrise les bases de l’hygiène informatique. Cette SAÉ nous place en situation réelle 
+          de sensibilisation et de mise en pratique des règles de sécurité, conformément aux attentes du BUT R&T.
         </p>
 
-        <h2 class="subtitle">🧠 Apprentissages critiques</h2>
+        <h2 class="subtitle">🧠 Apprentissages </h2>
         <ul class="list">
           <li>Identifier les menaces courantes (malwares, phishing, failles).</li>
           <li>Mettre en place des bonnes pratiques (mots de passe robustes, mises à jour, sauvegardes).</li>
@@ -38,41 +41,65 @@
 
         <h2 class="subtitle">⚙️ Réalisations</h2>
         <p class="paragraph">
-          Nous avons étudié différents scénarios d’attaques, mis en place des environnements sécurisés, et testé des outils
-          de protection. Les étudiants ont également rédigé un guide de bonnes pratiques destiné à sensibiliser leurs pairs.
+          Nous avons étudié différents scénarios d’attaques, mis en place des environnements sécurisés, 
+          et testé des outils de protection. Nous avons réalisé une présentation oral sur les vulnérabilité informatique et leurs concéquences  
+  
         </p>
 
-        <!-- Ajout : citation inspirante -->
-        <blockquote class="citation">
-          "La cybersécurité n’est pas une option, c’est une responsabilité."  
-          <span class="auteur">– Programme BUT R&T</span>
-        </blockquote>
-
-        <!-- Ajout : bouton centré -->
-        <div class="boutton_sae">
-          <a href="/sae1" class="btn btn-primary">Découvrir plus</a>
+        <div class="preuve">
+          <a href="{{ asset('portfolio/presentation-sae1.01.pptx') }}" target="_blank" class="btn btn-secondary">
+            📄 Consulter le diaporama de présentation
+          </a>
+        </div>
+        <p>
+        En complément, une attestation officielle de suivi des modules de cybersécurité délivrée par l’ANSSI 
+        vient renforcer la crédibilité de cette démarche pédagogique.
+        </p>
+        <div class="preuve">
+          <a href="{{ asset('portfolio/attestation-VRAY-Lubin.pdf') }}" target="_blank" class="btn btn-secondary">
+            📄 Consulter l’attestation ANSSI en preuve
+          </a>
         </div>
       </div>
     </section>
 
     <!-- Ajout : encadré complémentaire -->
     <section class="section highlight">
-      <h2 class="subtitle">🔎 Points forts de cette SAÉ</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Travail en équipe</h3>
-          <p>Collaboration pour analyser des scénarios et proposer des solutions.</p>
-        </div>
-        <div class="card">
-          <h3>Pratique concrète</h3>
-          <p>Manipulation d’outils de sécurité et mise en place de protections réelles.</p>
-        </div>
-        <div class="card">
-          <h3>Réflexion critique</h3>
-          <p>Développement d’une posture professionnelle face aux enjeux numériques.</p>
-        </div>
+      <h2 class="subtitle">Points forts de cette SAÉ</h2>
+        <div class="box">
+          <div class="card">
+            <h3>Travail en équipe</h3>
+            <p>
+              La SAÉ 1.01 met fortement l’accent sur la collaboration entre étudiants. 
+              Chaque membre de l’équipe est amené à analyser des scénarios d’attaques, 
+              partager ses idées et confronter ses points de vue afin de proposer des solutions adaptées. 
+              Ce travail collectif favorise la communication, la répartition des tâches et la prise de décision 
+              en contexte réel, compétences essentielles dans le domaine des réseaux et télécommunications.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Pratique concrète</h3>
+            <p>
+              Au-delà de la théorie, les étudiants manipulent directement des outils de cybersécurité 
+              tels que les antivirus, pare-feu, VPN ou encore les systèmes de gestion des identités. 
+              Ils mettent en place des environnements sécurisés, réalisent des tests d’intrusion simulés 
+              et appliquent des protocoles de protection. Cette approche pratique permet de relier 
+              les connaissances académiques aux situations professionnelles rencontrées sur le terrain.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Réflexion critique</h3>
+            <p>
+              La SAÉ encourage les étudiants à adopter une posture réflexive face aux enjeux numériques. 
+              Ils apprennent à évaluer les risques, à questionner les pratiques existantes et à proposer 
+              des améliorations en tenant compte des contraintes techniques, humaines et organisationnelles. 
+              Cette réflexion critique développe leur sens de la responsabilité et leur capacité à anticiper 
+              les évolutions du domaine de la cybersécurité.
+            </p>
+          </div>
       </div>
-    </section>
+
+          </section>
   </div>
 </div>
 <br><br><br><br>
