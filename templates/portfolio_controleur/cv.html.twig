@@ -5,14 +5,19 @@
 {% block body %}
 <div class="example-wrapper">
     <div class="container text-center">
-        <h1 class="h1 mb-4">Télécharger le CV</h1>
-        <a href="{{ asset('image/classe.jpg') }}" download class="btn btn-primary">
-            Télécharger le fichier
+        <h1 class="h1 mb-4">Télécharger le CV en français</h1>
+        <a href="{{ asset('files/CV3.pdf') }}" download class="btn btn-primary">
+            Télécharger le fichier PDF
+        </a>
+        <br><br><br><br>
+        <h1 class="h1 mb-4">Télécharger le CV en anglais</h1>
+        <a href="{{ asset('files/CV_anglais.pdf') }}" download class="btn btn-primary">
+            Télécharger le fichier PDF
         </a>
         <br><br><br><br>
     </div>
 </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
 
 
 {% endblock %}

@@ -442,8 +442,8 @@ figure {
   margin: 0 0 1rem;
 }
 .tete {
-  width: 20rem;               /* Taille de l’image */
-  height: 25rem;
+  max-width: 30%;               /* Taille de l’image */
+  height: auto;
   border-radius: 50%;         /* Rend l’image parfaitement ronde */
   object-fit: cover;          /* Coupe l’image proprement si elle n’est pas carrée */
   border: 4px solid #2d2f36;  /* Bordure discrète gris foncé */
@@ -4468,9 +4468,6 @@ textarea.form-control-lg {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 30rem;
-  max-width: 30rem;
-  height: 22rem;
   color: var(--bs-body-color);
   word-wrap: break-word;
   background-color: var(--bs-card-bg);
@@ -4478,6 +4475,7 @@ textarea.form-control-lg {
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
   flex: 1 1; /* Largeur minimale de chaque carte */
+  min-width: 40%;
 }
 .card2 {
   --bs-card-spacer-y: 1rem;
@@ -4498,8 +4496,6 @@ textarea.form-control-lg {
   --bs-card-group-margin: 0.75rem;
   position: relative;
   display: flex;
-  min-width: 20%;
-  max-width: 50%;
   flex-direction: column;
   color: var(--bs-body-color);
   word-wrap: break-word;
@@ -4508,6 +4504,7 @@ textarea.form-control-lg {
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
   flex: 1 1; /* Largeur minimale de chaque carte */
+  max-width: 50%;
 }
 .card > hr {
   margin-right: 0;
@@ -4559,7 +4556,7 @@ textarea.form-control-lg {
 }
 
 .card-header {
-  font-size: 1.5rem;
+  font-size: 100%;
   font-weight: 2rem;
   text-align: center;
   padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
@@ -4669,8 +4666,7 @@ textarea.form-control-lg {
 }
 .img-card {
   object-fit:cover;
-  width: 28rem;
-  height: 17rem;
+  width: 100%;
 }
 .img-card-2 {
   object-fit:cover;
@@ -12701,7 +12697,7 @@ input:checked + .slider:before {
 
 /* Image */
 .sae-image img {
-  width: 30rem;
+  width:100% ;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -12738,4 +12734,7 @@ input:checked + .slider:before {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+.sae-text{
+  font-size: 100%;
 }
