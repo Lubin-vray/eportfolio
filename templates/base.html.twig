@@ -28,13 +28,13 @@
                         <a class="nav-link {% if app.request.pathinfo == '/loisirs' %}active{% endif %}" href="/loisirs">Loisirs et Activités</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if app.request.pathinfo == '/competences' %}active{% endif %}" href="/competences">Compétences</a>
+                        <a class="nav-link {% if app.request.pathinfo == '/competences' or app.request.pathinfo == '/competences/sae1'or app.request.pathinfo == '/competences/sae2'or app.request.pathinfo == '/competences/sae3'or app.request.pathinfo == '/competences/sae4'or app.request.pathinfo == '/competences/sae5'or app.request.pathinfo == '/competences/saeportfolio' %}active{% endif %}" href="/competences">Compétences</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if app.request.pathinfo == '/contact' %}active{% endif %}" href="/contact">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if app.request.pathinfo == '/page-CV' %}active{% endif %}" href="/page-CV">CV</a>
+                        <a class="nav-link {% if app.request.pathinfo == '/page-CV' or app.request.pathinfo == '/cv' %}active{% endif %}" href="/page-CV">CV</a>
                     </li>
                 </ul>
                 <form class="d-flex align-items-center">
@@ -74,7 +74,7 @@
                 <hr class="mb-4">
                 <div class="row">
                 <div class="col-md-12 text-center">
-                    <p>&copy; 2023 Your Company. All rights reserved.</p>
+                    <p>&copy; 2025 Your Company. All rights reserved.</p>
                 </div>
                 </div>
             </div>

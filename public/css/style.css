@@ -12738,3 +12738,9 @@ input:checked + .slider:before {
 .sae-text{
   font-size: 100%;
 }
+.preuve {
+  display: flex;
+  justify-content: center; /* centre horizontalement */
+  align-items: center;      /* centre verticalement si nécessaire */
+  margin: 20px 0;
+}
