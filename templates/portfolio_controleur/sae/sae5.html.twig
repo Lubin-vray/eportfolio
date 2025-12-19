@@ -5,54 +5,101 @@
     <div class="container">
     <!-- En-tête -->
     <header class="section">
-      <h1 class="title">SAÉ 1.05 : Introduction aux services réseaux</h1>
+      <h1 class="title">SAÉ 1.05 : Traiter des données</h1>
       <p class="subtitle">BUT Réseaux & Télécommunications – Semestre 1</p>
     </header>
 
     <!-- Bloc principal -->
     <section class="section sae-block row">
       <div class="sae-image col-left">
-        <img src="{{ asset('image/services.jpg') }}" alt="Services réseaux">
-        <img src="{{ asset('image/webserver.jpg') }}" alt="Serveur web">
+        <img src="{{ asset('image/data-analysis.jpg') }}" alt="Analyse de données">
+        <img src="{{ asset('image/python-excel.jpg') }}" alt="Python et Excel">
       </div>
       
       <div class="sae-text col-right">
-        <h2 class="subtitle"> Le but</h2>
-        <p class="paragraph">
-          La SAÉ 1.05 permet de découvrir les services réseaux essentiels 
-          tels que le DNS, le DHCP, le serveur web et le partage de fichiers. 
-          Elle initie les étudiants à la mise en place et à la gestion de ces services.
-        </p>
-
         <h2 class="subtitle"> Contexte</h2>
         <p class="paragraph">
-          Les services réseaux sont indispensables au fonctionnement des infrastructures. 
-          Cette SAÉ met les étudiants en situation de déploiement et de supervision 
-          de services dans un environnement réel.
+          L’entreprise connaît une saturation de son réseau sur le site de production en Inde. 
+          Après plusieurs vérifications matérielles et logicielles infructueuses, la solution retenue est 
+          d’analyser les fichiers issus de <code>tcpdump</code> afin d’identifier les activités suspectes. 
+          Cette SAÉ nous place en situation réelle d’investigation par le traitement de données.
         </p>
 
-        <h2 class="subtitle"> Apprentissages </h2>
+        <h2 class="subtitle"> Objectif</h2>
+        <p class="paragraph">
+          Être capable de traiter un fichier textuel de traces réseau en utilisant Python et Excel, 
+          afin d’extraire des informations pertinentes et de mettre en évidence les causes de la saturation. 
+          Le projet inclut la réalisation de scripts automatisés, la génération de fichiers CSV, 
+          et la mise en forme des résultats dans un tableur pour une analyse claire et exploitable.
+        </p>
+
+        <h2 class="subtitle"> Apprentissages critiques </h2>
         <ul class="list">
-          <li>Installer et configurer un serveur DNS et DHCP.</li>
-          <li>Mettre en place un serveur web simple.</li>
-          <li>Configurer le partage de fichiers.</li>
-          <li>Superviser et tester les services déployés.</li>
+          <li>Utiliser un système informatique et ses outils</li>
+          <li>Lire, exécuter, corriger et modifier un programme</li>
+          <li>Traduire un algorithme dans un langage et pour un environnement donné</li>
+          <li>Connaître l’architecture et les technologies d’un site Web</li>
+          <li>Choisir les mécanismes de gestion de données adaptés au développement de l’outil</li>
+          <li>S’intégrer dans un environnement propice au développement et au travail collaboratif</li>
         </ul>
 
         <h2 class="subtitle"> Réalisations</h2>
         <p class="paragraph">
-          Mise en place d’un serveur DNS/DHCP, configuration d’un serveur web 
-          et test de la connectivité. 
-          Une présentation orale et un rapport technique ont été produits.
+          Nous avons développé des scripts Python pour extraire et traiter les données issues de <code>tcpdump</code>, 
+          généré des fichiers CSV exploitables, et utilisé Excel pour mettre en évidence les anomalies réseau. 
+          Une notice d’utilisation en anglais a été rédigée afin de permettre aux équipes en Inde d’utiliser 
+          nos outils. Le projet est hébergé sur GitHub pour assurer la collaboration et la réutilisation.
         </p>
 
         <div class="preuve">
-          <a href="{{ asset('portfolio/presentation-sae1.05.pptx') }}" target="_blank" class="btn btn-secondary">
-            📄 Consulter le diaporama de présentation
+          <a href="{{ asset('portfolio/code-sae1.05.py') }}" target="_blank" class="btn btn-secondary">
+            📄 Consulter le script Python
           </a>
+        </div>
+        <div class="preuve">
+          <a href="{{ asset('portfolio/analyse-sae1.05.xlsx') }}" target="_blank" class="btn btn-secondary">
+            📄 Consulter le fichier Excel d’analyse
+          </a>
+        </div>
+        <div class="preuve">
+          <a href="{{ asset('portfolio/notice-sae1.05.pdf') }}" target="_blank" class="btn btn-secondary">
+            📄 Consulter la notice d’utilisation en anglais
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Encadré complémentaire -->
+    <section class="section highlight">
+      <h2 class="subtitle">Points forts de cette SAÉ</h2>
+      <div class="box">
+        <div class="card">
+          <h3> Analyse technique</h3>
+          <p>Exploitation de fichiers <code>tcpdump</code> pour identifier des activités réseau suspectes.</p>
+        </div>
+        <div class="card">
+          <h3> Automatisation </h3>
+          <p>Développement de scripts Python pour extraire et traiter les données automatiquement.</p>
+        </div>
+        <div class="card">
+          <h3> Visualisation</h3>
+          <p>Utilisation d’Excel pour mettre en évidence les résultats et anomalies réseau.</p>
+        </div>
+        <div class="card">
+          <h3> Collaboration</h3>
+          <p>Hébergement du projet sur GitHub pour un usage partagé par les équipes en France et en Inde.</p>
+        </div>
+        <div class="card">
+          <h3> Communication</h3>
+          <p>Rédaction d’une notice en anglais pour faciliter l’utilisation par les équipes internationales.</p>
+        </div>
+        <div class="card">
+          <h3> Présentation orale</h3>
+          <p>Soutenance de 12 minutes avec démonstration en direct sur un nouveau fichier.</p>
         </div>
       </div>
     </section>
   </div>
 </div>
+<br><br><br><br>
 {% endblock %}
