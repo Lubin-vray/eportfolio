@@ -1,95 +1,100 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="example-wrapper">
-  <div class="container">
-    <!-- En-tête -->
-    <header class="section">
-      <h1 class="title">SAÉ1.PORTFOLIO : Portfolio de compétences</h1>
-      <p class="subtitle">BUT Réseaux & Télécommunications – Semestre 1</p>
-    </header>
+	<div class="example-wrapper">
+		<div
+			class="container">
+			<!-- En-tête -->
+			<header class="section">
+				<h1 class="title">SAÉ1.PORTFOLIO : Portfolio de compétences</h1>
+				<p class="subtitle">BUT Réseaux & Télécommunications – Semestre 1</p>
+			</header>
 
-    <!-- Bloc principal -->
-    <section class="section sae-block row">
-      <div class="sae-image col-left">
-        <img src="{{ asset('image/portfolio-overview.jpg') }}" alt="Présentation du portfolio">
-        <img src="{{ asset('image/e-portfolio.jpg') }}" alt="E-portfolio en ligne">
-      </div>
+			<!-- Bloc principal -->
+			<section class="section sae-block row">
+				<div class="sae-image col-left">
+					<img src="{{ asset('image/projet.jpg') }}" alt="Présentation du portfolio">
+					<img src="{{ asset('image/competence.png') }}" alt="E-portfolio en ligne">
+				</div>
 
-      <div class="sae-text col-right">
-        <h2 class="subtitle">Contexte</h2>
-        <p class="paragraph">
-          Le portfolio de compétences donne du sens aux apprentissages et permet d’identifier points forts et
-          axes d’amélioration. Il s’appuie sur les Ressources et SAÉ du S1, et prépare la soutenance commune
-          avec la SAÉ1.04 (E‑portfolio), où la démarche portfolio est évaluée.
-        </p>
+				<div class="sae-text col-right">
+					<h2 class="subtitle">Contexte</h2>
+					<p class="paragraph">
+						Le portfolio de compétences donne du sens aux apprentissages et permet d’identifier points forts et
+						          axes d’amélioration. Il s’appuie sur les Ressources et SAÉ du S1, et prépare la soutenance commune
+						          avec la SAÉ1.04 (E‑portfolio), où la démarche portfolio est évaluée.
+					</p>
 
-        <h2 class="subtitle">Objectif</h2>
-        <p class="paragraph">
-          Construire un portfolio structuré et argumenté avec des preuves et une analyse réflexive pour
-          justifier le niveau d’acquisition des compétences. Valoriser son progression, documenter clairement
-          ses réalisations et préparer un support utile pour l’évaluation et les entretiens.
-        </p>
+					<h2 class="subtitle">Objectif</h2>
+					<p class="paragraph">
+						Construire un portfolio structuré et argumenté avec des preuves et une analyse réflexive pour
+						          justifier le niveau d’acquisition des compétences. Valoriser son progression, documenter clairement
+						          ses réalisations et préparer un support utile pour l’évaluation et les entretiens.
+					</p>
 
-        <h2 class="subtitle">Compétences ciblées (BUT1)</h2>
-        <ul class="list">
-          <li>RT1 — Administrer les réseaux et l’Internet (Niveau 1 : Assister l’administrateur)</li>
-          <li>RT2 — Connecter les entreprises et les usagers (Niveau 1 : Découvrir les transmissions et la ToIP)</li>
-          <li>RT3 — Créer des outils et des applications pour les R&T (Niveau 1 : S’intégrer dans un service informatique)</li>
-        </ul>
+					<h2 class="subtitle">Compétences ciblées (BUT1)</h2>
+					<ul class="list">
+						<li>RT1 — Administrer les réseaux et l’Internet (Niveau 1 : Assister l’administrateur)</li>
+						<li>RT2 — Connecter les entreprises et les usagers (Niveau 1 : Découvrir les transmissions et la ToIP)</li>
+						<li>RT3 — Créer des outils et des applications pour les R&T (Niveau 1 : S’intégrer dans un service informatique)</li>
+					</ul>
 
-        <h2 class="subtitle">Méthode et livrables</h2>
-        <ul class="list">
-          <li><strong>Tableau de suivi:</strong>
-          Coller les liens vers les pièces justificatives (preuves) et les écrits réflexifs dans un drive.</li>
-          <li><strong>Preuves:</strong>
-          Documents synthétiques intégrant contexte, savoirs/savoir-faire/savoir‑être, tâche et résultats,
-          visuels, problèmes et solutions, avec vocabulaire technique approprié.</li>
-          <li><strong>Analyse réflexive:</strong>
-          Avant/pendant/après l’action, en s’appuyant sur le modèle de Gibbs (description, ressenti, analyse,
-          conclusions, plan d’action).</li>
-          <li><strong>E‑portfolio:</strong>
-          Synthèse visuelle et structurée, évaluée lors de SAÉ1.04 ; le portfolio doit être à jour.</li>
-        </ul>
+					<h2 class="subtitle">Méthode et livrables</h2>
+					<ul class="list">
+						<li>
+							<strong>Tableau de suivi:</strong>
+							Coller les liens vers les pièces justificatives (preuves) et les écrits réflexifs dans un drive.</li>
+						<li>
+							<strong>Preuves:</strong>
+							Documents synthétiques intégrant contexte, savoirs/savoir-faire/savoir‑être, tâche et résultats,
+							          visuels, problèmes et solutions, avec vocabulaire technique approprié.</li>
+						<li>
+							<strong>Analyse réflexive:</strong>
+							Avant/pendant/après l’action, en s’appuyant sur le modèle de Gibbs (description, ressenti, analyse,
+							          conclusions, plan d’action).</li>
+						<li>
+							<strong>E‑portfolio:</strong>
+							Synthèse visuelle et structurée, évaluée lors de SAÉ1.04 ; le portfolio doit être à jour.</li>
+					</ul>
 
-        <div class="preuve">
-          <a href="https://docs.google.com/spreadsheets/d/1qgwW66s_Ya9cX8AYTcCNenFAVZ7QW9wKEmm8C3EOdGA/edit?gid=0#gid=0" target="_blank" class="btn btn-secondary">
-            📄 Consulter le tableau de suivi (Drive)
-          </a>
-        </div>
-        <div class="preuve">
-          <a href="https://github.com/Lubin-vray/eportfolio" target="_blank" class="btn btn-secondary">
-            🌐 Accéder à l’E‑portfolio
-          </a>
-        </div>
-      </div>
-    </section>
+					<div class="preuve">
+						<a href="https://docs.google.com/spreadsheets/d/1qgwW66s_Ya9cX8AYTcCNenFAVZ7QW9wKEmm8C3EOdGA/edit?gid=0#gid=0" target="_blank" class="btn btn-secondary">
+							📄 Consulter le tableau de suivi (Drive)
+						</a>
+					</div>
+					<div class="preuve">
+						<a href="https://github.com/Lubin-vray/eportfolio" target="_blank" class="btn btn-secondary">
+							🌐 Accéder à l’E‑portfolio
+						</a>
+					</div>
+				</div>
+			</section>
 
-    <!-- Encadré complémentaire -->
-    <section class="section highlight">
-      <h2 class="subtitle">Points forts du portfolio</h2>
-      <div class="box">
-        <div class="card">
-          <h3>Suivi des compétences</h3>
-          <p>Auto‑évaluation par apprentissages critiques et plans d’action d’amélioration.</p>
-        </div>
-        <div class="card">
-          <h3>Preuves qualitatives</h3>
-          <p>Documents concis, contextualisés et visualisés (captures, schémas) plutôt que comptes‑rendus de TP.</p>
-        </div>
-        <div class="card">
-          <h3>Réflexivité</h3>
-          <p>Éclairage sur décisions, méthodes, résultats, et projection vers l’amélioration.</p>
-        </div>
-        <div class="card">
-          <h3>Professionnalisation</h3>
-          <p>Support utile pour CV, lettres, entretiens, et choix de parcours.</p>
-        </div>
-      </div>
-    </section>
+			<!-- Encadré complémentaire -->
+			<section class="section highlight">
+				<h2 class="subtitle">Points forts du portfolio</h2>
+				<div class="box">
+					<div class="card">
+						<h3>Suivi des compétences</h3>
+						<p>Auto‑évaluation par apprentissages critiques et plans d’action d’amélioration.</p>
+					</div>
+					<div class="card">
+						<h3>Preuves qualitatives</h3>
+						<p>Documents concis, contextualisés et visualisés (captures, schémas) plutôt que comptes‑rendus de TP.</p>
+					</div>
+					<div class="card">
+						<h3>Réflexivité</h3>
+						<p>Éclairage sur décisions, méthodes, résultats, et projection vers l’amélioration.</p>
+					</div>
+					<div class="card">
+						<h3>Professionnalisation</h3>
+						<p>Support utile pour CV, lettres, entretiens, et choix de parcours.</p>
+					</div>
+				</div>
+			</section>
 
-    
-  </div>
-</div>
-<br><br><br><br>
+
+		</div>
+	</div>
+	<br><br><br><br>
 {% endblock %}

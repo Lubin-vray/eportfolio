@@ -1,150 +1,161 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="example-wrapper"> 
-    <div class="container">
-    <!-- En-tête -->
-    <header class="section">
-      <h1 class="title">SAÉ 1.03 : Initiation aux télécommunications</h1>
-      <p class="subtitle">BUT Réseaux & Télécommunications – Semestre 1</p>
-    </header>
+	<div class="example-wrapper">
+		<div
+			class="container">
+			<!-- En-tête -->
+			<header class="section">
+				<h1 class="title">SAÉ 1.03 : Initiation aux télécommunications</h1>
+				<p class="subtitle">BUT Réseaux & Télécommunications – Semestre 1</p>
+			</header>
 
-    <!-- Bloc principal -->
-    <section class="section sae-block row">
-      <div class="sae-image col-left">
-        <img src="{{ asset('image/reseau1.jpg') }}" alt="Télécommunications">
-        <img src="{{ asset('image/reseau2.jpg') }}" alt="Configuration réseau">
-        <img src="{{ asset('image/reseau3.jpg') }}" alt="Configuration réseau">
-        <img src="{{ asset('image/connecte.jpg') }}" alt="Configuration réseau">
-      </div>
-      
-      <div class="sae-text col-right">
-      <h2 class="subtitle"> Contexte</h2>
-        <p class="paragraph">
-          Dans le cadre de la SAE, plusieurs projets ont été menés afin d’améliorer et de sécuriser les infrastructures réseaux de l’IUT:<br><br>
-           Tout d’abord, des mesures de couverture WiFi intérieure et extérieure ont été réalisées avant les travaux d’isolation prévus, 
-           afin de pouvoir comparer l’impact de ces travaux sur la qualité du signal et envisager l’ajout de nouvelles bornes.
-            <br><br>
-            Ensuite, une réorganisation de la salle réseaux G007 a été engagée avec un renouvellement du matériel passif, accompagné d’une 
-            étude et d’un devis justifiant les choix techniques. 
-            <br><br>
-            Enfin, l’installation de deux répartiteurs et le câblage vers les postes étudiants ont nécessité un recettage complet afin de 
-            vérifier la conformité et la fiabilité des connexions. 
-        </p>
-        <h2 class="subtitle"> Objectif</h2>
-        <p class="paragraph">
-          L’objectif de cette SAE est de permettre aux étudiants de mesurer la couverture WiFi avant les travaux d’isolation,
-           de réorganiser la salle réseaux G007 avec un renouvellement du matériel passif, et de vérifier la conformité du 
-           câblage installé. Ces activités visent à développer leurs compétences techniques en infrastructures réseaux, 
-           tout en renforçant leur autonomie, leur organisation et leur sensibilisation aux enjeux de performance et de sécurité. 
-           Les volets de complète :l’audit identifie les besoins, le devis propose des solutions concrètes, et le recettage valide
-            la qualité du câblage → une démarche cohérente et complète.
-        </p>
+			<!-- Bloc principal -->
+			<section class="section sae-block row">
+				<div class="sae-image col-left">
+					<img src="{{ asset('image/reseau1.jpg') }}" alt="Télécommunications">
+					<img src="{{ asset('image/reseau2.jpg') }}" alt="Configuration réseau">
+					<img src="{{ asset('image/reseau3.jpg') }}" alt="Configuration réseau">
+					<img src="{{ asset('image/connecte.jpg') }}" alt="Configuration réseau">
+				</div>
 
-       
+				<div class="sae-text col-right">
+					<h2 class="subtitle">
+						Contexte</h2>
+					<p class="paragraph">
+						Dans le cadre de la SAE, plusieurs projets ont été menés afin d’améliorer et de sécuriser les infrastructures réseaux de l’IUT:<br><br>
+						Tout d’abord, des mesures de couverture WiFi ont été réalisées avant les travaux d’isolation prévus, 
+						           afin de pouvoir comparer l’impact de ces travaux sur la qualité du signal et envisager l’ajout de nouvelles bornes.
+						<br><br>
+						Ensuite, une réorganisation de la salle réseaux G007 a été engagée avec un renouvellement du matériel passif, accompagné d’un devis justifiant les choix techniques.
+						<br><br>
+						Enfin, l’installation de deux répartiteurs et le câblage vers les postes étudiants ont nécessité un recettage complet afin de 
+						            vérifier la conformité et la fiabilité des connexions.
+					</p>
+					<h2 class="subtitle">
+						Objectif</h2>
+					<p class="paragraph">
+						Ces activités visent à développer nos compétences techniques en infrastructures réseaux, 
+						           tout en renforçant notre autonomie, notre organisation et notre sensibilisation aux enjeux de performance et de sécurité. 
+						           Les volets se complète : l’audit identifie les besoins, le devis propose des solutions concrètes, et le recettage valide
+						            la qualité du câblage
+					</p>
 
-        <h2 class="subtitle"> Apprentissages critiques </h2>
-        <ul class="list">
-          <li>Mesurer et analyser les signaux </li>
-          <br>
-          <li>Déployer des supports de transmission</li>
-          <br>
-          <li>Communiquer avec un client ou un collaborateur</li>
-        </ul>
 
-        <h2 class="subtitle"> Réalisations SAE1.03</h2>
-          <p class="paragraph">
-            Nous avons mené un projet complet autour des infrastructures réseau de l’IUT : 
-            audit de la couverture WiFi, élaboration d’un devis pour la salle G007, 
-            et recettage du câblage cuivre. Ces travaux ont permis d’évaluer la qualité 
-            du réseau, de proposer des améliorations et de certifier la conformité du câblage.
-          </p>
+					<h2 class="subtitle">
+						Apprentissages critiques
+					</h2>
+					<ul class="list">
+						<li>Mesurer et analyser les signaux
+						</li>
+						<br>
+						<li>Déployer des supports de transmission</li>
+						<br>
+						<li>Communiquer avec un client ou un collaborateur</li>
+					</ul>
 
-          <div class="preuve">
-            <a href="{{ asset('portfolio/SAE1.03/rapport.docx') }}" target="_blank" class="btn btn-secondary">
-              📄 Consulter le rapport technique détaillé
-            </a>
-          </div>
+					<h2 class="subtitle">
+						Réalisations SAE1.03</h2>
+					<p class="paragraph">
+						Nous avons mené un projet complet autour des infrastructures réseau de l’IUT : 
+						            audit de la couverture WiFi, élaboration d’un devis pour la salle G007, 
+						            et recettage du câblage cuivre. Ces travaux ont permis d’évaluer la qualité 
+						            du réseau, de proposer des améliorations et de certifier la conformité du câblage.
+					</p>
 
-          <div class="preuve">
-            <a href="{{ asset('portfolio/SAE1.03/Présentation_soutenance_sae1.03.pdf') }}" target="_blank" class="btn btn-secondary">
-              📄 Consulter la présentation de soutenance
-            </a>
-          </div>
+					<div class="preuve">
+						<a href="{{ asset('portfolio/SAE1.03/rapport.docx') }}" target="_blank" class="btn btn-secondary">
+							📄 Consulter le rapport technique détaillé
+						</a>
+					</div>
 
-          <div class="preuve">
-            <a href="{{ asset('portfolio/SAE1.03//devis/Devis_finis.xlsx') }}" target="_blank" class="btn btn-secondary">
-              📄 Consulter le devis final de la salle G007
-            </a>
-          </div>
+					<div class="preuve">
+						<a href="{{ asset('portfolio/SAE1.03/Présentation_soutenance_sae1.03.pdf') }}" target="_blank" class="btn btn-secondary">
+							📄 Consulter la présentation de soutenance
+						</a>
+					</div>
 
-          <div class="preuve">
-            <a href="{{ asset('portfolio/SAE1.03/cuivre/cablage.xlsx') }}" target="_blank" class="btn btn-secondary">
-              📄 Consulter la fiche de test du câblage
-            </a>
-          </div>
-          
-          <div class="preuve">
-            <a href="{{ asset('portfolio/SAE1.03/Audit_wifi/wifi.xlsx') }}" target="_blank" class="btn btn-secondary">
-              📡 Consulter les mesures de l’audit WiFi
-            </a>
-          </div>
+					<div class="preuve">
+						<a href="{{ asset('portfolio/SAE1.03//devis/Devis_finis.xlsx') }}" target="_blank" class="btn btn-secondary">
+							📄 Consulter le devis final de la salle G007
+						</a>
+					</div>
 
-          <p>
-            Ces documents constituent la preuve de notre démarche méthodique et pédagogique, 
-            démontrant la fiabilité des infrastructures et la pertinence des améliorations proposées.
-          </p>
-    </section>
+					<div class="preuve">
+						<a href="{{ asset('portfolio/SAE1.03/cuivre/cablage.xlsx') }}" target="_blank" class="btn btn-secondary">
+							📄 Consulter la fiche de test du câblage
+						</a>
+					</div>
 
-    <!-- Ajout : encadré complémentaire -->
-    <section class="section highlight">
-      <h2 class="subtitle">Points forts de cette SAÉ</h2>
-        <div class="box">
-          <div class="card">
-            <h3> Utilisation d’outils professionnels</h3>
-            <p>
-             AirCheck G2 / NetAlly pour l’audit WiFi, Fluke Cable IQ pour le recettage, matériel Legrand 
-             pour le devis → crédibilité et conformité aux standards.
-            </p>
-          </div>
-          <div class="card">
-            <h3> Vision évolutive </h3>
-            <p>
-              anticipation des futurs besoins pédagogiques et techniques (extension réseau, ajout de bornes WiFi, 
-              compatibilité avec 1 Gbit/s).
-            </p>
-          </div>
-          <div class="card">
-            <h3> Autonomie et travail collaboratif</h3>
-            <p>
-               réalisé en groupe de trois, avec très peu d’intervention du professeur, ce projet a renforcé la 
-               capacité à travailler en équipe, à s’organiser et à résoudre les problèmes par nous-mêmes.
-            </p>
-          </div>
-          <div class="card">
-            <h3> Valeur pédagogique </h3>
-            <p>
-              Projet formateur qui combine théorie et pratique, en mettant les étudiants dans une situation
-               professionnelle réelle (audit, devis, certification).
-            </p>
-          </div>
-          <div class="card">
-            <h3> Approche qualité </h3>
-            <p>
-            détection des anomalies (zones WiFi faibles, câble C3 non conforme) et proposition de corrections 
-            avec re-certification → amélioration continue.
-            </p>
-          </div>
-          <div class="card">
-            <h3> Rigueur méthodologique</h3>
-            <p>
-              chaque volet (audit, devis, recettage) a suivi un cahier des charges précis, garantissant la fiabilité des résultats.
-            </p>
-          </div>
-      </div>
+					<div class="preuve">
+						<a href="{{ asset('portfolio/SAE1.03/Audit_wifi/wifi.xlsx') }}" target="_blank" class="btn btn-secondary">
+							📡 Consulter les mesures de l’audit WiFi
+						</a>
+					</div>
 
-    </section>
-  </div>
-</div>
-<br><br><br><br>
-{% endblock %}
+					<p>
+						Ces documents constituent la preuve de notre démarche méthodique et pédagogique, 
+						            démontrant la fiabilité des infrastructures et la pertinence des améliorations proposées.
+					</p>
+				</section>
+
+				<!-- Ajout : encadré complémentaire -->
+				<section class="section highlight">
+					<h2 class="subtitle">Points forts de cette SAÉ</h2>
+					<div class="box">
+						<div class="card">
+							<h3>
+								Utilisation d’outils professionnels</h3>
+							<p>
+								AirCheck G2 / NetAlly pour l’audit WiFi, Fluke Cable IQ pour le recettage, matériel Legrand 
+								             pour le devis → crédibilité et conformité aux standards.
+							</p>
+						</div>
+						<div class="card">
+							<h3>
+								Vision évolutive
+							</h3>
+							<p>
+								anticipation des futurs besoins pédagogiques et techniques (extension réseau, ajout de bornes WiFi, 
+								              compatibilité avec 1 Gbit/s).
+							</p>
+						</div>
+						<div class="card">
+							<h3>
+								Autonomie et travail collaboratif</h3>
+							<p>
+								réalisé en groupe de trois, avec très peu d’intervention du professeur, ce projet a renforcé la 
+								               capacité à travailler en équipe, à s’organiser et à résoudre les problèmes par nous-mêmes.
+							</p>
+						</div>
+						<div class="card">
+							<h3>
+								Valeur pédagogique
+							</h3>
+							<p>
+								Projet formateur qui combine théorie et pratique, en mettant les étudiants dans une situation
+								               professionnelle réelle (audit, devis, certification).
+							</p>
+						</div>
+						<div class="card">
+							<h3>
+								Approche qualité
+							</h3>
+							<p>
+								détection des anomalies (zones WiFi faibles, câble C3 non conforme) et proposition de corrections 
+								            avec re-certification → amélioration continue.
+							</p>
+						</div>
+						<div class="card">
+							<h3>
+								Rigueur méthodologique</h3>
+							<p>
+								chaque volet (audit, devis, recettage) a suivi un cahier des charges précis, garantissant la fiabilité des résultats.
+							</p>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<br><br><br><br>
+	{% endblock %}

@@ -1,74 +1,87 @@
 {% extends 'base.html.twig' %}
 
 
-
 {% block body %}
-<div class="example-wrapper">
-    <div class="container">
-    <section id="loisirs" class="mb-5">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <h1 class="section-title">Mes loisirs</h1>
-                <p class="mb-3">Un petit aperçu de ce que j'aime faire pendant mon temps libre:</p>
+	<div class="example-wrapper">
+		<div class="container">
+			<section id="loisirs" class="mb-5">
+				<div class="row align-items-center">
+					<div class="col-lg-7">
+						<h1 class="section-title">Mes loisirs</h1>
+						<p class="mb-3">Un petit aperçu de ce que j'aime faire pendant mon temps libre:</p>
 
 
-                <ul class="list-unstyled mb-4">
-                    <li class="d-flex align-items-start mb-2">La chasse —  sorties en nature pour observer et pratiquer une activité de plein air responsable.</li>
-                    <li class="d-flex align-items-start mb-2">Sortir avec des amis — rencontres, sorties en ville, cafés et soirées.</li>
-                    <li class="d-flex align-items-start mb-2">Le foot — entraînements et matches entre amis.</li>
-                </ul>
+						<ul class="list-unstyled mb-4">
+							<li class="d-flex align-items-start mb-2">La chasse —  sorties en nature pour observer et pratiquer une activité de plein air responsable.</li>
+							<li class="d-flex align-items-start mb-2">Sortir avec des amis — rencontres, sorties en ville, cafés et soirées.</li>
+							<li class="d-flex align-items-start mb-2">Le foot — entraînements et matches entre amis.</li>
+						</ul>
 
-            </div>
-
-
-            <div class="col-lg-5 text-center mt-4 mt-lg-0">
-                <!-- Grille d'icônes (SVG inline pour garder le fichier autonome) -->
-                <div class="row-img icon-grid g-3 justify-content-center">
-                    <div class="col-4 col-sm-3"><img src="{{ asset('image/chasse.jpg') }}" alt="chasse1" class="rounded shadow-sm img-fluid"></div>
-                    <div class="col-4 col-sm-3"><img src="{{ asset('image/soire.jpg') }}" alt="sortie" class="rounded shadow-sm img-fluid"></div>
-                    <div class="col-4 col-sm-3"><img src="{{ asset('image/footbal.jpg') }}" alt="foot" class="rounded shadow-sm img-fluid"></div>
-                    <div class="col-4 col-sm-3"><img src="{{ asset('image/chasse2.jpg') }}" alt="chasse2" class="rounded shadow-sm img-fluid"></div>
-                </div>
-
-            </div>
-        </div>
-        </section>
+					</div>
 
 
-        <!-- Activités -->
-        <section id="activites" class="mb-5">
-        <h2 class="section-title">Mes activités</h2>
-        <p>En dehors de mes loisirs, je participe à plusieurs activités qui occupent une place importante dans mon quotidien.</p>
+					<div
+						class="col-lg-5 text-center mt-4 mt-lg-0">
+						<!-- Grille d'icônes (SVG inline pour garder le fichier autonome) -->
+						<div class="row-img icon-grid g-3 justify-content-center">
+							<div class="col-4 col-sm-3"><img src="{{ asset('image/chasse.jpg') }}" alt="chasse1" class="rounded shadow-sm img-fluid"></div>
+							<div class="col-4 col-sm-3"><img src="{{ asset('image/soire.jpg') }}" alt="sortie" class="rounded shadow-sm img-fluid"></div>
+							<div class="col-4 col-sm-3"><img src="{{ asset('image/footbal.jpg') }}" alt="foot" class="rounded shadow-sm img-fluid"></div>
+							<div class="col-4 col-sm-3"><img src="{{ asset('image/chasse2.jpg') }}" alt="chasse2" class="rounded shadow-sm img-fluid"></div>
+						</div>
+
+					</div>
+				</div>
+			</section>
 
 
-        <div class="box">
-            <div class="card2 text-white bg-primary mb-3" >
-                <div class="card-header"><font dir="auto" ><font dir="auto" style="vertical-align: inherit;">Association des classards</font></font></div>
-                <div class="card-body">
-                    <img class="img-card-2" src="{{ asset('image/classe.jpg') }}">
-                    <br>
-                    <p class="card-text">Je fais partie de l’association des classards de mon village, ce qui me permet de m’investir dans l’organisation d’événements et de contribuer à la vie locale</p>
-                </div>
-            </div>
-            <div class="card2 text-white bg-secondary mb-3" >
-            <div class="card-header"><font dir="auto"><font dir="auto" style="vertical-align: inherit;">Programmer</font></font></div>
-            <div class="card-body">
-                <img class="img-card-2" src="{{ asset('image/prog.png') }}">
-                <br>
-                <p class="card-text">J’aime aussi programmer, une activité qui me passionne et qui me permet d’apprendre de nouvelles choses en informatique.</p>
-            </div>
+			<!-- Activités -->
+			<section id="activites" class="mb-5">
+				<h2 class="section-title">Mes activités</h2>
+				<p>En dehors de mes loisirs, je participe à plusieurs activités qui occupent une place importante dans mon quotidien.</p>
 
-            </div>
-            <div class="card2 text-white bg-success mb-3">
-            <div class="card-header"><font dir="auto"><font dir="auto" style="vertical-align: inherit;">Travailler</font></font></div>
-            <div class="card-body">
-                <img class="img-card-2" src="{{ asset('image/travail.jpg') }}">
-                <br>
-                <p class="card-text">Je travaille en tant que dépanneur polyvalent, intervenant un peu partout selon les besoins, notamment en resaturation. Ces missions m’amènent à être régulièrement en contact avec les clients. </p>
-            </div>
-            </div>
-        </div>
-    </section>
-    </div>
-</div>
+
+				<div class="box">
+					<div class="card2 text-white bg-primary mb-3">
+						<div class="card-header">
+							<font dir="auto">
+								<font dir="auto" style="vertical-align: inherit;">Association des classards</font>
+							</font>
+						</div>
+						<div class="card-body">
+							<img class="img-card-2" src="{{ asset('image/classe.jpg') }}">
+							<br>
+							<p class="card-text">Je fais partie de l’association des classards de mon village, ce qui me permet de m’investir dans l’organisation d’événements et de contribuer à la vie locale</p>
+						</div>
+					</div>
+					<div class="card2 text-white bg-secondary mb-3">
+						<div class="card-header">
+							<font dir="auto">
+								<font dir="auto" style="vertical-align: inherit;">Programmer</font>
+							</font>
+						</div>
+						<div class="card-body">
+							<img class="img-card-2" src="{{ asset('image/prog.png') }}">
+							<br>
+							<p class="card-text">J’aime aussi programmer, une activité qui me passionne et qui me permet d’apprendre de nouvelles choses en informatique.</p>
+						</div>
+
+					</div>
+					<div class="card2 text-white bg-success mb-3">
+						<div class="card-header">
+							<font dir="auto">
+								<font dir="auto" style="vertical-align: inherit;">Travailler</font>
+							</font>
+						</div>
+						<div class="card-body">
+							<img class="img-card-2" src="{{ asset('image/travail.jpg') }}">
+							<br>
+							<p class="card-text">Je travaille en tant que dépanneur polyvalent, intervenant un peu partout selon les besoins, notamment en resaturation. Ces missions m’amènent à être régulièrement en contact avec les clients.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
 {% endblock %}

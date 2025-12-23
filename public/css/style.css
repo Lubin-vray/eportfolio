@@ -216,8 +216,8 @@
   }
 }
 .example-wrapper {
-  margin-left: 15rem;
-  margin-right: 15rem;
+  margin-left: 15vw;
+  margin-right: 15vw;
 }
 
 body {
@@ -4476,6 +4476,7 @@ textarea.form-control-lg {
   border-radius: var(--bs-card-border-radius);
   flex: 1 1; /* Largeur minimale de chaque carte */
   min-width: 40%;
+  padding: 10px;
 }
 .card2 {
   --bs-card-spacer-y: 1rem;

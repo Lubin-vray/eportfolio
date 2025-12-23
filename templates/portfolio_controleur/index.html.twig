@@ -1,76 +1,95 @@
 {% extends 'base.html.twig' %}
 
 
-
 {% block body %}
 
-<div class="example-wrapper">
-    <div class="container">
-        <h1 class="h1">Bienvenue sur mon Eportfolio</h1>
-        <img class="tete" src="{{ asset('image/profile.png') }}">
-        <h1 class="h1">Je suis Lubin Vray</h1>
-        <h2 class="h2">Etudiant en informatique à l'IUT de Roanne</h2>
-        <br>
-        <h3>Passionné par le développement web, la programmation et les mathématiques, je crée ce portfolio pour partager mes projets et compétences</h3>
-        <br>
-        <div class="container containertxt">
-            <h2 id="about-title">À propos de moi</h2>
-            <p>
-                J’ai 18 ans et j’habite à Saint-Anthème, un village situé dans le département du Puy-de-Dôme, au cœur du parc naturel du Livradois-Forez.
-            </p>
-            <p>
-                Étudiant en informatique à l’IUT de Roanne, je suis passionné par le
-                développement web, la programmation et les mathématiques. J’aime transformer des idées
-                en applications utiles, bien conçues et performantes.
-            </p>
+	<div class="example-wrapper">
+		<div class="container">
+			<h1 class="h1">Bienvenue sur mon Eportfolio</h1>
+			<img class="tete" src="{{ asset('image/profile.png') }}">
+			<h1 class="h1">Je suis Lubin Vray</h1>
+			<h2 class="h2">Etudiant en informatique à l'IUT de Roanne</h2>
+			<br>
+			<h3>Passionné par le développement web, la programmation et les mathématiques, je crée ce portfolio pour partager mes projets et compétences</h3>
+			<br>
+			<div class="container containertxt">
+				<h2 id="about-title">À propos de moi</h2>
+				<p>
+					J’ai 18 ans et j’habite à Saint-Anthème, un village situé dans le département du Puy-de-Dôme, au cœur du parc naturel du Livradois-Forez.
+				</p>
+				<p>
+					Étudiant en informatique à l’IUT de Roanne, je suis passionné par le
+					                développement web, la programmation et les mathématiques. J’aime transformer des idées
+					                en applications utiles, bien conçues et performantes.
+				</p>
 
-            <p>
-                Sur ce portfolio, tu trouveras les compétences est apprentissage critique que j'ai pu étudier leur document de preuves et leur analyse reflective.
-                Je suis toujours curieux d’apprendre et de collaborer sur de nouveaux défis.
-            </p>
+				<p>
+					Sur ce portfolio, tu trouveras les compétences est apprentissage critique que j'ai pu étudier leur document de preuves et leur analyse reflective.
+					                Je suis toujours curieux d’apprendre et de collaborer sur de nouveaux défis.
+				</p>
 
-            <ul class="about-highlights">
-                <li><strong>Objectif actuel :</strong> renforcer mes compétences et contribuer à des projets concrets.</li>
-                <li><strong>Ce que je cherche :</strong> stage/alternance en développement et opportunités de collaboration.</li>
-            </ul>
-            <br>       
-        </div>
-        <h2 >Les compétences et projets</h1>
-        <div class="box">
-            <div class="card text-white bg-primary mb-3" >
-            <a href="/loisirs">
-            <div class="card-header"><font dir="auto" ><font dir="auto" style="vertical-align: inherit;">Loisirs et Activités</font></font></div>
-            <div class="card-body">
-                <img class="img-card" src="{{ asset('image/loisir.jpg') }}">
-            </div>
-            </a >
-            </div>
-            <div class="card text-white bg-secondary mb-3" >
-            <a href="/competences">
-            <div class="card-header"><font dir="auto"><font dir="auto" style="vertical-align: inherit;">Competences</font></font></div>
-            <div class="card-body">
-                <img class="img-card" src="{{ asset('image/competence.png') }}">
-            </div>
-            </a>
-            </div>
-            <div class="card text-white bg-success mb-3">
-            <a href="/contact">
-            <div class="card-header"><font dir="auto"><font dir="auto" style="vertical-align: inherit;">Contact</font></font></div>
-            <div class="card-body">
-                <img class="img-card" src="{{ asset('image/contact.jpg') }}">
-            </div>
-            </a>
-            </div>
-            <div class="card text-white bg-danger mb-3">
-            <a href="/page-CV">
-            <div class="card-header"><font dir="auto"><font dir="auto" style="vertical-align: inherit;">CV</font></font></div>
-            <div class="card-body">
-                <img class="img-card" src="{{ asset('image/CV.jpg') }}">
-            </div>
-            </a>
-            </div>
-        </div>
-    </div>
-</div>
+				<ul class="about-highlights">
+					<li>
+						<strong>Objectif actuel :</strong>
+						renforcer mes compétences et contribuer à des projets concrets.</li>
+					<li>
+						<strong>Ce que je cherche :</strong>
+						stage/alternance en développement et opportunités de collaboration.</li>
+				</ul>
+				<br>
+			</div>
+			<h2>Les compétences et projets</h1>
+			<div class="box">
+				<div class="card text-white bg-primary mb-3">
+					<a href="/loisirs">
+						<div class="card-header">
+							<font dir="auto">
+								<font dir="auto" style="vertical-align: inherit;">Loisirs et Activités</font>
+							</font>
+						</div>
+						<div class="card-body">
+							<img class="img-card" src="{{ asset('image/loisir.jpg') }}">
+						</div>
+					</a>
+				</div>
+				<div class="card text-white bg-secondary mb-3">
+					<a href="/competences">
+						<div class="card-header">
+							<font dir="auto">
+								<font dir="auto" style="vertical-align: inherit;">Competences</font>
+							</font>
+						</div>
+						<div class="card-body">
+							<img class="img-card" src="{{ asset('image/competence.png') }}">
+						</div>
+					</a>
+				</div>
+				<div class="card text-white bg-success mb-3">
+					<a href="/contact">
+						<div class="card-header">
+							<font dir="auto">
+								<font dir="auto" style="vertical-align: inherit;">Contact</font>
+							</font>
+						</div>
+						<div class="card-body">
+							<img class="img-card" src="{{ asset('image/contact.jpg') }}">
+						</div>
+					</a>
+				</div>
+				<div class="card text-white bg-danger mb-3">
+					<a href="/page-CV">
+						<div class="card-header">
+							<font dir="auto">
+								<font dir="auto" style="vertical-align: inherit;">CV</font>
+							</font>
+						</div>
+						<div class="card-body">
+							<img class="img-card" src="{{ asset('image/CV.jpg') }}">
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
 {% endblock %}

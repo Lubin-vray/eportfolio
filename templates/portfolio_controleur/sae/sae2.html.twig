@@ -1,130 +1,154 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="example-wrapper"> 
-    <div class="container">
-    <!-- En-tête -->
-    <header class="section">
-      <h1 class="title">SAÉ 1.02 : Conception et administration d’un réseau local</h1>
-      <p class="subtitle">BUT Réseaux & Télécommunications – Semestre 1</p>
-    </header>
+	<div class="example-wrapper">
+		<div
+			class="container">
+			<!-- En-tête -->
+			<header class="section">
+				<h1 class="title">SAÉ 1.02 : Conception et administration d’un réseau local</h1>
+				<p class="subtitle">BUT Réseaux & Télécommunications – Semestre 1</p>
+			</header>
 
-    <!-- Bloc principal -->
-    <section class="section sae-block row">
-      <div class="sae-image col-left">
-        <img src="{{ asset('image/reseau1.jpg') }}" alt="Topologie réseau">
-        <img src="{{ asset('image/connecte.jpg') }}" alt="Configuration VLAN">
-        <img src="{{ asset('image/projet.jpg') }}" alt="Simulation Packet Tracer">
-        <img src="{{ asset('image/administre.jpg') }}" alt="Administration SSH">
-      </div>
-      
-      <div class="sae-text col-right">
-      <h2 class="subtitle"> Contexte</h2>
-        <p class="paragraph">
-          L’entreprise dans laquelle nous sommes techniciens réseau s’agrandit et doit accueillir de nouveaux collaborateurs. 
-          À partir du réseau existant, nous avons été chargés de concevoir et documenter un nouveau LAN, 
-          en identifiant les configurations des switchs via un serveur TFTP et en garantissant la compatibilité avec l’infrastructure actuelle.
-        </p>
+			<!-- Bloc principal -->
+			<section class="section sae-block row">
+				<div class="sae-image col-left">
+					<img src="{{ asset('image/reseau1.jpg') }}" alt="Topologie réseau">
+					<img src="{{ asset('image/connecte.jpg') }}" alt="Configuration VLAN">
+					<img src="{{ asset('image/projet.jpg') }}" alt="Simulation Packet Tracer">
+					<img src="{{ asset('image/administre.jpg') }}" alt="Administration SSH">
+				</div>
 
-        <h2 class="subtitle"> Objectif</h2>
-        <p class="paragraph">
-          L’objectif de cette SAE est de concevoir, simuler et réaliser un réseau local adapté aux besoins de l’entreprise. 
-          Trois nouveaux LAN doivent être créés (production, commerciaux, RH), sécurisés et administrables à distance via SSH. 
-          Un tutoriel d’installation de TFTP32/64 et une documentation complète du réseau (topologie, VLAN, adressage, configurations) 
-          doivent être fournis pour assurer la pérennité et la fiabilité de l’infrastructure.
-        </p>
+				<div class="sae-text col-right">
+					<h2 class="subtitle">
+						Contexte</h2>
+					<p class="paragraph">
+						L’entreprise dans laquelle nous sommes techniciens réseau s’agrandit et doit accueillir de nouveaux collaborateurs. 
+						          À partir du réseau existant, nous avons été chargés de concevoir et documenter un nouveau LAN, 
+						          en identifiant les configurations des switchs via un serveur TFTP et en garantissant la compatibilité avec l’infrastructure actuelle.
+					</p>
 
-        <h2 class="subtitle"> Apprentissages critiques </h2>
-        <ul class="list">
-          <li> Maîtriser les lois fondamentales de l’électricité afin d’intervenir surdes équipements de réseaux et télécommunications</li><br>
-          <li> Comprendre l’architecture des systèmes numériques et les principesdu codage de l’information</li><br>
-          <li> Configurer les fonctions de base du réseau local</li><br>
-          <li> Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour la configuration et 
-          administration des réseaux et services fournis</li><br>
-          <li> Identifier les dysfonctionnements du réseau local</li>
-          <li> Installer un poste client</li>
-        </ul>
+					<h2 class="subtitle">
+						Objectif</h2>
+					<p class="paragraph">
+						L’objectif de cette SAE est de concevoir, simuler et réaliser un réseau local adapté aux besoins de l’entreprise. 
+						          Trois nouveaux LAN doivent être créés (production, commerciaux, RH), sécurisés et administrables à distance via SSH. 
+						          Un tutoriel d’installation de TFTP32/64 et une documentation complète du réseau (topologie, VLAN, adressage, configurations) 
+						          doivent être fournis pour assurer la pérennité et la fiabilité de l’infrastructure.
+					</p>
 
-        <h2 class="subtitle"> Réalisations SAE1.02</h2>
-          <p class="paragraph">
-            Nous avons étudié le réseau existant, récupéré et analysé les configurations des switchs via TFTP, 
-            conçu et simulé le futur LAN sous Packet Tracer, puis réalisé et testé le réseau en salle de TP avec des postes Ubuntu. 
-            Un rapport technique, un schéma annoté, un tutoriel TFTP et une soutenance orale ont été produits pour justifier notre démarche.
-          </p>
+					<h2 class="subtitle">
+						Apprentissages critiques
+					</h2>
+					<ul class="list">
+						<li>
+							Maîtriser les lois fondamentales de l’électricité afin d’intervenir surdes équipements de réseaux et télécommunications</li><br>
+						<li>
+							Comprendre l’architecture des systèmes numériques et les principesdu codage de l’information</li><br>
+						<li>
+							Configurer les fonctions de base du réseau local</li><br>
+						<li>
+							Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour la configuration et 
+							          administration des réseaux et services fournis</li><br>
+						<li>
+							Identifier les dysfonctionnements du réseau local</li>
+						<li>
+							Installer un poste client</li>
+					</ul>
 
-          <div class="preuve">
-            <a href="{{ asset('portfolio/SAE1.02/rapport.docx') }}" target="_blank" class="btn btn-secondary">
-              📄 Consulter le rapport technique détaillé
-            </a>
-          </div>
+					<h2 class="subtitle">
+						Réalisations SAE1.02</h2>
+					<p class="paragraph">
+						Nous avons étudié le réseau existant, récupéré et analysé les configurations des switchs via TFTP, 
+						            conçu et simulé le futur LAN sous Packet Tracer, puis réalisé et testé le réseau en salle de TP avec des postes Ubuntu. 
+						            Un rapport technique, un schéma annoté, un tutoriel TFTP et une soutenance orale ont été produits pour justifier notre démarche.
+					</p>
 
-          <div class="preuve">
-            <a href="{{ asset('portfolio/SAE1.02/soutenance.pdf') }}" target="_blank" class="btn btn-secondary">
-              📄 Consulter la présentation de soutenance
-            </a>
-          </div>
+					<div class="preuve">
+						<a href="{{ asset('portfolio/SAE1.02/rapport.docx') }}" target="_blank" class="btn btn-secondary">
+							📄 Consulter le rapport technique détaillé
+						</a>
+					</div>
 
-          <div class="preuve">
-            <a href="{{ asset('portfolio/SAE1.02/schema_reseau.png') }}" target="_blank" class="btn btn-secondary">
-              🖼️ Consulter le schéma réseau annoté
-            </a>
-          </div>
+					<div class="preuve">
+						<a href="{{ asset('portfolio/SAE1.02/soutenance.pdf') }}" target="_blank" class="btn btn-secondary">
+							📄 Consulter la présentation de soutenance
+						</a>
+					</div>
 
-          <div class="preuve">
-            <a href="{{ asset('portfolio/SAE1.02/tutoriel_tftp.pdf') }}" target="_blank" class="btn btn-secondary">
-              📄 Consulter le tutoriel TFTP
-            </a>
-          </div>
+					<div class="preuve">
+						<a href="{{ asset('portfolio/SAE1.02/schema_reseau.png') }}" target="_blank" class="btn btn-secondary">
+							🖼️ Consulter le schéma réseau annoté
+						</a>
+					</div>
 
-          <p>
-            Ces documents constituent la preuve de notre démarche complète et rigoureuse, 
-            démontrant la compatibilité du réseau existant avec les nouveaux LAN et la qualité des solutions mises en œuvre.
-          </p>
-    </section>
+					<div class="preuve">
+						<a href="{{ asset('portfolio/SAE1.02/tutoriel_tftp.pdf') }}" target="_blank" class="btn btn-secondary">
+							📄 Consulter le tutoriel TFTP
+						</a>
+					</div>
 
-    <!-- Encadré complémentaire -->
-    <section class="section highlight">
-      <h2 class="subtitle">Points forts de cette SAÉ</h2>
-        <div class="box">
-          <div class="card">
-            <h3> Analyse du réseau existant </h3>
-            <p>
-              Étude des configurations des switchs via TFTP et identification des anomalies pour une meilleure fiabilité.
-            </p>
-          </div>
-          <div class="card">
-            <h3> Conception et simulation </h3>
-            <p>
-              Utilisation de Packet Tracer pour concevoir et valider la compatibilité des nouveaux LAN avec l’infrastructure.
-            </p>
-          </div>
-          <div class="card">
-            <h3> Sécurisation et administration </h3>
-            <p>
-              Mise en place de l’accès distant via SSH et sécurisation des équipements pour garantir la robustesse du réseau.
-            </p>
-          </div>
-          <div class="card">
-            <h3> Travail collaboratif </h3>
-            <p>
-              Projet réalisé en groupe, favorisant l’organisation, la répartition des tâches et la résolution collective des problèmes.
-            </p>
-          </div>
-          <div class="card">
-            <h3> Approche pédagogique </h3>
-            <p>
-              Mise en pratique des apprentissages critiques : configuration, diagnostic, documentation et soutenance orale.
-            </p>
-          </div>
-          <div class="card">
-            <h3> Rigueur méthodologique </h3>
-            <p>
-              Production d’un schéma exhaustif, d’un rapport technique et d’un tutoriel → justification complète et professionnelle.
-            </p>
-          </div>
-      </div>
-    </section>
-  </div>
-</div>
-<br><br><br><br>
-{% endblock %}
+					<p>
+						Ces documents constituent la preuve de notre démarche complète et rigoureuse, 
+						            démontrant la compatibilité du réseau existant avec les nouveaux LAN et la qualité des solutions mises en œuvre.
+					</p>
+				</section>
+
+				<!-- Encadré complémentaire -->
+				<section class="section highlight">
+					<h2 class="subtitle">Points forts de cette SAÉ</h2>
+					<div class="box">
+						<div class="card">
+							<h3>
+								Analyse du réseau existant
+							</h3>
+							<p>
+								Étude des configurations des switchs via TFTP et identification des anomalies pour une meilleure fiabilité.
+							</p>
+						</div>
+						<div class="card">
+							<h3>
+								Conception et simulation
+							</h3>
+							<p>
+								Utilisation de Packet Tracer pour concevoir et valider la compatibilité des nouveaux LAN avec l’infrastructure.
+							</p>
+						</div>
+						<div class="card">
+							<h3>
+								Sécurisation et administration
+							</h3>
+							<p>
+								Mise en place de l’accès distant via SSH et sécurisation des équipements pour garantir la robustesse du réseau.
+							</p>
+						</div>
+						<div class="card">
+							<h3>
+								Travail en autonomie
+							</h3>
+							<p>
+								Capacité à travailler seul de manière efficace, en prenant des initiatives, en gérant son temps et en menant un projet à bien sans supervision constante.
+							</p>
+						</div>
+						<div class="card">
+							<h3>
+								Approche pédagogique
+							</h3>
+							<p>
+								Mise en pratique des apprentissages critiques : configuration, diagnostic, documentation et soutenance orale.
+							</p>
+						</div>
+						<div class="card">
+							<h3>
+								Rigueur méthodologique
+							</h3>
+							<p>
+								Production d’un schéma exhaustif, d’un rapport technique et d’un tutoriel → justification complète et professionnelle.
+							</p>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<br><br><br><br>
+	{% endblock %}

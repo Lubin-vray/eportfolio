@@ -1,115 +1,128 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="example-wrapper"> 
-    <div class="container">
-    <!-- En-tête -->
-    <header class="section">
-      <h1 class="title">SAÉ 1.01 : Se sensibiliser à l’hygiène informatique et à la cybersécurité</h1>
-      <p class="subtitle">BUT Réseaux & Télécommunications – Semestre 1</p>
-    </header>
+	<div class="example-wrapper">
+		<div
+			class="container">
+			<!-- En-tête -->
+			<header class="section">
+				<h1 class="title">SAÉ 1.01 : Se sensibiliser à l’hygiène informatique et à la cybersécurité</h1>
+				<p class="subtitle">BUT Réseaux & Télécommunications – Semestre 1</p>
+			</header>
 
-    <!-- Bloc principal -->
-    <section class="section sae-block row">
-      <div class="sae-image col-left">
-        <img src="{{ asset('image/hacker.jpg') }}" alt="Cybersécurité">
-        <img src="{{ asset('image/securite.jpg') }}" alt="Cybersécurité">
-      </div>
-      
-      <div class="sae-text col-right">
-      <h2 class="subtitle"> Contexte</h2>
-        <p class="paragraph">
-          Dans un monde où les attaques informatiques se multiplient, il est indispensable que tout futur professionnel 
-          du numérique maîtrise les bases de l’hygiène informatique. Cette SAÉ nous place en situation réelle 
-          de sensibilisation et de mise en pratique des règles de sécurité, conformément aux attentes du BUT R&T.
-        </p>
-        <h2 class="subtitle"> Objectif</h2>
-        <p class="paragraph">
-          Être capable d’identifier les différents types de vulnérabilités pouvant exister
-dans un système informatique, ainsi que les conséquences qu’elles peuvent engendrer.
-Pour cela votre travail sera d’effectuer une autoformation (MOOC) en ligne et d’effectuer
-un DIAPORAMA le plus exhaustif possible que vous présentez plus tard à l’oral. (Durée de
-la soutenance 10 minutes)
-        </p>
+			<!-- Bloc principal -->
+			<section class="section sae-block row">
+				<div class="sae-image col-left">
+					<img src="{{ asset('image/hacker.jpg') }}" alt="Cybersécurité">
+					<img src="{{ asset('image/securite.jpg') }}" alt="Cybersécurité">
+				</div>
 
-       
+				<div class="sae-text col-right">
+					<h2 class="subtitle">
+						Contexte</h2>
+					<p class="paragraph">
+						Dans un monde où les attaques informatiques se multiplient, il est indispensable que tout futur professionnel 
+												          du numérique maîtrise les bases de l’hygiène informatique. Cette SAÉ nous place en situation réelle 
+												          de sensibilisation et de mise en pratique des règles de sécurité, conformément aux attentes du BUT R&T.
+					</p>
+					<h2 class="subtitle">
+						Objectif</h2>
+					<p class="paragraph">
+						Être capable d’identifier les différents types de vulnérabilités pouvant exister
+												dans un système informatique, ainsi que les conséquences qu’elles peuvent engendrer.
+												Pour cela votre travail sera d’effectuer une autoformation (MOOC) en ligne et d’effectuer
+												un DIAPORAMA le plus exhaustif possible que vous présentez plus tard à l’oral. (Durée de
+												la soutenance 10 minutes)
+					</p>
 
-        <h2 class="subtitle"> Apprentissages critiques </h2>
-        <ul class="list">
-          <li>Comprendre l’architecture et les fondements des systèmes numériques, les principes du codage de l’information, des communications et de l’Internet</li>
-          <br>
-          <li>Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour la configuration et l’administration des réseaux et services fournis</li>
-          <br>
-          <li>Identifier les dysfonctionnements du réseau local et savoir les signaler</li>
-        </ul>
 
-        <h2 class="subtitle"> Réalisations</h2>
-        <p class="paragraph">
-          Nous avons étudié différents scénarios d’attaques, mis en place des environnements sécurisés, 
-          et testé des outils de protection. Nous avons réalisé une présentation oral sur les vulnérabilité informatique et leurs concéquences  
-  
-        </p>
+					<h2 class="subtitle">
+						Apprentissages critiques
+					</h2>
+					<ul class="list">
+						<li>Comprendre l’architecture et les fondements des systèmes numériques, les principes du codage de l’information, des communications et de l’Internet</li>
+						<br>
+						<li>Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour la configuration et l’administration des réseaux et services fournis</li>
+						<br>
+						<li>Identifier les dysfonctionnements du réseau local et savoir les signaler</li>
+					</ul>
 
-        <div class="preuve">
-          <a href="{{ asset('portfolio/presentation-sae1.01.pptx') }}" target="_blank" class="btn btn-secondary">
-            📄 Consulter le diaporama de présentation
-          </a>
-        </div>
-        <p>
-        En complément, une attestation officielle de suivi des modules de cybersécurité délivrée par l’ANSSI 
-        vient renforcer la crédibilité de cette démarche pédagogique.
-        </p>
-        <div class="preuve">
-          <a href="{{ asset('portfolio/attestation-VRAY-Lubin.pdf') }}" target="_blank" class="btn btn-secondary">
-            📄 Consulter l’attestation ANSSI en preuve
-          </a>
-        </div>
-      </div>
-    </section>
+					<h2 class="subtitle">
+						Réalisations</h2>
+					<p class="paragraph">
+						Nous avons étudié différents scénarios d’attaques, mis en place des environnements sécurisés, 
+												          et testé des outils de protection. Nous avons réalisé une présentation oral sur les vulnérabilité informatique et leurs concéquences
 
-    <!-- Ajout : encadré complémentaire -->
-    <section class="section highlight">
-      <h2 class="subtitle">Points forts de cette SAÉ</h2>
-        <div class="box">
-          <div class="card">
-            <h3> Autonomie</h3>
-            <p>
-             Réalisation d’un MOOC en ligne et gestion personnelle du rythme d’apprentissage.
-            </p>
-          </div>
-          <div class="card">
-            <h3> Organisation </h3>
-            <p>
-              Planification du travail sur 12 heures et préparation d’un diaporama structuré.
-            </p>
-          </div>
-          <div class="card">
-            <h3> Capacité de synthèse</h3>
-            <p>
-              Vlgarisation de notions techniques pour les rendre compréhensibles.
-            </p>
-          </div>
-          <div class="card">
-            <h3> Communication</h3>
-            <p>
-              Création d’un support visuel et préparation d’une soutenance orale de 10 minutes.
-            </p>
-          </div>
-          <div class="card">
-            <h3> Sensibilisation à la cybersécurité </h3>
-            <p>
-            Prise de conscience des enjeux liés à la sécurité numérique.
-            </p>
-          </div>
-          <div class="card">
-            <h3> Travail documentaire</h3>
-            <p>
-              Recherche et intégration d’exemples concrets d’attaques pour illustrer les vulnérabilités.  
-          </div>
-      </div>
+					</p>
 
-          </section>
-  </div>
-</div>
-<br><br><br><br>
+					<div class="preuve">
+						<a href="{{ asset('portfolio/presentation-sae1.01.pptx') }}" target="_blank" class="btn btn-secondary">
+							📄 Consulter le diaporama de présentation
+						</a>
+					</div>
+					<p>
+						En complément, une attestation officielle de suivi des modules de cybersécurité délivrée par l’ANSSI 
+												        vient renforcer la crédibilité de cette démarche pédagogique.
+					</p>
+					<div class="preuve">
+						<a href="{{ asset('portfolio/attestation-VRAY-Lubin.pdf') }}" target="_blank" class="btn btn-secondary">
+							📄 Consulter l’attestation ANSSI en preuve
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Ajout : encadré complémentaire -->
+			<section class="section highlight">
+				<h2 class="subtitle">Points forts de cette SAÉ</h2>
+				<div class="box">
+					<div class="card">
+						<h3>
+							Autonomie</h3>
+						<p>
+							Réalisation d’un MOOC en ligne et gestion personnelle du rythme d’apprentissage.
+						</p>
+					</div>
+					<div class="card">
+						<h3>
+							Organisation
+						</h3>
+						<p>
+							Planification du travail sur 12 heures et préparation d’un diaporama structuré.
+						</p>
+					</div>
+					<div class="card">
+						<h3>
+							Capacité de synthèse</h3>
+						<p>
+							Vlgarisation de notions techniques pour les rendre compréhensibles.
+						</p>
+					</div>
+					<div class="card">
+						<h3>
+							Communication</h3>
+						<p>
+							Création d’un support visuel et préparation d’une soutenance orale de 10 minutes.
+						</p>
+					</div>
+					<div class="card">
+						<h3>
+							Sensibilisation à la cybersécurité
+						</h3>
+						<p>
+							Prise de conscience des enjeux liés à la sécurité numérique.
+						</p>
+					</div>
+					<div class="card">
+						<h3>
+							Travail documentaire</h3>
+						<p>Recherche et intégration d’exemples concrets d’attaques pour illustrer les vulnérabilités.
+						</p>
+					</div>
+				</div>
+
+			</section>
+		</div>
+	</div>
+	<br><br><br><br>
 {% endblock %}
