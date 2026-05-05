@@ -1241,9 +1241,12 @@ progress {
   }
 }
 @media (min-width: 768px) {
-  .col-md {
+.col-md {
     flex: 1 0 0;
-  }
+    padding: 20px;
+    background-color: var(--bg-container-2);
+    border-radius: 10px;
+}
   .row-cols-md-auto > * {
     flex: 0 0 auto;
     width: auto;

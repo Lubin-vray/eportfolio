@@ -1,131 +1,533 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+<link id="theme" rel="stylesheet" href="{{ asset('css/style.css')}}">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+  /* ── Surcharges légères compatibles avec le thème Slate ── */
+
+  /* Hero */
+  .hero-sae {
+    background: linear-gradient(135deg,,);
+    border-bottom: 3px solid var(--bs-danger);
+    padding: 60px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .badge-sae {
+    background: var(--bs-danger);
+    color: #fff;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+  .hero-imgs img {
+    width:100%;
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: 0 16px 40px rgba(0,0,0,.45);
+  }
+  .hero-imgs img:first-child { transform: rotate(-1.5deg) translateY(10px); }
+  .hero-imgs img:last-child  { transform: rotate(1deg); }
+
+  /* Labels de section */
+  .section-label {
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--bs-danger);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  /* Séparateur vertical */
+  .sep-v {
+    width: 1px;
+    background: rgba(255,255,255,.1);
+    align-self: stretch;
+  }
+
+  /* Bouton preuve */
+  .btn-proof {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border: 1.5px solid rgba(255,255,255,.25);
+    color: rgba(255,255,255,.8);
+    border-radius: 4px;
+    font-size: .84rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background .2s, border-color .2s, color .2s;
+  }
+  .btn-proof:hover {
+    background: rgba(255,255,255,.1);
+    border-color: rgba(255,255,255,.5);
+    color: #fff;
+  }
+
+  /* ── Apprentissages critiques ── */
+  .ac-section {
+    background: var(--bs-gray-900);
+
+  }
+
+  .comp-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.45);
+  }
+  .comp-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,.1);
+  }
+  .comp-num {
+    background: var(--bs-danger);
+    color: #fff;
+    font-size: .65rem;
+    font-weight: 800;
+    padding: 3px 9px;
+    border-radius: 2px;
+    letter-spacing: .05em;
+  }
+
+  /* AC card */
+  .ac-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 6px;
+    padding: 20px 22px;
+    height: 100%;
+    position: relative;
+    transition: background .2s, border-color .2s;
+  }
+  .ac-card:hover {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.18);
+  }
+  .ac-card .ac-code {
+    font-size: .65rem;
+    font-weight: 700;
+    color: var(--bs-danger);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+  .ac-card h5 {
+    font-size: .9rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 9px;
+    line-height: 1.3;
+    text-shadow: none;
+  }
+  .ac-card p {
+    font-size: .81rem;
+    color: rgba(255,255,255,.55);
+    margin: 0;
+    line-height: 1.65;
+  }
+  .ac-card .ac-bg-icon {
+    position: absolute;
+    top: 14px; right: 16px;
+    font-size: 1.25rem;
+    opacity: .15;
+  }
+
+  /* ── Analyse réflexive ── */
+  .reflexive-section {
+    background: var(--bs-container-bg);
+    padding: 72px 0 80px;
+  }
+
+  .reflect-card {
+    border-left: 3px solid var(--bs-danger);
+    background: var(--bg-container-2);
+    border-radius: 0 6px 6px 0;
+    padding: 24px 26px;
+    height: 100%;
+    border-top: 1px solid rgba(0,0,0,.3);
+    border-right: 1px solid rgba(0,0,0,.3);
+    border-bottom: 1px solid rgba(0,0,0,.3);
+  }
+  .reflect-card .reflect-ico {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .reflect-card h5 {
+    font-size: .95rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: none;
+  }
+  .reflect-card p {
+    font-size: .84rem;
+    line-height: 1.75;
+    margin: 0;
+    color: var(--bs-secondary-color);
+  }
+
+  /* Citation */
+  .citation-block {
+    background: var(--bg-container-2);
+    border: 1px solid rgba(0,0,0,.35);
+    border-radius: 6px;
+    padding: 32px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .citation-block blockquote {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.55;
+    margin: 0 0 12px;
+    color: #fff;
+    text-shadow: none;
+    position: relative;
+  }
+  .citation-block cite {
+    font-size: .78rem;
+    color: var(--bs-secondary-color);
+    font-style: normal;
+  }
+
+  /* Pill point fort */
+  .strength-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-container-2);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 100px;
+    padding: 5px 14px;
+    font-size: .79rem;
+    font-weight: 500;
+    color: rgba(255,255,255,.75);
+  }
+
+  @media (max-width: 768px) {
+    .hero-imgs { display: none; }
+    .sep-v { display: none; }
+  }
+</style>
+{% endblock %}
+
 {% block body %}
-	<div class="example-wrapper">
-		<div
-			class="container">
-			<!-- En-tête -->
-			<header class="section">
-				<h1 class="title">SAÉ 1.01 : Se sensibiliser à l’hygiène informatique et à la cybersécurité</h1>
-				<p class="subtitle">BUT Réseaux & Télécommunications – Semestre 1</p>
-			</header>
+<div class="example-wrapper">
+	<div class="container">
+	<section class="hero-sae">
+	<div class="container">
+		<div class="row align-items-center gy-4">
 
-			<!-- Bloc principal -->
-			<section class="section sae-block row">
-				<div class="sae-image col-left">
-					<img src="{{ asset('image/hacker.jpg') }}" alt="Cybersécurité">
-					<img src="{{ asset('image/securite.jpg') }}" alt="Cybersécurité">
-				</div>
+		<div class="col-lg-7">
+			<span class="badge-sae">SAÉ 1.01 · Semestre 1</span>
+			<h1 class="mb-2 text-white text-start">
+			Se sensibiliser à l'hygiène informatique et à la cybersécurité
+			</h1>
+			<p class="text-muted mb-0">BUT Réseaux &amp; Télécommunications &nbsp;·&nbsp; IUT &nbsp;·&nbsp; 12 h</p>
+		</div>
 
-				<div class="sae-text col-right">
-					<h2 class="subtitle">
-						Contexte</h2>
-					<p class="paragraph">
-						Dans un monde où les attaques informatiques se multiplient, il est indispensable que tout futur professionnel 
-												          du numérique maîtrise les bases de l’hygiène informatique. Cette SAÉ nous place en situation réelle 
-												          de sensibilisation et de mise en pratique des règles de sécurité, conformément aux attentes du BUT R&T.
-					</p>
-					<h2 class="subtitle">
-						Objectif</h2>
-					<p class="paragraph">
-						Être capable d’identifier les différents types de vulnérabilités pouvant exister
-												dans un système informatique, ainsi que les conséquences qu’elles peuvent engendrer.
-												Pour cela votre travail sera d’effectuer une autoformation (MOOC) en ligne et d’effectuer
-												un DIAPORAMA le plus exhaustif possible que vous présentez plus tard à l’oral. (Durée de
-												la soutenance 10 minutes)
-					</p>
+		<div class="col-lg-5">
+		<div class="hero-imgs d-flex gap-2 justify-content-end">
+			<img src="{{ asset('image/securite.jpg') }}" alt="Sécurité">
+		</div>
 
-
-					<h2 class="subtitle">
-						Apprentissages :
-					</h2>
-					<ul class="list">
-						<li>Comprendre l’architecture et les fondements des systèmes numériques, les principes du codage de l’information, des communications et de l’Internet</li>
-						<br>
-						<li>Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour la configuration et l’administration des réseaux et services fournis</li>
-						<br>
-						<li>Identifier les dysfonctionnements du réseau local et savoir les signaler</li>
-					</ul>
-
-					<h2 class="subtitle">
-						Réalisations</h2>
-					<p class="paragraph">
-						Nous avons étudié différents scénarios d’attaques, mis en place des environnements sécurisés, 
-												          et testé des outils de protection. Nous avons réalisé une présentation oral sur les vulnérabilité informatique et leurs concéquences
-
-					</p>
-
-					<div class="preuve">
-						<a href="{{ asset('portfolio/SAE1.01/presentation-sae1.01.pptx') }}" target="_blank" class="btn btn-secondary">
-							📄 Consulter le diaporama de présentation
-						</a>
-					</div>
-					<p>
-						En complément, une attestation officielle de suivi des modules de cybersécurité délivrée par l’ANSSI 
-												        vient renforcer la crédibilité de cette démarche pédagogique.
-					</p>
-					<div class="preuve">
-						<a href="{{ asset('portfolio/SAE1.01/attestation-VRAY-Lubin.pdf') }}" target="_blank" class="btn btn-secondary">
-							📄 Consulter l’attestation ANSSI en preuve
-						</a>
-					</div>
-				</div>
-			</section>
-
-			<!-- Ajout : encadré complémentaire -->
-			<section class="section highlight">
-				<h2 class="subtitle">Points forts aquis:</h2>
-				<div class="box">
-					<div class="card">
-						<h3>
-							Autonomie</h3>
-						<p>
-							Réalisation d’un MOOC en ligne et gestion personnelle du rythme d’apprentissage.
-						</p>
-					</div>
-					<div class="card">
-						<h3>
-							Organisation
-						</h3>
-						<p>
-							Planification du travail sur 12 heures et préparation d’un diaporama structuré.
-						</p>
-					</div>
-					<div class="card">
-						<h3>
-							Capacité de synthèse</h3>
-						<p>
-							Vlgarisation de notions techniques pour les rendre compréhensibles.
-						</p>
-					</div>
-					<div class="card">
-						<h3>
-							Communication</h3>
-						<p>
-							Création d’un support visuel et préparation d’une soutenance orale de 10 minutes.
-						</p>
-					</div>
-					<div class="card">
-						<h3>
-							Sensibilisation à la cybersécurité
-						</h3>
-						<p>
-							Renforcement des bonnes pratiques pour identifier les menaces et adopter des comportements sécurisés au quotidien.
-						</p>
-					</div>
-					<div class="card">
-					<h3>
-						Analyse critique
-					</h3>
-					<p>
-						Développement d’une capacité à évaluer la pertinence des sources, à identifier les informations fiables et à distinguer les risques réels des idées reçues.
-					</p>
-				</div>
-
-				</div>
-
-			</section>
 		</div>
 	</div>
-	<br><br><br><br>
+	</section>
+
+
+<!-- ════════════════════════════════════
+     CONTEXTE / OBJECTIF / RÉALISATIONS
+════════════════════════════════════ -->
+<section class="py-5">
+  <div class="container">
+    <div class="row gy-4 align-items-start">
+
+      <!-- Contexte -->
+      <div class="col-md">
+        <span class="section-label">Contexte</span>
+        <h2 class="h4 text-start mb-3">Pourquoi cette SAÉ ?</h2>
+        <p class="mb-0">
+          Dans un monde où les attaques informatiques se multiplient, il est indispensable que tout futur
+          professionnel du numérique maîtrise les bases de l'hygiène informatique. Cette SAÉ nous place en
+          situation réelle de sensibilisation et de mise en pratique des règles de sécurité, conformément
+          aux attentes du BUT R&amp;T.
+        </p>
+      </div>
+
+      <div class="sep-v d-none d-md-block"></div>
+
+      <!-- Objectif -->
+      <div class="col-md">
+        <span class="section-label">Objectif</span>
+        <h2 class="h4 text-start mb-3">Ce qu'on nous demande</h2>
+        <p class="mb-0">
+          Identifier les différents types de vulnérabilités pouvant exister dans un système informatique,
+          ainsi que leurs conséquences — via un MOOC en ligne et un diaporama présenté à l'oral
+          (soutenance de 10 minutes).
+        </p>
+      </div>
+
+      <div class="sep-v d-none d-md-block"></div>
+
+      <!-- Réalisations -->
+      <div class="col-md">
+        <span class="section-label">Réalisations</span>
+        <h2 class="h4 text-start mb-3">Ce que j'ai produit</h2>
+        <p class="mb-3">
+          Étude de scénarios d'attaques, environnements sécurisés, test d'outils de protection
+          et présentation orale sur les vulnérabilités informatiques et leurs conséquences.
+        </p>
+        <div class="d-flex flex-column gap-2">
+          <a href="{{ asset('portfolio/SAE1.01/presentation-sae1.01.pptx') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-file-earmark-slides"></i> Diaporama de présentation
+          </a>
+          <a href="{{ asset('portfolio/SAE1.01/attestation-VRAY-Lubin.pdf') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-patch-check"></i> Attestation ANSSI
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     APPRENTISSAGES CRITIQUES
+════════════════════════════════════ -->
+<section class="ac-section">
+  <div class="container">
+
+    <span class="section-label">Compétences du BUT R&amp;T</span>
+    <h2 class="text-white text-start mb-5">Apprentissages critiques mobilisés</h2>
+
+    <!-- ── C1 : Administrer ── -->
+    <div class="mb-5">
+      <div class="comp-header">
+        <span class="comp-num">C1</span>
+        Administrer les réseaux et les systèmes
+      </div>
+      <div class="row g-3">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-cpu ac-bg-icon"></i>
+            <div class="ac-code">AC11.01</div>
+            <h5>Maîtriser les fondements des systèmes numériques</h5>
+            <p>Le MOOC ANSSI m'a permis de comprendre comment les architectures systèmes exposent des surfaces d'attaque : comprendre les couches logicielles est un prérequis pour les sécuriser.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-terminal ac-bg-icon"></i>
+            <div class="ac-code">AC11.02</div>
+            <h5>Interagir avec les systèmes d'exploitation</h5>
+            <p>L'analyse de scénarios d'attaques m'a conduit à manipuler des environnements Linux/Windows pour observer les comportements suspects et comprendre la gestion des droits et processus.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-diagram-3 ac-bg-icon"></i>
+            <div class="ac-code">AC11.03</div>
+            <h5>Identifier les dysfonctionnements réseau</h5>
+            <p>Savoir reconnaître une anomalie réseau (trafic inhabituel, port ouvert inattendu) est directement lié à la détection d'intrusions abordée dans cette SAÉ.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── C2 : Connecter ── -->
+    <div class="mb-5">
+      <div class="comp-header">
+        <span class="comp-num">C2</span>
+        Connecter les entreprises et les usagers
+      </div>
+      <div class="row g-3">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-shield-lock ac-bg-icon"></i>
+            <div class="ac-code">AC12.01</div>
+            <h5>Maîtriser les technologies de sécurité réseau</h5>
+            <p>Étude des mécanismes de chiffrement, pare-feu et VPN pour comprendre comment les données transitent de façon sécurisée entre les utilisateurs et les services.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-globe ac-bg-icon"></i>
+            <div class="ac-code">AC12.02</div>
+            <h5>Comprendre les principes de l'Internet</h5>
+            <p>La compréhension des protocoles (TCP/IP, DNS, HTTP) et de leurs vulnérabilités intrinsèques est au cœur du MOOC et de la présentation réalisée.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── C5 : Sensibiliser ── -->
+    <div>
+      <div class="comp-header">
+        <span class="comp-num">C5</span>
+        Sensibiliser et former les acteurs
+      </div>
+      <div class="row g-3">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-megaphone ac-bg-icon"></i>
+            <div class="ac-code">AC15.01</div>
+            <h5>Communiquer sur les enjeux de sécurité</h5>
+            <p>La soutenance orale de 10 minutes m'a entraîné à vulgariser des notions techniques complexes auprès d'un public non-expert, compétence clé du futur professionnel R&amp;T.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-book ac-bg-icon"></i>
+            <div class="ac-code">AC15.02</div>
+            <h5>Produire des ressources pédagogiques</h5>
+            <p>Rédaction d'un diaporama structuré et synthétique, conçu pour être réutilisable comme support de sensibilisation auprès de collègues ou d'utilisateurs.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-search ac-bg-icon"></i>
+            <div class="ac-code">AC15.03</div>
+            <h5>Évaluer la fiabilité des sources</h5>
+            <p>Développement d'une pensée critique face aux informations sur les menaces : distinguer un risque réel d'une idée reçue ou d'une désinformation.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     ANALYSE RÉFLEXIVE
+════════════════════════════════════ -->
+<section class="reflexive-section">
+  <div class="container">
+
+    <span class="section-label">Recul &amp; apprentissage</span>
+    <h2 class="text-start mb-2">Analyse réflexive</h2>
+    <p class="mb-5" style="max-width:680px; color: var(--bs-secondary-color); font-size:.95rem;">
+      Au-delà de la simple exécution de la SAÉ, voici comment ce travail a façonné ma façon de penser
+      la sécurité informatique et mon rapport à l'apprentissage autonome.
+    </p>
+
+    <div class="row g-4 mb-4">
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">🔍</span>
+          <h5>Ce que j'ai vraiment appris</h5>
+          <p>Avant cette SAÉ, la cybersécurité me semblait réservée aux experts. Le MOOC de l'ANSSI m'a montré que les bonnes pratiques sont accessibles à tous. Savoir qu'un mot de passe faible ou un clic imprudent suffit à compromettre un système entier change radicalement notre rapport aux usages numériques.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">⚠️</span>
+          <h5>Les difficultés rencontrées</h5>
+          <p>La principale difficulté a été de trouver le bon niveau de technicité pour le diaporama : trop détaillé, le public décrocherait ; trop superficiel, le message perdrait en crédibilité. J'ai réalisé plusieurs itérations et testé ma présentation sur des proches pour calibrer le bon équilibre.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">🚀</span>
+          <h5>Ce que je ferais différemment</h5>
+          <p>J'aurais intégré des démonstrations pratiques en direct — capturer un paquet réseau avec Wireshark ou simuler une tentative de phishing dans un environnement contrôlé aurait rendu la présentation bien plus impactante qu'une succession de slides théoriques.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">🔗</span>
+          <h5>Lien avec la formation R&amp;T</h5>
+          <p>Cette SAÉ pose les fondations de nombreuses compétences transversales : on ne peut pas administrer un réseau sans comprendre comment il peut être attaqué. Ce travail servira de grille de lecture pour toutes les SAÉ impliquant configuration réseau, déploiement de services ou gestion de systèmes.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">🎯</span>
+          <h5>Compétences transférables</h5>
+          <p>La capacité à structurer un discours technique pour un public varié, à évaluer la pertinence d'une information et à travailler en autonomie sur un volume de contenu important sont des compétences que je mobiliserai bien au-delà de ce semestre.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">📈</span>
+          <h5>Progression personnelle</h5>
+          <p>J'ai développé une posture de veille : depuis cette SAÉ, je lis les bulletins de sécurité de l'ANSSI et je suis les actualités liées aux CVE. Ce réflexe d'actualisation continue est, selon moi, la compétence la plus durable acquise lors de ce travail.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Citation -->
+    <div class="row mt-2 mb-5">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="citation-block">
+          <blockquote>
+            "Cette SAÉ m'a appris que la sécurité n'est pas un produit qu'on installe,
+            c'est une culture qu'on adopte — et qu'elle commence par soi-même."
+          </blockquote>
+          <cite>— Réflexion personnelle à l'issue de la SAÉ 1.01</cite>
+        </div>
+      </div>
+    </div>
+
+    <!-- Points forts -->
+    <span class="section-label mb-3 d-block">Points forts acquis en synthèse</span>
+    <div class="d-flex flex-wrap gap-2">
+      <span class="strength-pill"><i class="bi bi-person-check"></i> Autonomie</span>
+      <span class="strength-pill"><i class="bi bi-calendar3"></i> Organisation</span>
+      <span class="strength-pill"><i class="bi bi-funnel"></i> Capacité de synthèse</span>
+      <span class="strength-pill"><i class="bi bi-mic"></i> Communication orale</span>
+      <span class="strength-pill"><i class="bi bi-shield"></i> Sensibilisation cyber</span>
+      <span class="strength-pill"><i class="bi bi-eye"></i> Analyse critique</span>
+      <span class="strength-pill"><i class="bi bi-arrow-repeat"></i> Veille technologique</span>
+      <span class="strength-pill"><i class="bi bi-people"></i> Vulgarisation technique</span>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<br><br>
+
+</div>
 {% endblock %}

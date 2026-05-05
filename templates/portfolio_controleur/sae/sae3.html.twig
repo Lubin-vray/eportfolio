@@ -1,161 +1,563 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+<link id="theme" rel="stylesheet" href="{{ asset('css/style.css')}}">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+  /* ── Surcharges légères compatibles avec le thème Slate ── */
+
+  /* Hero */
+  .hero-sae {
+    background: linear-gradient(135deg,,);
+    border-bottom: 3px solid var(--bs-danger);
+    padding: 60px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .badge-sae {
+    background: var(--bs-danger);
+    color: #fff;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+  .hero-imgs img {
+    width: 100%;
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: 0 16px 40px rgba(0,0,0,.45);
+  }
+  .hero-imgs img:first-child { transform: rotate(-1.5deg) translateY(10px); }
+  .hero-imgs img:last-child  { transform: rotate(1deg); }
+
+  /* Labels de section */
+  .section-label {
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--bs-danger);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  /* Séparateur vertical */
+  .sep-v {
+    width: 1px;
+    background: rgba(255,255,255,.1);
+    align-self: stretch;
+  }
+
+  /* Bouton preuve */
+  .btn-proof {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border: 1.5px solid rgba(255,255,255,.25);
+    color: rgba(255,255,255,.8);
+    border-radius: 4px;
+    font-size: .84rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background .2s, border-color .2s, color .2s;
+  }
+  .btn-proof:hover {
+    background: rgba(255,255,255,.1);
+    border-color: rgba(255,255,255,.5);
+    color: #fff;
+  }
+
+  /* ── Apprentissages critiques ── */
+  .ac-section {
+    background: var(--bs-gray-900);
+  }
+
+  .comp-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.45);
+  }
+  .comp-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,.1);
+  }
+  .comp-num {
+    background: var(--bs-danger);
+    color: #fff;
+    font-size: .65rem;
+    font-weight: 800;
+    padding: 3px 9px;
+    border-radius: 2px;
+    letter-spacing: .05em;
+  }
+
+  /* AC card */
+  .ac-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 6px;
+    padding: 20px 22px;
+    height: 100%;
+    position: relative;
+    transition: background .2s, border-color .2s;
+  }
+  .ac-card:hover {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.18);
+  }
+  .ac-card .ac-code {
+    font-size: .65rem;
+    font-weight: 700;
+    color: var(--bs-danger);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+  .ac-card h5 {
+    font-size: .9rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 9px;
+    line-height: 1.3;
+    text-shadow: none;
+  }
+  .ac-card p {
+    font-size: .81rem;
+    color: rgba(255,255,255,.55);
+    margin: 0;
+    line-height: 1.65;
+  }
+  .ac-card .ac-bg-icon {
+    position: absolute;
+    top: 14px; right: 16px;
+    font-size: 1.25rem;
+    opacity: .15;
+  }
+
+  /* ── Analyse réflexive ── */
+  .reflexive-section {
+    background: var(--bs-container-bg);
+    padding: 72px 0 80px;
+  }
+
+  .reflect-card {
+    border-left: 3px solid var(--bs-danger);
+    background: var(--bg-container-2);
+    border-radius: 0 6px 6px 0;
+    padding: 24px 26px;
+    height: 100%;
+    border-top: 1px solid rgba(0,0,0,.3);
+    border-right: 1px solid rgba(0,0,0,.3);
+    border-bottom: 1px solid rgba(0,0,0,.3);
+  }
+  .reflect-card .reflect-ico {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .reflect-card h5 {
+    font-size: .95rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: none;
+  }
+  .reflect-card p {
+    font-size: .84rem;
+    line-height: 1.75;
+    margin: 0;
+    color: var(--bs-secondary-color);
+  }
+
+  /* Citation */
+  .citation-block {
+    background: var(--bg-container-2);
+    border: 1px solid rgba(0,0,0,.35);
+    border-radius: 6px;
+    padding: 32px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .citation-block blockquote {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.55;
+    margin: 0 0 12px;
+    color: #fff;
+    text-shadow: none;
+    position: relative;
+  }
+  .citation-block cite {
+    font-size: .78rem;
+    color: var(--bs-secondary-color);
+    font-style: normal;
+  }
+
+  /* Pill point fort */
+  .strength-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-container-2);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 100px;
+    padding: 5px 14px;
+    font-size: .79rem;
+    font-weight: 500;
+    color: rgba(255,255,255,.75);
+  }
+
+  @media (max-width: 768px) {
+    .hero-imgs { display: none; }
+    .sep-v { display: none; }
+  }
+</style>
+{% endblock %}
+
 {% block body %}
-	<div class="example-wrapper">
-		<div
-			class="container">
-			<!-- En-tête -->
-			<header class="section">
-				<h1 class="title">SAÉ 1.03 : Initiation aux télécommunications</h1>
-				<p class="subtitle">BUT Réseaux & Télécommunications – Semestre 1</p>
-			</header>
+<div class="example-wrapper">
+  <div class="container">
+  <section class="hero-sae">
+  <div class="container">
+    <div class="row align-items-center gy-4">
 
-			<!-- Bloc principal -->
-			<section class="section sae-block row">
-				<div class="sae-image col-left">
-					<img src="{{ asset('image/reseau1.jpg') }}" alt="Télécommunications">
-					<img src="{{ asset('image/reseau2.jpg') }}" alt="Configuration réseau">
-					<img src="{{ asset('image/reseau3.jpg') }}" alt="Configuration réseau">
-					<img src="{{ asset('image/connecte.jpg') }}" alt="Configuration réseau">
-				</div>
+      <div class="col-lg-7">
+        <span class="badge-sae">SAÉ 1.03 · Semestre 1</span>
+        <h1 class="mb-2 text-white text-start">
+          Initiation aux télécommunications
+        </h1>
+        <p class="text-muted mb-0">BUT Réseaux &amp; Télécommunications &nbsp;·&nbsp; IUT &nbsp;·&nbsp; Travail en groupe</p>
+      </div>
 
-				<div class="sae-text col-right">
-					<h2 class="subtitle">
-						Contexte</h2>
-					<p class="paragraph">
-						Dans le cadre de la SAE, plusieurs projets ont été menés afin d’améliorer et de sécuriser les infrastructures réseaux de l’IUT:<br><br>
-						Tout d’abord, des mesures de couverture WiFi ont été réalisées avant les travaux d’isolation prévus, 
-						           afin de pouvoir comparer l’impact de ces travaux sur la qualité du signal et envisager l’ajout de nouvelles bornes.
-						<br><br>
-						Ensuite, une réorganisation de la salle réseaux G007 a été engagée avec un renouvellement du matériel passif, accompagné d’un devis justifiant les choix techniques.
-						<br><br>
-						Enfin, l’installation de deux répartiteurs et le câblage vers les postes étudiants ont nécessité un recettage complet afin de 
-						            vérifier la conformité et la fiabilité des connexions.
-					</p>
-					<h2 class="subtitle">
-						Objectif</h2>
-					<p class="paragraph">
-						Ces activités visent à développer nos compétences techniques en infrastructures réseaux, 
-						           tout en renforçant notre autonomie, notre organisation et notre sensibilisation aux enjeux de performance et de sécurité. 
-						           Les volets se complète : l’audit identifie les besoins, le devis propose des solutions concrètes, et le recettage valide
-						            la qualité du câblage
-					</p>
+      <div class="col-lg-5">
+        <div class="hero-imgs d-flex gap-2 justify-content-end">
+          <img src="{{ asset('image/reseau1.jpg') }}" alt="Télécommunications">
+          <img src="{{ asset('image/reseau2.jpg') }}" alt="Configuration réseau">
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </section>
 
 
-					<h2 class="subtitle">
-						Apprentissages critiques
-					</h2>
-					<ul class="list">
-						<li>Mesurer et analyser les signaux
-						</li>
-						<br>
-						<li>Déployer des supports de transmission</li>
-						<br>
-						<li>Communiquer avec un client ou un collaborateur</li>
-					</ul>
+<!-- ════════════════════════════════════
+     CONTEXTE / OBJECTIF / RÉALISATIONS
+════════════════════════════════════ -->
+<section class="py-5">
+  <div class="container">
+    <div class="row gy-4 align-items-start">
 
-					<h2 class="subtitle">
-						Réalisations SAE1.03</h2>
-					<p class="paragraph">
-						Nous avons mené un projet complet autour des infrastructures réseau de l’IUT : 
-						            audit de la couverture WiFi, élaboration d’un devis pour la salle G007, 
-						            et recettage du câblage cuivre. Ces travaux ont permis d’évaluer la qualité 
-						            du réseau, de proposer des améliorations et de certifier la conformité du câblage.
-					</p>
+      <!-- Contexte -->
+      <div class="col-md">
+        <span class="section-label">Contexte</span>
+        <h2 class="h4 text-start mb-3">Pourquoi cette SAÉ ?</h2>
+        <p class="mb-0">
+          Plusieurs projets ont été menés pour améliorer et sécuriser les infrastructures réseaux de l'IUT :
+          mesures de couverture WiFi avant travaux d'isolation, réorganisation de la salle G007 avec renouvellement
+          du matériel passif et devis technique, installation de deux répartiteurs et câblage vers les postes étudiants
+          avec recettage complet pour valider la conformité et la fiabilité des connexions.
+        </p>
+      </div>
 
-					<div class="preuve">
-						<a href="{{ asset('portfolio/SAE1.03/rapport.docx') }}" target="_blank" class="btn btn-secondary">
-							📄 Consulter le rapport technique détaillé
-						</a>
-					</div>
+      <div class="sep-v d-none d-md-block"></div>
 
-					<div class="preuve">
-						<a href="{{ asset('portfolio/SAE1.03/Présentation_soutenance_sae1.03.pdf') }}" target="_blank" class="btn btn-secondary">
-							📄 Consulter la présentation de soutenance
-						</a>
-					</div>
+      <!-- Objectif -->
+      <div class="col-md">
+        <span class="section-label">Objectif</span>
+        <h2 class="h4 text-start mb-3">Ce qu'on nous demande</h2>
+        <p class="mb-0">
+          Développer des compétences techniques en infrastructures réseaux tout en renforçant
+          autonomie, organisation et sensibilisation aux enjeux de performance et de sécurité.
+          Les trois volets se complètent : l'audit identifie les besoins, le devis propose des
+          solutions concrètes, et le recettage valide la qualité du câblage.
+        </p>
+      </div>
 
-					<div class="preuve">
-						<a href="{{ asset('portfolio/SAE1.03//devis/Devis_finis.xlsx') }}" target="_blank" class="btn btn-secondary">
-							📄 Consulter le devis final de la salle G007
-						</a>
-					</div>
+      <div class="sep-v d-none d-md-block"></div>
 
-					<div class="preuve">
-						<a href="{{ asset('portfolio/SAE1.03/cuivre/cablage.xlsx') }}" target="_blank" class="btn btn-secondary">
-							📄 Consulter la fiche de test du câblage
-						</a>
-					</div>
+      <!-- Réalisations -->
+      <div class="col-md">
+        <span class="section-label">Réalisations</span>
+        <h2 class="h4 text-start mb-3">Ce que j'ai produit</h2>
+        <p class="mb-3">
+          Audit de couverture WiFi avec AirCheck G2/NetAlly, devis pour la salle G007 (matériel Legrand),
+          recettage du câblage cuivre avec Fluke Cable IQ, rapport technique et présentation de soutenance.
+        </p>
+        <div class="d-flex flex-column gap-2">
+          <a href="{{ asset('portfolio/SAE1.03/rapport.docx') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-file-earmark-text"></i> Rapport technique détaillé
+          </a>
+          <a href="{{ asset('portfolio/SAE1.03/Présentation_soutenance_sae1.03.pdf') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-file-earmark-slides"></i> Présentation de soutenance
+          </a>
+          <a href="{{ asset('portfolio/SAE1.03/devis/Devis_finis.xlsx') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-file-earmark-spreadsheet"></i> Devis final salle G007
+          </a>
+          <a href="{{ asset('portfolio/SAE1.03/cuivre/cablage.xlsx') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-ethernet"></i> Fiche de test câblage cuivre
+          </a>
+          <a href="{{ asset('portfolio/SAE1.03/Audit_wifi/wifi.xlsx') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-wifi"></i> Mesures de l'audit WiFi
+          </a>
+        </div>
+      </div>
 
-					<div class="preuve">
-						<a href="{{ asset('portfolio/SAE1.03/Audit_wifi/wifi.xlsx') }}" target="_blank" class="btn btn-secondary">
-							📡 Consulter les mesures de l’audit WiFi
-						</a>
-					</div>
+    </div>
+  </div>
+</section>
 
-					<p>
-						Ces documents constituent la preuve de notre démarche méthodique et pédagogique, 
-						            démontrant la fiabilité des infrastructures et la pertinence des améliorations proposées.
-					</p>
-				</section>
 
-				<!-- Ajout : encadré complémentaire -->
-				<section class="section highlight">
-					<h2 class="subtitle">Points forts de cette SAÉ</h2>
-					<div class="box">
-						<div class="card">
-							<h3>
-								Utilisation d’outils professionnels</h3>
-							<p>
-								AirCheck G2 / NetAlly pour l’audit WiFi, Fluke Cable IQ pour le recettage, matériel Legrand 
-								             pour le devis → crédibilité et conformité aux standards.
-							</p>
-						</div>
-						<div class="card">
-							<h3>
-								Vision évolutive
-							</h3>
-							<p>
-								anticipation des futurs besoins pédagogiques et techniques (extension réseau, ajout de bornes WiFi, 
-								              compatibilité avec 1 Gbit/s).
-							</p>
-						</div>
-						<div class="card">
-							<h3>
-								Autonomie et travail collaboratif</h3>
-							<p>
-								réalisé en groupe de trois, avec très peu d’intervention du professeur, ce projet a renforcé la 
-								               capacité à travailler en équipe, à s’organiser et à résoudre les problèmes par nous-mêmes.
-							</p>
-						</div>
-						<div class="card">
-							<h3>
-								Valeur pédagogique
-							</h3>
-							<p>
-								Projet formateur qui combine théorie et pratique, en mettant les étudiants dans une situation
-								               professionnelle réelle (audit, devis, certification).
-							</p>
-						</div>
-						<div class="card">
-							<h3>
-								Approche qualité
-							</h3>
-							<p>
-								détection des anomalies (zones WiFi faibles, câble C3 non conforme) et proposition de corrections 
-								            avec re-certification → amélioration continue.
-							</p>
-						</div>
-						<div class="card">
-							<h3>
-								Rigueur méthodologique</h3>
-							<p>
-								chaque volet (audit, devis, recettage) a suivi un cahier des charges précis, garantissant la fiabilité des résultats.
-							</p>
-						</div>
-					</div>
-				</section>
-			</div>
-		</div>
-		<br><br><br><br>
-	{% endblock %}
+<!-- ════════════════════════════════════
+     APPRENTISSAGES CRITIQUES
+════════════════════════════════════ -->
+<section class="ac-section">
+  <div class="container">
+
+    <span class="section-label">Compétences du BUT R&amp;T</span>
+    <h2 class="text-white text-start mb-5">Apprentissages critiques mobilisés</h2>
+
+    <!-- ── C1 : Administrer ── -->
+    <div class="mb-5">
+      <div class="comp-header">
+        <span class="comp-num">C1</span>
+        Administrer les réseaux et les systèmes
+      </div>
+      <div class="row g-3">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-activity ac-bg-icon"></i>
+            <div class="ac-code">AC11.03</div>
+            <h5>Mesurer et analyser les signaux</h5>
+            <p>L'audit WiFi réalisé avec l'AirCheck G2/NetAlly nous a permis de cartographier la couverture radio de l'IUT, d'identifier les zones mortes et d'anticiper l'impact des futurs travaux d'isolation sur la qualité du signal.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-hdd-network ac-bg-icon"></i>
+            <div class="ac-code">AC11.04</div>
+            <h5>Identifier les dysfonctionnements réseau</h5>
+            <p>Le recettage du câblage cuivre avec le Fluke Cable IQ nous a conduits à détecter un câble C3 non conforme et à le recertifier après correction — une démarche d'amélioration continue ancrée dans la réalité du terrain.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── C2 : Connecter ── -->
+    <div class="mb-5">
+      <div class="comp-header">
+        <span class="comp-num">C2</span>
+        Connecter les entreprises et les usagers
+      </div>
+      <div class="row g-3">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-ethernet ac-bg-icon"></i>
+            <div class="ac-code">AC12.03</div>
+            <h5>Déployer des supports de transmission</h5>
+            <p>L'installation des répartiteurs et le câblage cuivre vers les postes étudiants constituent un déploiement réel d'infrastructure passive, conforme aux normes de câblage structuré (catégorie 6, connecteurs RJ45 blindés).</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-wifi ac-bg-icon"></i>
+            <div class="ac-code">AC12.04</div>
+            <h5>Analyser la couverture et les performances sans-fil</h5>
+            <p>La mesure de la couverture WiFi avant et après travaux nous a permis de comprendre les facteurs d'atténuation du signal (cloisons, interférences) et de proposer l'ajout de nouvelles bornes aux endroits stratégiques.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── C4 : Gérer ── -->
+    <div class="mb-5">
+      <div class="comp-header">
+        <span class="comp-num">C4</span>
+        Gérer les projets et les relations clients
+      </div>
+      <div class="row g-3">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-receipt ac-bg-icon"></i>
+            <div class="ac-code">AC14.01</div>
+            <h5>Rédiger un devis technique argumenté</h5>
+            <p>L'élaboration du devis pour la salle G007 — sélection du matériel Legrand, justification des choix techniques, estimation des coûts — nous a placés dans la posture d'un technicien répondant à un cahier des charges client.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-people ac-bg-icon"></i>
+            <div class="ac-code">AC14.02</div>
+            <h5>Communiquer avec un client ou un collaborateur</h5>
+            <p>La soutenance finale nous a entraînés à présenter des résultats techniques à un jury, à défendre nos choix et à vulgariser des mesures complexes (RSSI, atténuation, conformité câblage) auprès d'un interlocuteur non-expert.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-kanban ac-bg-icon"></i>
+            <div class="ac-code">AC14.03</div>
+            <h5>Organiser et piloter un projet en équipe</h5>
+            <p>Réalisé en groupe de trois avec très peu d'intervention du professeur, ce projet nous a obligés à nous répartir les tâches, à respecter des jalons et à coordonner trois volets complémentaires (audit, devis, recettage) en parallèle.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── C5 : Sensibiliser ── -->
+    <div>
+      <div class="comp-header">
+        <span class="comp-num">C5</span>
+        Sensibiliser et former les acteurs
+      </div>
+      <div class="row g-3">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-file-earmark-text ac-bg-icon"></i>
+            <div class="ac-code">AC15.02</div>
+            <h5>Produire des ressources techniques documentées</h5>
+            <p>Le rapport technique rédigé — intégrant mesures WiFi, fiche de recettage et justification du devis — constitue une ressource réutilisable par l'IUT pour planifier ses futures évolutions d'infrastructure.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-graph-up ac-bg-icon"></i>
+            <div class="ac-code">AC15.03</div>
+            <h5>Adopter une démarche qualité et d'amélioration continue</h5>
+            <p>Détection des anomalies (zones WiFi faibles, câble C3 non conforme) et proposition de corrections avec re-certification : cette boucle audit → correction → validation est le cœur d'une approche qualité professionnelle.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     ANALYSE RÉFLEXIVE
+════════════════════════════════════ -->
+<section class="reflexive-section">
+  <div class="container">
+
+    <span class="section-label">Recul &amp; apprentissage</span>
+    <h2 class="text-start mb-2">Analyse réflexive</h2>
+    <p class="mb-5" style="max-width:680px; color: var(--bs-secondary-color); font-size:.95rem;">
+      Au-delà de la simple exécution de la SAÉ, voici comment ce projet terrain a changé ma façon
+      d'aborder une infrastructure réseau et de travailler en équipe dans un contexte professionnel réel.
+    </p>
+
+    <div class="row g-4 mb-4">
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">🔍</span>
+          <h5>Ce que j'ai vraiment appris</h5>
+          <p>Manier un AirCheck G2 ou un Fluke Cable IQ, c'est comprendre concrètement ce que signifient des termes comme RSSI, atténuation ou conformité TIA/ISO. Ces outils professionnels donnent une réalité physique à des notions que les cours présentent de façon abstraite. J'ai aussi découvert que la qualité d'un réseau se certifie autant qu'elle se configure.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">⚠️</span>
+          <h5>Les difficultés rencontrées</h5>
+          <p>La coordination entre les trois volets (audit, devis, recettage) a été la difficulté principale : les mesures WiFi dépendaient de l'accès aux salles, le devis attendait l'inventaire du matériel existant, et le recettage ne pouvait démarrer qu'une fois le câblage terminé. Gérer ces dépendances sans se bloquer les uns les autres a nécessité une vraie organisation.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">🚀</span>
+          <h5>Ce que je ferais différemment</h5>
+          <p>J'aurais réalisé un relevé plus systématique des points de mesure WiFi — avec une grille fixe plutôt que des emplacements choisis à la volée — pour obtenir des résultats comparables avant/après travaux. Une méthodologie plus rigoureuse dès le départ aurait rendu nos conclusions encore plus solides lors de la soutenance.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">🔗</span>
+          <h5>Lien avec la formation R&amp;T</h5>
+          <p>Cette SAÉ est celle qui ressemble le plus à une mission en entreprise : un client (l'IUT), un besoin réel, des contraintes budgétaires et un livrable attendu. Elle prépare directement aux stages et aux projets professionnels du semestre 3, où l'on retrouvera ces mêmes phases d'audit, de chiffrage et de validation.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">🎯</span>
+          <h5>Compétences transférables</h5>
+          <p>Savoir rédiger un devis argumenté, certifier une infrastructure et présenter des résultats techniques à un jury non-expert sont des compétences directement valorisables en entretien. Ce projet m'a donné des réalisations concrètes à mentionner, là où d'autres n'ont que des notions théoriques à montrer.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">📈</span>
+          <h5>Progression personnelle</h5>
+          <p>J'ai développé une vision systémique de l'infrastructure réseau : un réseau ne se résume pas à ses équipements actifs, il repose sur une couche passive (câblage, connectique, armoires) dont la qualité conditionne tout le reste. Cette conscience du "support physique" change durablement la façon d'aborder un projet réseau.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Citation -->
+    <div class="row mt-2 mb-5">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="citation-block">
+          <blockquote>
+            "Un réseau fiable commence par un câble bien certifié et une borne WiFi bien placée —
+            cette SAÉ m'a appris que l'invisible fait toute la différence."
+          </blockquote>
+          <cite>— Réflexion personnelle à l'issue de la SAÉ 1.03</cite>
+        </div>
+      </div>
+    </div>
+
+    <!-- Points forts -->
+    <span class="section-label mb-3 d-block">Points forts acquis en synthèse</span>
+    <div class="d-flex flex-wrap gap-2">
+      <span class="strength-pill"><i class="bi bi-wifi"></i> Audit WiFi</span>
+      <span class="strength-pill"><i class="bi bi-ethernet"></i> Câblage cuivre & recettage</span>
+      <span class="strength-pill"><i class="bi bi-receipt"></i> Rédaction de devis</span>
+      <span class="strength-pill"><i class="bi bi-tools"></i> Outils professionnels</span>
+      <span class="strength-pill"><i class="bi bi-people"></i> Travail collaboratif</span>
+      <span class="strength-pill"><i class="bi bi-graph-up"></i> Démarche qualité</span>
+      <span class="strength-pill"><i class="bi bi-kanban"></i> Gestion de projet</span>
+      <span class="strength-pill"><i class="bi bi-mic"></i> Soutenance technique</span>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<br><br>
+
+</div>
+{% endblock %}

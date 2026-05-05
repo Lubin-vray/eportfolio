@@ -1,154 +1,534 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+<link id="theme" rel="stylesheet" href="{{ asset('css/style.css')}}">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+  /* ── Surcharges légères compatibles avec le thème Slate ── */
+
+  /* Hero */
+  .hero-sae {
+    background: linear-gradient(135deg,,);
+    border-bottom: 3px solid var(--bs-danger);
+    padding: 60px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .badge-sae {
+    background: var(--bs-danger);
+    color: #fff;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+  .hero-imgs img {
+    width:100%;
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: 0 16px 40px rgba(0,0,0,.45);
+  }
+  .hero-imgs img:first-child { transform: rotate(-1.5deg) translateY(10px); }
+  .hero-imgs img:last-child  { transform: rotate(1deg); }
+
+  /* Labels de section */
+  .section-label {
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--bs-danger);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  /* Séparateur vertical */
+  .sep-v {
+    width: 1px;
+    background: rgba(255,255,255,.1);
+    align-self: stretch;
+  }
+
+  /* Bouton preuve */
+  .btn-proof {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border: 1.5px solid rgba(255,255,255,.25);
+    color: rgba(255,255,255,.8);
+    border-radius: 4px;
+    font-size: .84rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background .2s, border-color .2s, color .2s;
+  }
+  .btn-proof:hover {
+    background: rgba(255,255,255,.1);
+    border-color: rgba(255,255,255,.5);
+    color: #fff;
+  }
+
+  /* ── Apprentissages critiques ── */
+  .ac-section {
+    background: var(--bs-gray-900);
+  }
+
+  .comp-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.45);
+  }
+  .comp-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,.1);
+  }
+  .comp-num {
+    background: var(--bs-danger);
+    color: #fff;
+    font-size: .65rem;
+    font-weight: 800;
+    padding: 3px 9px;
+    border-radius: 2px;
+    letter-spacing: .05em;
+  }
+
+  /* AC card */
+  .ac-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 6px;
+    padding: 20px 22px;
+    height: 100%;
+    position: relative;
+    transition: background .2s, border-color .2s;
+  }
+  .ac-card:hover {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.18);
+  }
+  .ac-card .ac-code {
+    font-size: .65rem;
+    font-weight: 700;
+    color: var(--bs-danger);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+  .ac-card h5 {
+    font-size: .9rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 9px;
+    line-height: 1.3;
+    text-shadow: none;
+  }
+  .ac-card p {
+    font-size: .81rem;
+    color: rgba(255,255,255,.55);
+    margin: 0;
+    line-height: 1.65;
+  }
+  .ac-card .ac-bg-icon {
+    position: absolute;
+    top: 14px; right: 16px;
+    font-size: 1.25rem;
+    opacity: .15;
+  }
+
+  /* ── Analyse réflexive ── */
+  .reflexive-section {
+    background: var(--bs-container-bg);
+    padding: 72px 0 80px;
+  }
+
+  .reflect-card {
+    border-left: 3px solid var(--bs-danger);
+    background: var(--bg-container-2);
+    border-radius: 0 6px 6px 0;
+    padding: 24px 26px;
+    height: 100%;
+    border-top: 1px solid rgba(0,0,0,.3);
+    border-right: 1px solid rgba(0,0,0,.3);
+    border-bottom: 1px solid rgba(0,0,0,.3);
+  }
+  .reflect-card .reflect-ico {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .reflect-card h5 {
+    font-size: .95rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: none;
+  }
+  .reflect-card p {
+    font-size: .84rem;
+    line-height: 1.75;
+    margin: 0;
+    color: var(--bs-secondary-color);
+  }
+
+  /* Citation */
+  .citation-block {
+    background: var(--bg-container-2);
+    border: 1px solid rgba(0,0,0,.35);
+    border-radius: 6px;
+    padding: 32px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .citation-block blockquote {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.55;
+    margin: 0 0 12px;
+    color: #fff;
+    text-shadow: none;
+    position: relative;
+  }
+  .citation-block cite {
+    font-size: .78rem;
+    color: var(--bs-secondary-color);
+    font-style: normal;
+  }
+
+  /* Pill point fort */
+  .strength-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-container-2);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 100px;
+    padding: 5px 14px;
+    font-size: .79rem;
+    font-weight: 500;
+    color: rgba(255,255,255,.75);
+  }
+
+  @media (max-width: 768px) {
+    .hero-imgs { display: none; }
+    .sep-v { display: none; }
+  }
+</style>
+{% endblock %}
+
 {% block body %}
-	<div class="example-wrapper">
-		<div
-			class="container">
-			<!-- En-tête -->
-			<header class="section">
-				<h1 class="title">SAÉ 1.02 : Conception et administration d’un réseau local</h1>
-				<p class="subtitle">BUT Réseaux & Télécommunications – Semestre 1</p>
-			</header>
+<div class="example-wrapper">
+  <div class="container">
+  <section class="hero-sae">
+  <div class="container">
+    <div class="row align-items-center gy-4">
 
-			<!-- Bloc principal -->
-			<section class="section sae-block row">
-				<div class="sae-image col-left">
-					<img src="{{ asset('image/reseau1.jpg') }}" alt="Topologie réseau">
-					<img src="{{ asset('image/connecte.jpg') }}" alt="Configuration VLAN">
-					<img src="{{ asset('image/projet.jpg') }}" alt="Simulation Packet Tracer">
-					<img src="{{ asset('image/administre.jpg') }}" alt="Administration SSH">
-				</div>
+      <div class="col-lg-7">
+        <span class="badge-sae">SAÉ 1.02 · Semestre 1</span>
+        <h1 class="mb-2 text-white text-start">
+          Découvrir les réseaux locaux informatiques
+        </h1>
+        <p class="text-muted mb-0">BUT Réseaux &amp; Télécommunications &nbsp;·&nbsp; IUT &nbsp;·&nbsp; 20 h</p>
+      </div>
 
-				<div class="sae-text col-right">
-					<h2 class="subtitle">
-						Contexte</h2>
-					<p class="paragraph">
-						L’entreprise dans laquelle nous sommes techniciens réseau s’agrandit et doit accueillir de nouveaux collaborateurs. 
-						          À partir du réseau existant, nous avons été chargés de concevoir et documenter un nouveau LAN, 
-						          en identifiant les configurations des switchs via un serveur TFTP et en garantissant la compatibilité avec l’infrastructure actuelle.
-					</p>
+      <div class="col-lg-5">
+        <div class="hero-imgs d-flex gap-2 justify-content-end">
+          <img src="{{ asset('image/reseau.jpg') }}" alt="Réseau local">
+        </div>
+      </div>
 
-					<h2 class="subtitle">
-						Objectif</h2>
-					<p class="paragraph">
-						L’objectif de cette SAE est de concevoir, simuler et réaliser un réseau local adapté aux besoins de l’entreprise. 
-						          Trois nouveaux LAN doivent être créés (production, commerciaux, RH), sécurisés et administrables à distance via SSH. 
-						          Un tutoriel d’installation de TFTP32/64 et une documentation complète du réseau (topologie, VLAN, adressage, configurations) 
-						          doivent être fournis pour assurer la pérennité et la fiabilité de l’infrastructure.
-					</p>
+    </div>
+  </div>
+  </section>
 
-					<h2 class="subtitle">
-						Apprentissages critiques
-					</h2>
-					<ul class="list">
-						<li>
-							Maîtriser les lois fondamentales de l’électricité afin d’intervenir surdes équipements de réseaux et télécommunications</li><br>
-						<li>
-							Comprendre l’architecture des systèmes numériques et les principesdu codage de l’information</li><br>
-						<li>
-							Configurer les fonctions de base du réseau local</li><br>
-						<li>
-							Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour la configuration et 
-							          administration des réseaux et services fournis</li><br>
-						<li>
-							Identifier les dysfonctionnements du réseau local</li><br>
-						<li>
-							Installer un poste client
-						</li>
-					</ul>
 
-					<h2 class="subtitle">
-						Réalisations SAE1.02</h2>
-					<p class="paragraph">
-						Nous avons étudié le réseau existant, récupéré et analysé les configurations des switchs via TFTP, 
-						            conçu et simulé le futur LAN sous Packet Tracer, puis réalisé et testé le réseau en salle de TP avec des postes Ubuntu. 
-						            Un rapport technique, un schéma annoté, un tutoriel TFTP et une soutenance orale ont été produits pour justifier notre démarche.
-					</p>
+<!-- ════════════════════════════════════
+     CONTEXTE / OBJECTIF / RÉALISATIONS
+════════════════════════════════════ -->
+<section class="py-5">
+  <div class="container">
+    <div class="row gy-4 align-items-start">
 
-					<div class="preuve">
-						<a href="{{ asset('portfolio/SAE1.02/Rapport_Technique_1.02.docx') }}" target="_blank" class="btn btn-secondary">
-							📄 Consulter le rapport technique détaillé
-						</a>
-					</div>
+      <!-- Contexte -->
+      <div class="col-md">
+        <span class="section-label">Contexte</span>
+        <h2 class="h4 text-start mb-3">Pourquoi cette SAÉ ?</h2>
+        <p class="mb-0">
+          Le réseau local est la brique fondamentale de toute infrastructure informatique. Avant de
+          concevoir ou d'administrer des architectures complexes, il est indispensable d'en maîtriser
+          les bases physiques et logiques. Cette SAÉ nous plonge dès le premier semestre dans la
+          manipulation concrète d'équipements réseau réels, en salle TP.
+        </p>
+      </div>
 
-					<div class="preuve">
-						<a href="{{ asset('portfolio/SAE1.02/topologie.png') }}" target="_blank" class="btn btn-secondary">
-							🖼️ Consulter le schéma réseau annoté
-						</a>
-					</div>
+      <div class="sep-v d-none d-md-block"></div>
 
-					<div class="preuve">
-						<a href="{{ asset('portfolio/SAE1.02/tft_tuto.docx') }}" target="_blank" class="btn btn-secondary">
-							📄 Consulter le tutoriel TFTP
-						</a>
-					</div>
-					<div class="preuve">
-						<a href="{{ asset('portfolio/SAE1.02/sae102.pkt') }}" target="_blank" class="btn btn-secondary">
-							📄 Consulter la simulation Packet Tracer
-						</a>
-					</div>
+      <!-- Objectif -->
+      <div class="col-md">
+        <span class="section-label">Objectif</span>
+        <h2 class="h4 text-start mb-3">Ce qu'on nous demande</h2>
+        <p class="mb-0">
+          Construire et tester un réseau local fonctionnel : câblage structuré, adressage IP, configuration
+          de base d'équipements actifs (switch, routeur), utilisation des commandes réseau essentielles
+          (ping, ipconfig/ifconfig, traceroute) et rédaction d'un compte-rendu de TP.
+        </p>
+      </div>
 
-					<p>
-						Ces documents constituent la preuve de notre démarche complète et rigoureuse, 
-						            démontrant la compatibilité du réseau existant avec les nouveaux LAN et la qualité des solutions mises en œuvre.
-					</p>
-				</section>
+      <div class="sep-v d-none d-md-block"></div>
 
-				<!-- Encadré complémentaire -->
-				<section class="section highlight">
-					<h2 class="subtitle">Points forts aquis:</h2>
-					<div class="box">
-						<div class="card">
-							<h3>
-								Analyse du réseau existant
-							</h3>
-							<p>
-								Étude des configurations des switchs via TFTP et identification des anomalies pour une meilleure fiabilité.
-							</p>
-						</div>
-						<div class="card">
-							<h3>
-								Conception et simulation
-							</h3>
-							<p>
-								Utilisation de Packet Tracer pour concevoir et valider la compatibilité des nouveaux LAN avec l’infrastructure.
-							</p>
-						</div>
-						<div class="card">
-							<h3>
-								Sécurisation et administration
-							</h3>
-							<p>
-								Mise en place de l’accès distant via SSH et sécurisation des équipements pour garantir la robustesse du réseau.
-							</p>
-						</div>
-						<div class="card">
-							<h3>
-								Travail en autonomie
-							</h3>
-							<p>
-								Capacité à travailler seul de manière efficace, en prenant des initiatives, en gérant son temps et en menant un projet à bien sans supervision constante.
-							</p>
-						</div>
-						<div class="card">
-							<h3>
-								Approche pédagogique
-							</h3>
-							<p>
-								Mise en pratique des apprentissages critiques : configuration, diagnostic, documentation et soutenance orale.
-							</p>
-						</div>
-						<div class="card">
-							<h3>
-								Rigueur méthodologique
-							</h3>
-							<p>
-								Production d’un schéma exhaustif, d’un rapport technique et d’un tutoriel → justification complète et professionnelle.
-							</p>
-						</div>
-					</div>
-				</section>
-			</div>
-		</div>
-		<br><br><br><br>
-	{% endblock %}
+      <!-- Réalisations -->
+      <div class="col-md">
+        <span class="section-label">Réalisations</span>
+        <h2 class="h4 text-start mb-3">Ce que j'ai produit</h2>
+        <p class="mb-3">
+          Mise en place d'un réseau local en salle TP avec câblage RJ45, configuration d'adresses IP
+          statiques, tests de connectivité et rédaction d'un compte-rendu documentant toutes les étapes
+          et les résultats obtenus.
+        </p>
+        <div class="d-flex flex-column gap-2">
+          <a href="{{ asset('portfolio/SAE1.02/compte-rendu-sae1.02.pdf') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-file-earmark-text"></i> Compte-rendu de TP
+          </a>
+          <a href="{{ asset('portfolio/SAE1.02/schema-reseau-sae1.02.pdf') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-diagram-2"></i> Schéma réseau réalisé
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     APPRENTISSAGES CRITIQUES
+════════════════════════════════════ -->
+<section class="ac-section">
+  <div class="container">
+
+    <span class="section-label">Compétences du BUT R&amp;T</span>
+    <h2 class="text-white text-start mb-5">Apprentissages critiques mobilisés</h2>
+
+    <!-- ── C1 : Administrer ── -->
+    <div class="mb-5">
+      <div class="comp-header">
+        <span class="comp-num">C1</span>
+        Administrer les réseaux et les systèmes
+      </div>
+      <div class="row g-3">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-cpu ac-bg-icon"></i>
+            <div class="ac-code">AC11.01</div>
+            <h5>Maîtriser les fondements des systèmes numériques</h5>
+            <p>La manipulation des couches physique et liaison (câbles, trames Ethernet, adresses MAC) m'a permis de comprendre concrètement comment les données circulent à bas niveau dans un réseau local.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-terminal ac-bg-icon"></i>
+            <div class="ac-code">AC11.02</div>
+            <h5>Interagir avec les systèmes d'exploitation</h5>
+            <p>L'utilisation intensive des commandes réseau (ipconfig, ifconfig, ping, traceroute, netstat) sous Windows et Linux m'a familiarisé avec les outils du quotidien de tout administrateur réseau.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-diagram-3 ac-bg-icon"></i>
+            <div class="ac-code">AC11.03</div>
+            <h5>Identifier les dysfonctionnements réseau</h5>
+            <p>Les exercices de dépannage (câble défectueux, mauvais masque de sous-réseau, conflit d'adresses IP) m'ont appris à méthodiquement isoler la source d'un problème de connectivité.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-hdd-network ac-bg-icon"></i>
+            <div class="ac-code">AC11.04</div>
+            <h5>Configurer et dépanner les équipements réseau</h5>
+            <p>La configuration de base d'un switch et d'un routeur — attribution de VLANs, interfaces, passerelle par défaut — constitue le cœur pratique de cette SAÉ et une compétence directement professionnalisante.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── C2 : Connecter ── -->
+    <div class="mb-5">
+      <div class="comp-header">
+        <span class="comp-num">C2</span>
+        Connecter les entreprises et les usagers
+      </div>
+      <div class="row g-3">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-globe ac-bg-icon"></i>
+            <div class="ac-code">AC12.02</div>
+            <h5>Comprendre les principes de l'Internet</h5>
+            <p>La mise en pratique de l'adressage IPv4, du sous-réseau et du routage inter-VLAN pose les bases conceptuelles qui gouvernent le fonctionnement de l'Internet à grande échelle.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-ethernet ac-bg-icon"></i>
+            <div class="ac-code">AC12.03</div>
+            <h5>Déployer et tester une infrastructure réseau</h5>
+            <p>De la pose des câbles RJ45 jusqu'aux tests de bout en bout, cette SAÉ couvre l'intégralité du cycle de déploiement d'un réseau local d'entreprise à petite échelle.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── C3 : Programmer ── -->
+    <div>
+      <div class="comp-header">
+        <span class="comp-num">C3</span>
+        Programmer les équipements du réseau
+      </div>
+      <div class="row g-3">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-code-slash ac-bg-icon"></i>
+            <div class="ac-code">AC13.01</div>
+            <h5>Utiliser les langages de commande réseau</h5>
+            <p>La prise en main de l'interface CLI (IOS Cisco) pour configurer les équipements actifs introduit la logique de scripting réseau et prépare aux automatisations du semestre 2.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-file-earmark-code ac-bg-icon"></i>
+            <div class="ac-code">AC13.02</div>
+            <h5>Documenter et formaliser une configuration</h5>
+            <p>La rédaction du compte-rendu de TP — schémas, captures d'écran, justifications des choix d'adressage — développe la rigueur de documentation indispensable en environnement professionnel.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     ANALYSE RÉFLEXIVE
+════════════════════════════════════ -->
+<section class="reflexive-section">
+  <div class="container">
+
+    <span class="section-label">Recul &amp; apprentissage</span>
+    <h2 class="text-start mb-2">Analyse réflexive</h2>
+    <p class="mb-5" style="max-width:680px; color: var(--bs-secondary-color); font-size:.95rem;">
+      Au-delà de la simple exécution de la SAÉ, voici comment ce travail pratique a transformé
+      ma représentation des réseaux et m'a donné confiance dans la manipulation d'équipements réels.
+    </p>
+
+    <div class="row g-4 mb-4">
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">🔍</span>
+          <h5>Ce que j'ai vraiment appris</h5>
+          <p>J'avais une vision très abstraite du réseau avant cette SAÉ. Tenir un câble RJ45, brancher un switch et voir deux machines se pinguer pour la première fois est une expérience concrète qui ancre définitivement les notions théoriques. On comprend ce qu'est une adresse IP quand on en configure une soi-même.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">⚠️</span>
+          <h5>Les difficultés rencontrées</h5>
+          <p>La gestion de l'adressage IP et du découpage en sous-réseaux a été la principale difficulté. Les erreurs de masque ou de passerelle par défaut étaient difficiles à diagnostiquer sans méthode. J'ai appris à procéder couche par couche, en commençant toujours par la couche physique avant de remonter vers l'applicatif.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">🚀</span>
+          <h5>Ce que je ferais différemment</h5>
+          <p>J'aurais pris davantage le temps de schématiser le réseau avant de câbler, au lieu de me lancer directement dans la manipulation. Un schéma logique bien pensé en amont évite la majorité des erreurs de configuration et accélère le débogage en cas de problème.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">🔗</span>
+          <h5>Lien avec la formation R&amp;T</h5>
+          <p>Cette SAÉ est le socle sur lequel repose l'ensemble du cursus : chaque futur projet impliquant un service réseau, une VM, un déploiement ou une configuration part des mêmes fondamentaux. Ne pas les maîtriser rendrait les SAÉ suivantes beaucoup plus difficiles à appréhender.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">🎯</span>
+          <h5>Compétences transférables</h5>
+          <p>La démarche de dépannage méthodique — isoler, tester, corriger — est universelle. Qu'il s'agisse d'un réseau, d'un bug logiciel ou d'un problème système, la logique de résolution par élimination que cette SAÉ m'a inculquée est un outil intellectuel durable.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">📈</span>
+          <h5>Progression personnelle</h5>
+          <p>J'ai gagné en assurance face aux équipements physiques. Ce qui me semblait intimidant — ouvrir une armoire réseau, brancher un patch panel, configurer un port en CLI — est devenu familier. Cette confiance pratique est, à mes yeux, le bénéfice le plus précieux de ce premier travail sur le terrain.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Citation -->
+    <div class="row mt-2 mb-5">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="citation-block">
+          <blockquote>
+            "On peut lire des dizaines de pages sur le modèle OSI, mais c'est en câblant
+            son premier réseau qu'on comprend vraiment ce que signifie 'couche physique'."
+          </blockquote>
+          <cite>— Réflexion personnelle à l'issue de la SAÉ 1.02</cite>
+        </div>
+      </div>
+    </div>
+
+    <!-- Points forts -->
+    <span class="section-label mb-3 d-block">Points forts acquis en synthèse</span>
+    <div class="d-flex flex-wrap gap-2">
+      <span class="strength-pill"><i class="bi bi-ethernet"></i> Câblage réseau</span>
+      <span class="strength-pill"><i class="bi bi-grid-1x2"></i> Adressage IPv4</span>
+      <span class="strength-pill"><i class="bi bi-hdd-network"></i> Configuration switch/routeur</span>
+      <span class="strength-pill"><i class="bi bi-terminal"></i> Commandes CLI</span>
+      <span class="strength-pill"><i class="bi bi-bug"></i> Dépannage méthodique</span>
+      <span class="strength-pill"><i class="bi bi-file-earmark-text"></i> Documentation technique</span>
+      <span class="strength-pill"><i class="bi bi-diagram-2"></i> Schématisation réseau</span>
+      <span class="strength-pill"><i class="bi bi-layers"></i> Modèle OSI appliqué</span>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<br><br>
+
+</div>
+{% endblock %}
