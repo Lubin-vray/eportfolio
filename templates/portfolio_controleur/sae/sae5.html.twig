@@ -1,115 +1,527 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+<link id="theme" rel="stylesheet" href="{{ asset('css/style.css')}}">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+  .hero-sae {
+    background: linear-gradient(135deg,,);
+    border-bottom: 3px solid var(--bs-danger);
+    padding: 60px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .badge-sae {
+    background: var(--bs-danger);
+    color: #fff;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+  .hero-imgs img {
+    width:100%;
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: 0 16px 40px rgba(0,0,0,.45);
+  }
+  .hero-imgs img:first-child { transform: rotate(-1.5deg) translateY(10px); }
+  .hero-imgs img:last-child  { transform: rotate(1deg); }
+
+  .section-label {
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--bs-danger);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .sep-v {
+    width: 1px;
+    background: rgba(255,255,255,.1);
+    align-self: stretch;
+  }
+
+  .btn-proof {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border: 1.5px solid rgba(255,255,255,.25);
+    color: rgba(255,255,255,.8);
+    border-radius: 4px;
+    font-size: .84rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background .2s, border-color .2s, color .2s;
+  }
+  .btn-proof:hover {
+    background: rgba(255,255,255,.1);
+    border-color: rgba(255,255,255,.5);
+    color: #fff;
+  }
+
+  .ac-section {
+    background: var(--bs-gray-900);
+  }
+
+  .comp-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.45);
+  }
+  .comp-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,.1);
+  }
+  .comp-num {
+    background: var(--bs-danger);
+    color: #fff;
+    font-size: .65rem;
+    font-weight: 800;
+    padding: 3px 9px;
+    border-radius: 2px;
+    letter-spacing: .05em;
+  }
+
+  .ac-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 6px;
+    padding: 20px 22px;
+    height: 100%;
+    position: relative;
+    transition: background .2s, border-color .2s;
+  }
+  .ac-card:hover {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.18);
+  }
+  .ac-card .ac-code {
+    font-size: .65rem;
+    font-weight: 700;
+    color: var(--bs-danger);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+  .ac-card h5 {
+    font-size: .9rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 9px;
+    line-height: 1.3;
+    text-shadow: none;
+  }
+  .ac-card p {
+    font-size: .81rem;
+    color: rgba(255,255,255,.55);
+    margin: 0;
+    line-height: 1.65;
+  }
+  .ac-card .ac-bg-icon {
+    position: absolute;
+    top: 14px; right: 16px;
+    font-size: 1.25rem;
+    opacity: .15;
+  }
+
+  .reflexive-section {
+    background: var(--bs-container-bg);
+    padding: 72px 0 80px;
+  }
+
+  .reflect-card {
+    border-left: 3px solid var(--bs-danger);
+    background: var(--bg-container-2);
+    border-radius: 0 6px 6px 0;
+    padding: 24px 26px;
+    height: 100%;
+    border-top: 1px solid rgba(0,0,0,.3);
+    border-right: 1px solid rgba(0,0,0,.3);
+    border-bottom: 1px solid rgba(0,0,0,.3);
+  }
+  .reflect-card .reflect-ico {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .reflect-card h5 {
+    font-size: .95rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: none;
+  }
+  .reflect-card p {
+    font-size: .84rem;
+    line-height: 1.75;
+    margin: 0;
+    color: var(--bs-secondary-color);
+  }
+
+  .citation-block {
+    background: var(--bg-container-2);
+    border: 1px solid rgba(0,0,0,.35);
+    border-radius: 6px;
+    padding: 32px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .citation-block blockquote {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.55;
+    margin: 0 0 12px;
+    color: #fff;
+    text-shadow: none;
+    position: relative;
+  }
+  .citation-block cite {
+    font-size: .78rem;
+    color: var(--bs-secondary-color);
+    font-style: normal;
+  }
+
+  .strength-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-container-2);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 100px;
+    padding: 5px 14px;
+    font-size: .79rem;
+    font-weight: 500;
+    color: rgba(255,255,255,.75);
+  }
+
+  @media (max-width: 768px) {
+    .hero-imgs { display: none; }
+    .sep-v { display: none; }
+  }
+</style>
+{% endblock %}
+
 {% block body %}
-	<div class="example-wrapper">
-		<div
-			class="container">
-			<!-- En-tête -->
-			<header class="section">
-				<h1 class="title">SAÉ 1.05 : Traiter des données</h1>
-				<p class="subtitle">BUT Réseaux & Télécommunications – Semestre 1</p>
-			</header>
+<div class="example-wrapper">
+  <div class="container">
+  <section class="hero-sae">
+  <div class="container">
+    <div class="row align-items-center gy-4">
 
-			<!-- Bloc principal -->
-			<section class="section sae-block row">
-				<div class="sae-image col-left">
-					<img src="{{ asset('image/reseau3.jpg') }}" alt="Analyse de données">
-					<img src="{{ asset('image/competence.png') }}" alt="Python et Excel">
-				</div>
+      <div class="col-lg-7">
+        <span class="badge-sae">SAÉ 1.05 · Semestre 1</span>
+        <h1 class="mb-2 text-white text-start">
+          Traiter des données
+        </h1>
+        <p class="text-muted mb-0">BUT Réseaux &amp; Télécommunications &nbsp;·&nbsp; IUT &nbsp;·&nbsp; Semestre 1</p>
+      </div>
 
-				<div class="sae-text col-right">
-					<h2 class="subtitle">
-						Contexte</h2>
-					<p class="paragraph">
-						L’entreprise connaît une saturation de son réseau sur le site de production en Inde. 
-						          Après plusieurs vérifications matérielles et logicielles infructueuses, la solution retenue est 
-						          d’analyser les fichiers issus de
-						<code>tcpdump</code>
-						afin d’identifier les activités suspectes. 
-						          Cette SAÉ nous place en situation réelle d’investigation par le traitement de données.
-					</p>
+      <div class="col-lg-5">
+        <div class="hero-imgs d-flex gap-2 justify-content-end">
+          <img src="{{ asset('image/reseau3.jpg') }}" alt="Analyse de données">
+          <img src="{{ asset('image/competence.png') }}" alt="Python et Excel">
+        </div>
+      </div>
 
-					<h2 class="subtitle">
-						Objectif</h2>
-					<p class="paragraph">
-						Être capable de traiter un fichier textuel de traces réseau en utilisant Python et Excel, 
-						          afin d’extraire des informations pertinentes et de mettre en évidence les causes de la saturation. 
-						          Le projet inclut la réalisation de scripts automatisés, la génération de fichiers CSV, 
-						          et la mise en forme des résultats dans un tableur pour une analyse claire et exploitable.
-					</p>
+    </div>
+  </div>
+  </section>
 
-					<h2 class="subtitle">
-						Apprentissages critiques
-					</h2>
-					<ul class="list">
-						<li>Utiliser un système informatique et ses outils</li>
-						<li>Lire, exécuter, corriger et modifier un programme</li>
-						<li>Traduire un algorithme dans un langage et pour un environnement donné</li>
-						<li>Connaître l’architecture et les technologies d’un site Web</li>
-						<li>Choisir les mécanismes de gestion de données adaptés au développement de l’outil</li>
-						<li>S’intégrer dans un environnement propice au développement et au travail collaboratif</li>
-					</ul>
 
-					<h2 class="subtitle">
-						Réalisations</h2>
-					<p class="paragraph">
-						Nous avons développé des scripts Python pour extraire et traiter les données issues de
-						<code>tcpdump</code>, 
-							          généré des fichiers CSV exploitables, et utilisé Excel pour mettre en évidence les anomalies réseau. 
-							          Une notice d’utilisation en anglais a été rédigée afin de permettre aux équipes en Inde d’utiliser 
-							          nos outils. 
-							          
-							          Le projet est hébergé sur GitHub pour assurer la collaboration et la réutilisation.
-					</p>
+<!-- ════════════════════════════════════
+     CONTEXTE / OBJECTIF / RÉALISATIONS
+════════════════════════════════════ -->
+<section class="py-5">
+  <div class="container">
+    <div class="row gy-4 align-items-start">
 
-					<div class="preuve">
-						<a href="{{ asset('portfolio/code-sae1.05.py') }}" target="_blank" class="btn btn-secondary">
-							📄 Consulter le script Python
-						</a>
-					</div>
-					<div class="preuve">
-						<a href="{{ asset('portfolio/analyse-sae1.05.xlsx') }}" target="_blank" class="btn btn-secondary">
-							📄 Consulter le fichier Excel d’analyse
-						</a>
-					</div>
-					<div class="preuve">
-						<a href="{{ asset('portfolio/notice-sae1.05.pdf') }}" target="_blank" class="btn btn-secondary">
-							📄 Consulter la notice d’utilisation en anglais
-						</a>
-					</div>
-				</div>
-			</section>
+      <!-- Contexte -->
+      <div class="col-md">
+        <span class="section-label">Contexte</span>
+        <h2 class="h4 text-start mb-3">Pourquoi cette SAÉ ?</h2>
+        <p class="mb-0">
+          Une entreprise connaît une saturation de son réseau sur son site de production en Inde.
+          Après plusieurs vérifications matérielles et logicielles infructueuses, la solution retenue
+          est d'analyser les fichiers issus de <code>tcpdump</code> afin d'identifier les activités
+          suspectes. Cette SAÉ nous place en situation réelle d'investigation par le traitement de données.
+        </p>
+      </div>
 
-			<!-- Encadré complémentaire -->
-			<section class="section highlight">
-				<h2 class="subtitle">Points forts de cette SAÉ</h2>
-				<div class="box">
-					<div class="card">
-						<h3>
-							Analyse technique</h3>
-						<p>Exploitation de fichiers
-							<code>tcpdump</code>
-							pour identifier des activités réseau suspectes.</p>
-					</div>
-					<div class="card">
-						<h3>
-							Automatisation
-						</h3>
-						<p>Développement de scripts Python pour extraire et traiter les données automatiquement.</p>
-					</div>
-					<div class="card">
-						<h3>
-							Visualisation</h3>
-						<p>Utilisation d’Excel pour mettre en évidence les résultats et anomalies réseau.</p>
-					</div>
-					<div class="card">
-						<h3>
-							Communication</h3>
-						<p>Rédaction d’une notice en anglais pour faciliter l’utilisation par les équipes internationales.</p>
-					</div>
-				</div>
-			</section>
-		</div>
-	</div>
-	<br><br><br><br>
+      <div class="sep-v d-none d-md-block"></div>
+
+      <!-- Objectif -->
+      <div class="col-md">
+        <span class="section-label">Objectif</span>
+        <h2 class="h4 text-start mb-3">Ce qu'on nous demande</h2>
+        <p class="mb-0">
+          Traiter un fichier textuel de traces réseau en utilisant Python et Excel afin d'extraire
+          des informations pertinentes et de mettre en évidence les causes de la saturation — via
+          des scripts automatisés, des fichiers CSV et une mise en forme analytique dans un tableur.
+        </p>
+      </div>
+
+      <div class="sep-v d-none d-md-block"></div>
+
+      <!-- Réalisations -->
+      <div class="col-md">
+        <span class="section-label">Réalisations</span>
+        <h2 class="h4 text-start mb-3">Ce que j'ai produit</h2>
+        <p class="mb-3">
+          Scripts Python d'extraction et de traitement, fichiers CSV générés automatiquement,
+          analyse visuelle des anomalies sous Excel, et notice d'utilisation rédigée en anglais
+          pour les équipes en Inde.
+        </p>
+        <div class="d-flex flex-column gap-2">
+          <a href="{{ asset('portfolio/code-sae1.05.py') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-filetype-py"></i> Script Python
+          </a>
+          <a href="{{ asset('portfolio/analyse-sae1.05.xlsx') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-file-earmark-spreadsheet"></i> Fichier Excel d'analyse
+          </a>
+          <a href="{{ asset('portfolio/notice-sae1.05.pdf') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-file-earmark-text"></i> Notice d'utilisation (EN)
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     APPRENTISSAGES CRITIQUES
+════════════════════════════════════ -->
+<section class="ac-section py-5">
+  <div class="container">
+
+    <span class="section-label">Compétences du BUT R&amp;T</span>
+    <h2 class="text-white text-start mb-5">Apprentissages critiques mobilisés</h2>
+
+    <!-- ── C1 : Administrer ── -->
+    <div class="mb-5">
+      <div class="comp-header">
+        <span class="comp-num">C1</span>
+        Administrer les réseaux et les systèmes
+      </div>
+      <div class="row g-3">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-terminal ac-bg-icon"></i>
+            <div class="ac-code">AC11.01</div>
+            <h5>Utiliser un système informatique et ses outils</h5>
+            <p>Prise en main de l'environnement de développement Python, de l'interpréteur en ligne de commande et des outils d'analyse réseau comme <code>tcpdump</code> pour manipuler les traces brutes.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-diagram-3 ac-bg-icon"></i>
+            <div class="ac-code">AC11.03</div>
+            <h5>Identifier les dysfonctionnements réseau</h5>
+            <p>Analyse des fichiers <code>tcpdump</code> pour détecter les sources d'anomalies : adresses IP suspectes, volumes de trafic anormaux, protocoles inattendus responsables de la saturation.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── C4 : Développer ── -->
+    <div class="mb-5">
+      <div class="comp-header">
+        <span class="comp-num">C4</span>
+        Développer des applications informatiques
+      </div>
+      <div class="row g-3">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-code-slash ac-bg-icon"></i>
+            <div class="ac-code">AC14.01</div>
+            <h5>Lire, exécuter, corriger et modifier un programme</h5>
+            <p>Développement et débogage de scripts Python pour parser les fichiers de traces réseau, corriger les erreurs de traitement et adapter le code aux différents formats de sortie.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-braces ac-bg-icon"></i>
+            <div class="ac-code">AC14.02</div>
+            <h5>Traduire un algorithme dans un langage donné</h5>
+            <p>Conception de l'algorithme d'extraction et de filtrage des données réseau, puis implémentation en Python avec génération automatique de fichiers CSV exploitables.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-database ac-bg-icon"></i>
+            <div class="ac-code">AC14.03</div>
+            <h5>Choisir les mécanismes de gestion de données adaptés</h5>
+            <p>Choix du format CSV pour l'interopérabilité avec Excel, structuration des données extraites pour faciliter l'analyse et la visualisation des anomalies réseau.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-git ac-bg-icon"></i>
+            <div class="ac-code">AC14.04</div>
+            <h5>S'intégrer dans un environnement collaboratif</h5>
+            <p>Hébergement du projet sur GitHub pour assurer la traçabilité, la collaboration et la réutilisation des scripts par les équipes concernées.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── C5 : Communiquer ── -->
+    <div>
+      <div class="comp-header">
+        <span class="comp-num">C5</span>
+        Sensibiliser et former les acteurs
+      </div>
+      <div class="row g-3">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-translate ac-bg-icon"></i>
+            <div class="ac-code">AC15.01</div>
+            <h5>Communiquer en contexte international</h5>
+            <p>Rédaction d'une notice d'utilisation complète en anglais destinée aux équipes du site de production en Inde, pour permettre une prise en main autonome des outils développés.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-bar-chart ac-bg-icon"></i>
+            <div class="ac-code">AC15.02</div>
+            <h5>Produire des livrables exploitables</h5>
+            <p>Mise en forme des résultats dans Excel avec graphiques et tableaux de synthèse, permettant à des non-techniciens d'identifier rapidement les anomalies détectées.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     ANALYSE RÉFLEXIVE
+════════════════════════════════════ -->
+<section class="reflexive-section">
+  <div class="container">
+
+    <span class="section-label">Recul &amp; apprentissage</span>
+    <h2 class="text-start mb-2">Analyse réflexive</h2>
+    <p class="mb-5" style="max-width:680px; color: var(--bs-secondary-color); font-size:.95rem;">
+      Au-delà du simple traitement de fichiers, voici comment cette SAÉ a transformé ma façon d'aborder
+      l'analyse de données réseau et la programmation en contexte professionnel réel.
+    </p>
+
+    <div class="row g-4 mb-4">
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">🔍</span>
+          <h5>Ce que j'ai vraiment appris</h5>
+          <p>Cette SAÉ m'a montré que la programmation n'est pas une fin en soi, mais un outil au service d'un problème concret. Parser des fichiers <code>tcpdump</code> pour trouver la cause d'une saturation réseau, c'est exactement ce que font les ingénieurs en entreprise. Ce lien entre code et réalité terrain a rendu l'apprentissage bien plus motivant.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">⚠️</span>
+          <h5>Les difficultés rencontrées</h5>
+          <p>La principale difficulté a été de comprendre la structure des fichiers <code>tcpdump</code> et d'écrire des expressions régulières fiables pour extraire les bons champs. Plusieurs itérations ont été nécessaires avant d'obtenir un script robuste face aux variations de format dans les traces réseau.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">🚀</span>
+          <h5>Ce que je ferais différemment</h5>
+          <p>J'aurais utilisé la bibliothèque <code>pandas</code> dès le départ pour la manipulation des données plutôt que du Python brut — cela aurait rendu le code plus lisible et les traitements statistiques bien plus rapides. J'aurais aussi automatisé la génération des graphiques Excel via <code>openpyxl</code>.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">🔗</span>
+          <h5>Lien avec la formation R&amp;T</h5>
+          <p>Cette SAÉ fait le pont entre les cours de réseaux et ceux de développement : comprendre les protocoles et savoir les analyser par le code sont deux compétences complémentaires indissociables du métier de technicien ou d'ingénieur réseau. Elle anticipe directement les SAÉ d'administration réseau à venir.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">🎯</span>
+          <h5>Compétences transférables</h5>
+          <p>Savoir écrire un script d'analyse, structurer des données pour les rendre lisibles et rédiger une documentation en anglais sont des compétences universelles en entreprise. Elles me seront utiles dès mon premier stage, quelle que soit la techno utilisée.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="reflect-card">
+          <span class="reflect-ico">📈</span>
+          <h5>Progression personnelle</h5>
+          <p>J'ai gagné en confiance sur Python et en rigueur sur la documentation. Depuis cette SAÉ, je commente systématiquement mon code et je teste mes scripts sur des cas limites avant de les livrer — des réflexes professionnels acquis grâce à ce projet concret.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Citation -->
+    <div class="row mt-2 mb-5">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="citation-block">
+          <blockquote>
+            "Les données brutes ne parlent pas d'elles-mêmes — c'est le code qu'on écrit
+            et les questions qu'on pose qui leur donnent un sens."
+          </blockquote>
+          <cite>— Réflexion personnelle à l'issue de la SAÉ 1.05</cite>
+        </div>
+      </div>
+    </div>
+
+    <!-- Points forts -->
+    <span class="section-label mb-3 d-block">Points forts acquis en synthèse</span>
+    <div class="d-flex flex-wrap gap-2">
+      <span class="strength-pill"><i class="bi bi-filetype-py"></i> Python</span>
+      <span class="strength-pill"><i class="bi bi-file-earmark-spreadsheet"></i> Excel / CSV</span>
+      <span class="strength-pill"><i class="bi bi-activity"></i> Analyse réseau</span>
+      <span class="strength-pill"><i class="bi bi-git"></i> Git &amp; GitHub</span>
+      <span class="strength-pill"><i class="bi bi-translate"></i> Rédaction en anglais</span>
+      <span class="strength-pill"><i class="bi bi-gear"></i> Automatisation</span>
+      <span class="strength-pill"><i class="bi bi-search"></i> Investigation technique</span>
+      <span class="strength-pill"><i class="bi bi-file-earmark-text"></i> Documentation</span>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<br><br>
+
+  </div>
+</div>
 {% endblock %}
