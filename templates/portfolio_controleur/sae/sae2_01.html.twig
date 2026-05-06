@@ -6,9 +6,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
 <style>
-  /* ── Surcharges légères compatibles avec le thème Slate ── */
-
-  /* Hero */
   .hero-sae {
     background: linear-gradient(135deg,,);
     border-bottom: 3px solid var(--bs-danger);
@@ -30,7 +27,7 @@
     margin-bottom: 14px;
   }
   .hero-imgs img {
-    width:100%;
+    width: 100%;
     border-radius: 6px;
     object-fit: cover;
     box-shadow: 0 16px 40px rgba(0,0,0,.45);
@@ -38,7 +35,6 @@
   .hero-imgs img:first-child { transform: rotate(-1.5deg) translateY(10px); }
   .hero-imgs img:last-child  { transform: rotate(1deg); }
 
-  /* Labels de section */
   .section-label {
     font-size: .68rem;
     font-weight: 700;
@@ -49,14 +45,12 @@
     display: block;
   }
 
-  /* Séparateur vertical */
   .sep-v {
     width: 1px;
     background: rgba(255,255,255,.1);
     align-self: stretch;
   }
 
-  /* Bouton preuve */
   .btn-proof {
     display: inline-flex;
     align-items: center;
@@ -76,7 +70,6 @@
     color: #fff;
   }
 
-  /* ── Apprentissages critiques ── */
   .ac-section {
     background: var(--bs-gray-900);
   }
@@ -108,7 +101,6 @@
     letter-spacing: .05em;
   }
 
-  /* AC card */
   .ac-card {
     background: rgba(255,255,255,.04);
     border: 1px solid rgba(255,255,255,.08);
@@ -151,7 +143,6 @@
     opacity: .15;
   }
 
-  /* ── Analyse réflexive ── */
   .reflexive-section {
     background: var(--bs-container-bg);
     padding: 72px 0 80px;
@@ -185,7 +176,6 @@
     color: var(--bs-secondary-color);
   }
 
-  /* Citation */
   .citation-block {
     background: var(--bg-container-2);
     border: 1px solid rgba(0,0,0,.35);
@@ -194,7 +184,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .citation-block blockquote {
     font-size: 1.05rem;
     font-weight: 600;
@@ -210,7 +199,6 @@
     font-style: normal;
   }
 
-  /* Pill point fort */
   .strength-pill {
     display: inline-flex;
     align-items: center;
@@ -239,16 +227,16 @@
     <div class="row align-items-center gy-4">
 
       <div class="col-lg-7">
-        <span class="badge-sae">SAÉ 1.02 · Semestre 1</span>
+        <span class="badge-sae">SAÉ 2.01 · Semestre 2</span>
         <h1 class="mb-2 text-white text-start">
-          Découvrir les réseaux locaux informatiques
+          VLAN, Routage, NAT, ACL
         </h1>
-        <p class="text-muted mb-0">BUT Réseaux &amp; Télécommunications &nbsp;·&nbsp; IUT &nbsp;·&nbsp; 20 h</p>
+        <p class="text-muted mb-0">BUT Réseaux &amp; Télécommunications &nbsp;·&nbsp; IUT &nbsp;·&nbsp; Semestre 2</p>
       </div>
 
       <div class="col-lg-5">
         <div class="hero-imgs d-flex gap-2 justify-content-end">
-          <img src="{{ asset('image/reseau.jpg') }}" alt="Réseau local">
+          <img src="{{ asset('image/SAE21-Topologie-Généré-par-IA.png') }}" alt="Topologie réseau SAÉ 2.01">
         </div>
       </div>
 
@@ -269,10 +257,12 @@
         <span class="section-label">Contexte</span>
         <h2 class="h4 text-start mb-3">Pourquoi cette SAÉ ?</h2>
         <p class="mb-0">
-          Le réseau local est la brique fondamentale de toute infrastructure informatique. Avant de
-          concevoir ou d'administrer des architectures complexes, il est indispensable d'en maîtriser
-          les bases physiques et logiques. Cette SAÉ nous plonge dès le premier semestre dans la
-          manipulation concrète d'équipements réseau réels, en salle TP.
+          Cette SAÉ nous a demandé de concevoir, simuler et documenter l'infrastructure réseau
+          d'un établissement universitaire de type UJM. Le réseau interconnecte quatre sites
+          géographiques distincts (Carnot, Métare, Roanne, Tréfilerie), chacun accueillant des
+          étudiants, enseignants, personnel administratif et plusieurs serveurs. La mise en place
+          d'une segmentation par VLANs, d'un routage inter-sites et d'une sécurisation par ACL
+          en fait un projet complet et représentatif d'une infrastructure professionnelle réelle.
         </p>
       </div>
 
@@ -283,9 +273,11 @@
         <span class="section-label">Objectif</span>
         <h2 class="h4 text-start mb-3">Ce qu'on nous demande</h2>
         <p class="mb-0">
-          Construire et tester un réseau local fonctionnel : câblage structuré, adressage IP, configuration
-          de base d'équipements actifs (switch, routeur), utilisation des commandes réseau essentielles
-          (ping, ipconfig/ifconfig, traceroute) et rédaction d'un compte-rendu de TP.
+          Concevoir un plan d'adressage IP optimisé en VLSM à partir de la plage
+          <code>172.16.0.0/16</code>, configurer les switches pour la gestion des VLANs,
+          mettre en place le routage inter-VLAN et inter-sites via RIP, implémenter le NAT/PAT
+          pour l'accès au WAN, et sécuriser l'ensemble par des listes de contrôle d'accès (ACL).
+          Le tout est simulé sur Packet Tracer puis déployé sur matériel physique en TP.
         </p>
       </div>
 
@@ -296,16 +288,19 @@
         <span class="section-label">Réalisations</span>
         <h2 class="h4 text-start mb-3">Ce que j'ai produit</h2>
         <p class="mb-3">
-          Mise en place d'un réseau local en salle TP avec câblage RJ45, configuration d'adresses IP
-          statiques, tests de connectivité et rédaction d'un compte-rendu documentant toutes les étapes
-          et les résultats obtenus.
+          Plan d'adressage VLSM complet, simulation Packet Tracer avec VLANs, RIP, NAT et ACL,
+          déploiement sur matériel réel en TP d'interconnexion, compte-rendu technique détaillé
+          et présentation orale de 5 minutes.
         </p>
         <div class="d-flex flex-column gap-2">
-          <a href="{{ asset('portfolio/SAE1.02/compte-rendu-sae1.02.pdf') }}" target="_blank" class="btn-proof">
-            <i class="bi bi-file-earmark-text"></i> Compte-rendu de TP
+          <a href="{{ asset('portfolio/SAE2.01/Compte-rendu-SAE21-VRAY-Lubin.docx') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-file-earmark-word"></i> Compte-rendu technique
           </a>
-          <a href="{{ asset('portfolio/SAE1.02/schema-reseau-sae1.02.pdf') }}" target="_blank" class="btn-proof">
-            <i class="bi bi-diagram-2"></i> Schéma réseau réalisé
+          <a href="{{ asset('portfolio/SAE2.01/Simulation.pkt') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-diagram-3"></i> Fichier Packet Tracer
+          </a>
+          <a href="{{ asset('portfolio/SAE2.01/Présentation_de_projet_professionnel_moderne_simple_bleu.pptx') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-file-earmark-slides"></i> Diaporama de présentation
           </a>
         </div>
       </div>
@@ -318,7 +313,7 @@
 <!-- ════════════════════════════════════
      APPRENTISSAGES CRITIQUES
 ════════════════════════════════════ -->
-<section class="ac-section">
+<section class="ac-section py-5">
   <div class="container">
 
     <span class="section-label">Compétences du BUT R&amp;T</span>
@@ -334,63 +329,121 @@
 
         <div class="col-md-6 col-lg-4">
           <div class="ac-card">
-            <i class="bi bi-cpu ac-bg-icon"></i>
-            <div class="ac-code">AC11.01</div>
-            <h5>Maîtriser les lois fondamentales de l’électricité afin d’intervenir sur des équipements de réseaux et télécom-
-munications</h5>
-            <p>La compréhension des bases de l’électricité appliquée aux réseaux m’a permis de mieux appréhender le rôle des équipements physiques (câbles, switchs, prises réseau) dans la transmission des données. En manipulant les couches physiques et liaison, j’ai pu observer concrètement le fonctionnement d’un réseau local et comprendre comment les signaux électriques deviennent des trames exploitables</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="ac-card">
-            <i class="bi bi-terminal ac-bg-icon"></i>
-            <div class="ac-code">AC11.02</div>
-            <h5>omprendre l’architecture et les fondements des systèmes numériques, les principes du codage de l’informa-
-tion, des communications et de l’Internet</h5>
-            <p>L’utilisation d’outils comme ping, traceroute, ipconfig ou ifconfig m’a permis de mieux comprendre l’architecture d’un réseau et le cheminement des données sur Internet. J’ai appris à interpréter les résultats de ces commandes pour diagnostiquer l’état d’une connexion et identifier les éventuels points de rupture dans un réseau.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="ac-card">
             <i class="bi bi-diagram-3 ac-bg-icon"></i>
+            <div class="ac-code">AC11.01</div>
+            <h5>Concevoir un plan d'adressage IP en VLSM</h5>
+            <p>Découpage de la plage <code>172.16.0.0/16</code> en sous-réseaux adaptés à chaque LAN et à chaque VLAN (admin, services, formations A/B, enseignants) en optimisant l'espace d'adressage avec la méthode VLSM.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-toggles ac-bg-icon"></i>
+            <div class="ac-code">AC11.02</div>
+            <h5>Configurer les switches et les VLANs</h5>
+            <p>Configuration de tous les switches en mode trunk et access, gestion du protocole STP pour la topologie en triangle entre bâtiments, et affectation des VLANs 10, 20, 30, 40 et 100 sur chaque port.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-router ac-bg-icon"></i>
             <div class="ac-code">AC11.03</div>
-            <h5> Configurer les fonctions de base du réseau local</h5>
-            <p>Les travaux pratiques de configuration réseau m’ont permis de mettre en place un réseau local fonctionnel en attribuant correctement des adresses IP et des masques de sous-réseau. J’ai également appris à détecter et corriger des erreurs courantes comme les conflits d’adresses ou les problèmes de configuration, en adoptant une démarche de diagnostic structurée</p>
+            <h5>Mettre en place le routage inter-VLAN</h5>
+            <p>Déploiement de la méthode "Router on a Stick" : liaison trunk unique entre le switch et le routeur, sous-interfaces IP par VLAN jouant le rôle de passerelles pour chaque segment.</p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
           <div class="ac-card">
-            <i class="bi bi-hdd-network ac-bg-icon"></i>
+            <i class="bi bi-arrow-left-right ac-bg-icon"></i>
             <div class="ac-code">AC11.04</div>
-            <h5>Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour
-la configuration et l’administration des réseaux et services fournis</h5>
-            <p>Cette compétence m’a permis de prendre en main les systèmes d’exploitation afin de configurer et administrer des équipements réseau. J’ai notamment appris à configurer des interfaces réseau, des passerelles par défaut et à comprendre le rôle des services systèmes dans la communication entre machines.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="ac-card">
-            <i class="bi bi-hdd-network ac-bg-icon"></i>
-            <div class="ac-code">AC11.05</div>
-            <h5>Identifier les dysfonctionnements du réseau local et savoir les signaler</h5>
-            <p>J’ai développé une méthode d’analyse pour repérer les dysfonctionnements dans un réseau local, comme une coupure de liaison, une mauvaise configuration IP ou un équipement défaillant. J’ai appris à utiliser des outils de diagnostic et à signaler clairement les problèmes rencontrés afin de faciliter leur résolution.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="ac-card">
-            <i class="bi bi-hdd-network ac-bg-icon"></i>
-            <div class="ac-code">AC11.05</div>
-            <h5>Installer un poste client, expliquer la procédure mise en place</h5>
-            <p>J’ai appris à installer et configurer un poste client sur un réseau, en suivant une procédure structurée : configuration réseau, vérification de la connectivité et tests de communication. J’ai également été capable d’expliquer chaque étape réalisée, ce qui m’a permis de mieux comprendre le fonctionnement global d’un environnement réseau</p>
+            <h5>Assurer le routage inter-sites avec RIP</h5>
+            <p>Déploiement du protocole RIPv2 entre les 4 sites via des liaisons point à point découpées en <code>/30</code> depuis le réseau <code>192.168.1.0</code>, permettant un échange automatique des tables de routage.</p>
           </div>
         </div>
 
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-globe ac-bg-icon"></i>
+            <div class="ac-code">AC11.05</div>
+            <h5>Implémenter le NAT/PAT</h5>
+            <p>Mise en place du PAT sur le routeur WAN pour partager la plage publique <code>161.3.36.32/28</code> entre tous les sites, et configuration d'un NAT statique pour rendre les serveurs WEB accessibles depuis le WAN.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-shield-lock ac-bg-icon"></i>
+            <div class="ac-code">AC11.06</div>
+            <h5>Sécuriser le réseau avec des ACL</h5>
+            <p>Rédaction et application d'ACL étendues sur les sous-interfaces VLAN : isolation du VLAN admin, accès FTP restreint aux services et enseignants, protection des serveurs TFTP, accessibilité web universelle.</p>
+          </div>
+        </div>
 
       </div>
     </div>
 
+    <!-- ── C2 : Connecter ── -->
+    <div class="mb-5">
+      <div class="comp-header">
+        <span class="comp-num">C2</span>
+        Connecter les entreprises et les usagers
+      </div>
+      <div class="row g-3">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-cpu ac-bg-icon"></i>
+            <div class="ac-code">AC12.01</div>
+            <h5>Choisir le matériel adapté</h5>
+            <p>Sélection et justification du matériel pour les 4 LANs : switches Gigabit, routeurs LAN et FAI, serveurs WEB/TFTP/FTP, en tenant compte des distances (fibre optique pour les liaisons inter-bâtiments &gt; 100 m).</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-pc-display ac-bg-icon"></i>
+            <div class="ac-code">AC12.02</div>
+            <h5>Déployer sur matériel physique</h5>
+            <p>Réalisation de la maquette réseau lors du TP d'interconnexion : déploiement du LAN attribué, raccordement avec les LAN des autres binômes, configuration des routeurs de cœur de réseau en conditions réelles.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-hdd-network ac-bg-icon"></i>
+            <div class="ac-code">AC12.03</div>
+            <h5>Virtualiser les serveurs</h5>
+            <p>Mise en place d'un serveur WEB et TFTP en virtualisation, utilisé pour héberger les captures de tests et présenter les résultats, en mobilisant les compétences acquises en R202 et R203.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── C4 : Développer ── -->
+    <div>
+      <div class="comp-header">
+        <span class="comp-num">C4</span>
+        Développer des applications informatiques
+      </div>
+      <div class="row g-3">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="ac-card">
+            <i class="bi bi-filetype-py ac-bg-icon"></i>
+            <div class="ac-code">AC14.01</div>
+            <h5>Vérifier le plan d'adressage par script Python</h5>
+            <p>Développement d'un script Python utilisant le module <code>ipaddress</code> et la méthode <code>overlaps()</code> pour vérifier automatiquement l'absence de chevauchement entre tous les sous-réseaux définis.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
 
 
 <!-- ════════════════════════════════════
@@ -402,8 +455,8 @@ la configuration et l’administration des réseaux et services fournis</h5>
     <span class="section-label">Recul &amp; apprentissage</span>
     <h2 class="text-start mb-2">Analyse réflexive</h2>
     <p class="mb-5" style="max-width:680px; color: var(--bs-secondary-color); font-size:.95rem;">
-      Au-delà de la simple exécution de la SAÉ, voici comment ce travail pratique a transformé
-      ma représentation des réseaux et m'a donné confiance dans la manipulation d'équipements réels.
+      Au-delà de la configuration réseau, voici comment cette SAÉ a structuré ma vision de
+      l'architecture réseau d'entreprise et renforcé mes méthodes de travail en conditions réelles.
     </p>
 
     <div class="row g-4 mb-4">
@@ -412,7 +465,7 @@ la configuration et l’administration des réseaux et services fournis</h5>
         <div class="reflect-card">
           <span class="reflect-ico">🔍</span>
           <h5>Ce que j'ai vraiment appris</h5>
-          <p>J'avais une vision très abstraite du réseau avant cette SAÉ. Tenir un câble RJ45, brancher un switch et voir deux machines se pinguer pour la première fois est une expérience concrète qui ancre définitivement les notions théoriques. On comprend ce qu'est une adresse IP quand on en configure une soi-même.</p>
+          <p>Cette SAÉ m'a fait comprendre qu'un réseau d'entreprise n'est pas une somme d'équipements branchés ensemble, mais une architecture pensée et documentée. Le VLSM, les ACL, le NAT — chaque brique s'emboîte dans une logique globale. Simuler d'abord sur Packet Tracer, puis déployer sur matériel réel, m'a appris à anticiper les erreurs avant qu'elles coûtent du temps en TP.</p>
         </div>
       </div>
 
@@ -420,7 +473,7 @@ la configuration et l’administration des réseaux et services fournis</h5>
         <div class="reflect-card">
           <span class="reflect-ico">⚠️</span>
           <h5>Les difficultés rencontrées</h5>
-          <p>La gestion de l'adressage IP et du découpage en sous-réseaux a été la principale difficulté. Les erreurs de masque ou de passerelle par défaut étaient difficiles à diagnostiquer sans méthode. J'ai appris à procéder couche par couche, en commençant toujours par la couche physique avant de remonter vers l'applicatif.</p>
+          <p>La mise en place des ACL a été la partie la plus délicate : l'ordre des règles est critique, et une erreur de positionnement peut bloquer du trafic légitime ou laisser passer ce qui devrait être interdit. J'ai dû tester systématiquement chaque règle avec des pings et des traceroutes pour valider le comportement attendu avant de passer à la suivante.</p>
         </div>
       </div>
 
@@ -428,7 +481,7 @@ la configuration et l’administration des réseaux et services fournis</h5>
         <div class="reflect-card">
           <span class="reflect-ico">🚀</span>
           <h5>Ce que je ferais différemment</h5>
-          <p>J'aurais pris davantage le temps de schématiser le réseau avant de câbler, au lieu de me lancer directement dans la manipulation. Un schéma logique bien pensé en amont évite la majorité des erreurs de configuration et accélère le débogage en cas de problème.</p>
+          <p>J'aurais utilisé RIPv2 avec authentification MD5 dès le départ pour sécuriser les échanges de tables de routage entre sites. J'aurais aussi structuré mon plan d'adressage dans un tableur dès le début plutôt que sur papier, pour pouvoir le modifier facilement et générer automatiquement les commandes de configuration.</p>
         </div>
       </div>
 
@@ -436,7 +489,7 @@ la configuration et l’administration des réseaux et services fournis</h5>
         <div class="reflect-card">
           <span class="reflect-ico">🔗</span>
           <h5>Lien avec la formation R&amp;T</h5>
-          <p>Cette SAÉ est le socle sur lequel repose l'ensemble du cursus : chaque futur projet impliquant un service réseau, une VM, un déploiement ou une configuration part des mêmes fondamentaux. Ne pas les maîtriser rendrait les SAÉ suivantes beaucoup plus difficiles à appréhender.</p>
+          <p>Cette SAÉ est le cœur du semestre 2 : elle mobilise simultanément les cours de réseaux (VLANs, routage), de systèmes (virtualisation des serveurs) et de programmation (script Python de vérification). C'est la première fois que toutes ces compétences convergent vers un même projet concret, ce qui donne du sens à l'ensemble de la formation.</p>
         </div>
       </div>
 
@@ -444,7 +497,7 @@ la configuration et l’administration des réseaux et services fournis</h5>
         <div class="reflect-card">
           <span class="reflect-ico">🎯</span>
           <h5>Compétences transférables</h5>
-          <p>La démarche de dépannage méthodique — isoler, tester, corriger — est universelle. Qu'il s'agisse d'un réseau, d'un bug logiciel ou d'un problème système, la logique de résolution par élimination que cette SAÉ m'a inculquée est un outil intellectuel durable.</p>
+          <p>Concevoir un plan d'adressage, rédiger une documentation technique structurée, déployer une configuration sur matériel réel et défendre ses choix à l'oral — ce sont des compétences directement mobilisables en stage et en entreprise, quel que soit le constructeur ou la technologie utilisée.</p>
         </div>
       </div>
 
@@ -452,7 +505,7 @@ la configuration et l’administration des réseaux et services fournis</h5>
         <div class="reflect-card">
           <span class="reflect-ico">📈</span>
           <h5>Progression personnelle</h5>
-          <p>J'ai gagné en assurance face aux équipements physiques. Ce qui me semblait intimidant — ouvrir une armoire réseau, brancher un patch panel, configurer un port en CLI — est devenu familier. Cette confiance pratique est, à mes yeux, le bénéfice le plus précieux de ce premier travail sur le terrain.</p>
+          <p>J'ai acquis le réflexe de documenter chaque décision technique au fur et à mesure — tableaux d'archivage des mots de passe, plans d'adressage, configurations exportées. Ce soin de la traçabilité, que j'ai appliqué ici pour la première fois de manière rigoureuse, est devenu une habitude de travail durable.</p>
         </div>
       </div>
 
@@ -463,10 +516,10 @@ la configuration et l’administration des réseaux et services fournis</h5>
       <div class="col-lg-8 offset-lg-2">
         <div class="citation-block">
           <blockquote>
-            "On peut lire des dizaines de pages sur le modèle OSI, mais c'est en câblant
-            son premier réseau qu'on comprend vraiment ce que signifie 'couche physique'."
+            "Configurer un réseau, c'est facile. Le concevoir pour qu'il soit sécurisé,
+            scalable et documenté — c'est là que commence le vrai travail d'ingénieur."
           </blockquote>
-          <cite>— Réflexion personnelle à l'issue de la SAÉ 1.02</cite>
+          <cite>— Réflexion personnelle à l'issue de la SAÉ 2.01</cite>
         </div>
       </div>
     </div>
@@ -474,14 +527,15 @@ la configuration et l’administration des réseaux et services fournis</h5>
     <!-- Points forts -->
     <span class="section-label mb-3 d-block">Points forts acquis en synthèse</span>
     <div class="d-flex flex-wrap gap-2">
-      <span class="strength-pill"><i class="bi bi-ethernet"></i> Câblage réseau</span>
-      <span class="strength-pill"><i class="bi bi-grid-1x2"></i> Adressage IPv4</span>
-      <span class="strength-pill"><i class="bi bi-hdd-network"></i> Configuration switch/routeur</span>
-      <span class="strength-pill"><i class="bi bi-terminal"></i> Commandes CLI</span>
-      <span class="strength-pill"><i class="bi bi-bug"></i> Dépannage méthodique</span>
+      <span class="strength-pill"><i class="bi bi-diagram-3"></i> VLANs &amp; STP</span>
+      <span class="strength-pill"><i class="bi bi-router"></i> Routage RIPv2</span>
+      <span class="strength-pill"><i class="bi bi-globe"></i> NAT / PAT</span>
+      <span class="strength-pill"><i class="bi bi-shield-lock"></i> ACL étendues</span>
+      <span class="strength-pill"><i class="bi bi-filetype-py"></i> Python / ipaddress</span>
+      <span class="strength-pill"><i class="bi bi-pc-display"></i> Packet Tracer</span>
+      <span class="strength-pill"><i class="bi bi-hdd-network"></i> Virtualisation</span>
       <span class="strength-pill"><i class="bi bi-file-earmark-text"></i> Documentation technique</span>
-      <span class="strength-pill"><i class="bi bi-diagram-2"></i> Schématisation réseau</span>
-      <span class="strength-pill"><i class="bi bi-layers"></i> Modèle OSI appliqué</span>
+      <span class="strength-pill"><i class="bi bi-mic"></i> Présentation orale</span>
     </div>
 
   </div>
@@ -490,5 +544,6 @@ la configuration et l’administration des réseaux et services fournis</h5>
 
 <br><br>
 
+  </div>
 </div>
 {% endblock %}
