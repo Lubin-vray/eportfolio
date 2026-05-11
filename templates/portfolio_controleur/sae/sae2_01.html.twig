@@ -70,9 +70,6 @@
     color: #fff;
   }
 
-  .ac-section {
-    background: var(--bs-gray-900);
-  }
 
   .comp-header {
     display: flex;
@@ -229,14 +226,14 @@
       <div class="col-lg-7">
         <span class="badge-sae">SAÉ 2.01 · Semestre 2</span>
         <h1 class="mb-2 text-white text-start">
-          VLAN, Routage, NAT, ACL
+          Construire un réseau informatique pour une petite structure
         </h1>
         <p class="text-muted mb-0">BUT Réseaux &amp; Télécommunications &nbsp;·&nbsp; IUT &nbsp;·&nbsp; Semestre 2</p>
       </div>
 
       <div class="col-lg-5">
         <div class="hero-imgs d-flex gap-2 justify-content-end">
-          <img src="{{ asset('image/SAE21-Topologie-Généré-par-IA.png') }}" alt="Topologie réseau SAÉ 2.01">
+          <img src="{{ asset('image/SAE21.jpg') }}" alt="Topologie réseau SAÉ 2.01">
         </div>
       </div>
 
@@ -299,8 +296,11 @@
           <a href="{{ asset('portfolio/SAE2.01/Simulation.pkt') }}" target="_blank" class="btn-proof">
             <i class="bi bi-diagram-3"></i> Fichier Packet Tracer
           </a>
-          <a href="{{ asset('portfolio/SAE2.01/Présentation_de_projet_professionnel_moderne_simple_bleu.pptx') }}" target="_blank" class="btn-proof">
+          <a href="{{ asset('portfolio/SAE2.01/Presentation.pptx') }}" target="_blank" class="btn-proof">
             <i class="bi bi-file-earmark-slides"></i> Diaporama de présentation
+          </a>
+          <a href="{{ asset('portfolio/SAE2.01/vérification-plan-adressage.py') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-file-earmark-code"></i> Script de vérification de plan d'adressage
           </a>
         </div>
       </div>
@@ -323,15 +323,15 @@
     <div class="mb-5">
       <div class="comp-header">
         <span class="comp-num">C1</span>
-        Administrer les réseaux et les systèmes
+        Administrer les réseaux et l'internet
       </div>
       <div class="row g-3">
 
         <div class="col-md-6 col-lg-4">
           <div class="ac-card">
             <i class="bi bi-diagram-3 ac-bg-icon"></i>
-            <div class="ac-code">AC11.01</div>
-            <h5>Concevoir un plan d'adressage IP en VLSM</h5>
+            <div class="ac-code">AC11.02</div>
+            <h5>Comprendre l’architecture et les fondements des systèmes numériques, les principes du codage de l’information, des communications et de l’Internet</h5>
             <p>Découpage de la plage <code>172.16.0.0/16</code> en sous-réseaux adaptés à chaque LAN et à chaque VLAN (admin, services, formations A/B, enseignants) en optimisant l'espace d'adressage avec la méthode VLSM.</p>
           </div>
         </div>
@@ -339,8 +339,8 @@
         <div class="col-md-6 col-lg-4">
           <div class="ac-card">
             <i class="bi bi-toggles ac-bg-icon"></i>
-            <div class="ac-code">AC11.02</div>
-            <h5>Configurer les switches et les VLANs</h5>
+            <div class="ac-code">AC11.03</div>
+            <h5>Configurer les fonctions de base du réseau local</h5>
             <p>Configuration de tous les switches en mode trunk et access, gestion du protocole STP pour la topologie en triangle entre bâtiments, et affectation des VLANs 10, 20, 30, 40 et 100 sur chaque port.</p>
           </div>
         </div>
@@ -348,8 +348,8 @@
         <div class="col-md-6 col-lg-4">
           <div class="ac-card">
             <i class="bi bi-router ac-bg-icon"></i>
-            <div class="ac-code">AC11.03</div>
-            <h5>Mettre en place le routage inter-VLAN</h5>
+            <div class="ac-code">AC11.04</div>
+            <h5>Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour la configuration et l’administration des réseaux et services fournis</h5>
             <p>Déploiement de la méthode "Router on a Stick" : liaison trunk unique entre le switch et le routeur, sous-interfaces IP par VLAN jouant le rôle de passerelles pour chaque segment.</p>
           </div>
         </div>
@@ -357,8 +357,8 @@
         <div class="col-md-6 col-lg-4">
           <div class="ac-card">
             <i class="bi bi-arrow-left-right ac-bg-icon"></i>
-            <div class="ac-code">AC11.04</div>
-            <h5>Assurer le routage inter-sites avec RIP</h5>
+            <div class="ac-code">AC11.05</div>
+            <h5>Identifier les dysfonctionnements du réseau local et savoir les signaler</h5>
             <p>Déploiement du protocole RIPv2 entre les 4 sites via des liaisons point à point découpées en <code>/30</code> depuis le réseau <code>192.168.1.0</code>, permettant un échange automatique des tables de routage.</p>
           </div>
         </div>
@@ -366,82 +366,13 @@
         <div class="col-md-6 col-lg-4">
           <div class="ac-card">
             <i class="bi bi-globe ac-bg-icon"></i>
-            <div class="ac-code">AC11.05</div>
-            <h5>Implémenter le NAT/PAT</h5>
+            <div class="ac-code">AC11.06</div>
+            <h5>Installer un poste client, expliquer la procédure mise en place</h5>
             <p>Mise en place du PAT sur le routeur WAN pour partager la plage publique <code>161.3.36.32/28</code> entre tous les sites, et configuration d'un NAT statique pour rendre les serveurs WEB accessibles depuis le WAN.</p>
           </div>
         </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="ac-card">
-            <i class="bi bi-shield-lock ac-bg-icon"></i>
-            <div class="ac-code">AC11.06</div>
-            <h5>Sécuriser le réseau avec des ACL</h5>
-            <p>Rédaction et application d'ACL étendues sur les sous-interfaces VLAN : isolation du VLAN admin, accès FTP restreint aux services et enseignants, protection des serveurs TFTP, accessibilité web universelle.</p>
-          </div>
-        </div>
-
       </div>
     </div>
-
-    <!-- ── C2 : Connecter ── -->
-    <div class="mb-5">
-      <div class="comp-header">
-        <span class="comp-num">C2</span>
-        Connecter les entreprises et les usagers
-      </div>
-      <div class="row g-3">
-
-        <div class="col-md-6 col-lg-4">
-          <div class="ac-card">
-            <i class="bi bi-cpu ac-bg-icon"></i>
-            <div class="ac-code">AC12.01</div>
-            <h5>Choisir le matériel adapté</h5>
-            <p>Sélection et justification du matériel pour les 4 LANs : switches Gigabit, routeurs LAN et FAI, serveurs WEB/TFTP/FTP, en tenant compte des distances (fibre optique pour les liaisons inter-bâtiments &gt; 100 m).</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="ac-card">
-            <i class="bi bi-pc-display ac-bg-icon"></i>
-            <div class="ac-code">AC12.02</div>
-            <h5>Déployer sur matériel physique</h5>
-            <p>Réalisation de la maquette réseau lors du TP d'interconnexion : déploiement du LAN attribué, raccordement avec les LAN des autres binômes, configuration des routeurs de cœur de réseau en conditions réelles.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="ac-card">
-            <i class="bi bi-hdd-network ac-bg-icon"></i>
-            <div class="ac-code">AC12.03</div>
-            <h5>Virtualiser les serveurs</h5>
-            <p>Mise en place d'un serveur WEB et TFTP en virtualisation, utilisé pour héberger les captures de tests et présenter les résultats, en mobilisant les compétences acquises en R202 et R203.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ── C4 : Développer ── -->
-    <div>
-      <div class="comp-header">
-        <span class="comp-num">C4</span>
-        Développer des applications informatiques
-      </div>
-      <div class="row g-3">
-
-        <div class="col-md-6 col-lg-4">
-          <div class="ac-card">
-            <i class="bi bi-filetype-py ac-bg-icon"></i>
-            <div class="ac-code">AC14.01</div>
-            <h5>Vérifier le plan d'adressage par script Python</h5>
-            <p>Développement d'un script Python utilisant le module <code>ipaddress</code> et la méthode <code>overlaps()</code> pour vérifier automatiquement l'absence de chevauchement entre tous les sous-réseaux définis.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -465,7 +396,7 @@
         <div class="reflect-card">
           <span class="reflect-ico">🔍</span>
           <h5>Ce que j'ai vraiment appris</h5>
-          <p>Cette SAÉ m'a fait comprendre qu'un réseau d'entreprise n'est pas une somme d'équipements branchés ensemble, mais une architecture pensée et documentée. Le VLSM, les ACL, le NAT — chaque brique s'emboîte dans une logique globale. Simuler d'abord sur Packet Tracer, puis déployer sur matériel réel, m'a appris à anticiper les erreurs avant qu'elles coûtent du temps en TP.</p>
+          <p>Cette SAÉ m'a fait comprendre qu'un réseau d'entreprise n'est pas une somme d'équipements branchés ensemble, mais une architecture pensée et documentée. Le VLSM, les ACL, le NAT, chaque brique s'emboîte dans une logique globale. Simuler d'abord sur Packet Tracer, puis déployer sur matériel réel, m'a appris à anticiper les erreurs avant qu'elles coûtent du temps en TP.</p>
         </div>
       </div>
 
@@ -497,7 +428,7 @@
         <div class="reflect-card">
           <span class="reflect-ico">🎯</span>
           <h5>Compétences transférables</h5>
-          <p>Concevoir un plan d'adressage, rédiger une documentation technique structurée, déployer une configuration sur matériel réel et défendre ses choix à l'oral — ce sont des compétences directement mobilisables en stage et en entreprise, quel que soit le constructeur ou la technologie utilisée.</p>
+          <p>Concevoir un plan d'adressage, rédiger une documentation technique structurée, déployer une configuration sur matériel réel et défendre ses choix à l'oral, ce sont des compétences directement mobilisables en stage et en entreprise, quel que soit le constructeur ou la technologie utilisée.</p>
         </div>
       </div>
 
@@ -505,7 +436,7 @@
         <div class="reflect-card">
           <span class="reflect-ico">📈</span>
           <h5>Progression personnelle</h5>
-          <p>J'ai acquis le réflexe de documenter chaque décision technique au fur et à mesure — tableaux d'archivage des mots de passe, plans d'adressage, configurations exportées. Ce soin de la traçabilité, que j'ai appliqué ici pour la première fois de manière rigoureuse, est devenu une habitude de travail durable.</p>
+          <p>J'ai acquis le réflexe de documenter chaque décision technique au fur et à mesure, tableaux d'archivage des mots de passe, plans d'adressage, configurations exportées. Ce soin de la traçabilité, que j'ai appliqué ici pour la première fois de manière rigoureuse, est devenu une habitude de travail durable.</p>
         </div>
       </div>
 

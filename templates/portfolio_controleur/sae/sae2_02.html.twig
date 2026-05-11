@@ -6,9 +6,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
 <style>
-  /* ── Surcharges légères compatibles avec le thème Slate ── */
-
-  /* Hero */
   .hero-sae {
     background: linear-gradient(135deg,,);
     border-bottom: 3px solid var(--bs-danger);
@@ -30,7 +27,7 @@
     margin-bottom: 14px;
   }
   .hero-imgs img {
-    width:100%;
+    width: 100%;
     border-radius: 6px;
     object-fit: cover;
     box-shadow: 0 16px 40px rgba(0,0,0,.45);
@@ -38,7 +35,6 @@
   .hero-imgs img:first-child { transform: rotate(-1.5deg) translateY(10px); }
   .hero-imgs img:last-child  { transform: rotate(1deg); }
 
-  /* Labels de section */
   .section-label {
     font-size: .68rem;
     font-weight: 700;
@@ -49,14 +45,12 @@
     display: block;
   }
 
-  /* Séparateur vertical */
   .sep-v {
     width: 1px;
     background: rgba(255,255,255,.1);
     align-self: stretch;
   }
 
-  /* Bouton preuve */
   .btn-proof {
     display: inline-flex;
     align-items: center;
@@ -76,7 +70,6 @@
     color: #fff;
   }
 
-  /* ── Apprentissages critiques ── */
   .ac-section {
     background: var(--bs-gray-900);
   }
@@ -108,7 +101,6 @@
     letter-spacing: .05em;
   }
 
-  /* AC card */
   .ac-card {
     background: rgba(255,255,255,.04);
     border: 1px solid rgba(255,255,255,.08);
@@ -151,7 +143,6 @@
     opacity: .15;
   }
 
-  /* ── Analyse réflexive ── */
   .reflexive-section {
     background: var(--bs-container-bg);
     padding: 72px 0 80px;
@@ -185,7 +176,6 @@
     color: var(--bs-secondary-color);
   }
 
-  /* Citation */
   .citation-block {
     background: var(--bg-container-2);
     border: 1px solid rgba(0,0,0,.35);
@@ -194,7 +184,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .citation-block blockquote {
     font-size: 1.05rem;
     font-weight: 600;
@@ -210,7 +199,6 @@
     font-style: normal;
   }
 
-  /* Pill point fort */
   .strength-pill {
     display: inline-flex;
     align-items: center;
@@ -239,19 +227,20 @@
     <div class="row align-items-center gy-4">
 
       <div class="col-lg-7">
-        <span class="badge-sae">SAÉ 1.02 · Semestre 1</span>
+        <span class="badge-sae">SAÉ 2.02 · Semestre 2</span>
         <h1 class="mb-2 text-white text-start">
-          Découvrir les réseaux locaux informatiques
+          Mesure et traitement du signal embarqué
         </h1>
-        <p class="text-muted mb-0">BUT Réseaux &amp; Télécommunications &nbsp;·&nbsp; IUT &nbsp;·&nbsp; 20 h</p>
+        <p class="text-muted mb-0">BUT Réseaux &amp; Télécommunications &nbsp;·&nbsp; IUT &nbsp;·&nbsp; Semestre 2</p>
       </div>
 
       <div class="col-lg-5">
         <div class="hero-imgs d-flex gap-2 justify-content-end">
-          <img src="{{ asset('image/reseau1.jpg') }}" alt="Réseau local">
+          <img src="{{ asset('image/reseau3.jpg') }}" alt="Traitement du signal embarqué">
         </div>
       </div>
-    </div>   
+
+    </div>
   </div>
   </section>
 
@@ -268,10 +257,12 @@
         <span class="section-label">Contexte</span>
         <h2 class="h4 text-start mb-3">Pourquoi cette SAÉ ?</h2>
         <p class="mb-0">
-          Le réseau local est la brique fondamentale de toute infrastructure informatique. Avant de
-          concevoir ou d'administrer des architectures complexes, il est indispensable d'en maîtriser
-          les bases physiques et logiques. Cette SAÉ nous plonge dès le premier semestre dans la
-          manipulation concrète d'équipements réseau réels, en salle TP.
+          Le frelon asiatique (<em>Vespa velutina</em>) représente une menace pour les colonies
+          d'abeilles domestiques. Sa fréquence de battement d'ailes est caractéristique — environ
+          160 Hz — et peut être détectée acoustiquement. Cette SAÉ nous place en situation de
+          conception d'un système embarqué de détection sur Arduino : acquisition microphone,
+          filtrage numérique passe-bande, calcul d'énergie RMS et décision robuste par fenêtres
+          consécutives.
         </p>
       </div>
 
@@ -282,7 +273,11 @@
         <span class="section-label">Objectif</span>
         <h2 class="h4 text-start mb-3">Ce qu'on nous demande</h2>
         <p class="mb-0">
-          Construire et tester un réseau local fonctionnel : réalisation du câblage structuré, configuration de l’adressage IP et des équipements actifs (switch), utilisation des commandes réseau essentielles (ping, ipconfig/ifconfig, traceroute) ainsi que rédaction d’un compte-rendu de TP et d’une notice d’utilisation pour un serveur TFTP.
+          Concevoir un détecteur acoustique embarqué capable d'identifier la présence probable
+          d'un frelon à partir de son bruit de vol. Le système repose sur quatre étapes :
+          acquisition par microphone, filtrage passe-bande biquad centré sur 160 Hz,
+          calcul d'énergie RMS par fenêtres de 100 ms, puis validation de la détection sur
+          3 fenêtres consécutives pour éviter les fausses alertes.
         </p>
       </div>
 
@@ -293,25 +288,23 @@
         <span class="section-label">Réalisations</span>
         <h2 class="h4 text-start mb-3">Ce que j'ai produit</h2>
         <p class="mb-3">
-          Mise en place d'un réseau local en salle TP avec câblage RJ45, configuration d'adresses IP
-          statiques, tests de connectivité et rédaction d'un compte-rendu documentant toutes les étapes
-          et les résultats obtenus.
+          Calcul complet des coefficients du filtre biquad passe-bande (<code>f₀ = 160 Hz</code>,
+          <code>Q = 3</code>, <code>fs = 1000 Hz</code>), implémentation Arduino avec LED d'alerte
+          et bouton-poussoir de reset, calibration du seuil RMS, et compte-rendu technique
+          documentant toute la démarche.
         </p>
         <div class="d-flex flex-column gap-2">
-          <a href="{{ asset('portfolio/SAE1.02/Rapport_Technique_1.02.docx') }}" target="_blank" class="btn-proof">
-            <i class="bi bi-file-earmark-text"></i> Compte-rendu de TP
+          <a href="{{ asset('portfolio/SAE2.02/compte_rendu.docx') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-file-earmark-word"></i> Compte-rendu technique
           </a>
-          <a href="{{ asset('portfolio/SAE1.02/topologie.png') }}" target="_blank" class="btn-proof">
-            <i class="bi bi-diagram-2"></i> Schéma réseau réalisé
+          <a href="{{ asset('portfolio/SAE2.02/document_travail_drone_acoustique.pdf') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-file-earmark-text"></i> Document de travail
           </a>
-          <a href="{{ asset('portfolio/SAE1.02/sae102.pkt') }}" target="_blank" class="btn-proof">
-            <i class="bi bi-diagram-2"></i> Simulation Cisco Packet Tracer
-          </a>
-          <a href="{{ asset('portfolio/SAE1.02/tft_tuto.docx') }}" target="_blank" class="btn-proof">
-            <i class="bi bi-diagram-2"></i> Notice d'utilisation du serveur TFTP
+          <a href="{{ asset('portfolio/SAE2.02/presentation_projet_drone_acoustique_qualite.pdf') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-file-earmark-slides"></i> Présentation du projet
           </a>
         </div>
-      </div>  
+      </div>
 
     </div>
   </div>
@@ -321,77 +314,60 @@
 <!-- ════════════════════════════════════
      APPRENTISSAGES CRITIQUES
 ════════════════════════════════════ -->
-<section class="ac-section">
+<section class="ac-section py-5">
   <div class="container">
 
     <span class="section-label">Compétences du BUT R&amp;T</span>
     <h2 class="text-white text-start mb-5">Apprentissages critiques mobilisés</h2>
 
-    <!-- ── C1 : Administrer ── -->
+    <!-- ── C3 : Créer des outils ── -->
     <div class="mb-5">
       <div class="comp-header">
-        <span class="comp-num">C1</span>
-        Administrer les réseaux et les systèmes
+        <span class="comp-num">C2</span>
+        Connecter les entreprises et les usagers
       </div>
       <div class="row g-3">
 
         <div class="col-md-6 col-lg-4">
           <div class="ac-card">
-            <i class="bi bi-cpu ac-bg-icon"></i>
-            <div class="ac-code">AC11.01</div>
-            <h5>Maîtriser les lois fondamentales de l’électricité afin d’intervenir sur des équipements de réseaux et télécommunications</h5>
-            <p>La compréhension des bases de l’électricité appliquée aux réseaux m’a permis de mieux appréhender le rôle des équipements physiques (câbles, switchs, prises réseau) dans la transmission des données. En manipulant les couches physiques et liaison, j’ai pu observer concrètement le fonctionnement d’un réseau local et comprendre comment les signaux électriques deviennent des trames exploitables</p>
+            <i class="bi bi-soundwave ac-bg-icon"></i>
+            <div class="ac-code">AC12.01</div>
+            <h5>Mesurer, analyser et commenter les signaux</h5>
+            <p>Identification de la fréquence caractéristique du frelon (160 Hz) à partir de la physique du vol d'insectes, choix de la bande passante ±40 Hz, du facteur de qualité Q = 3 et de la fréquence d'échantillonnage 1000 Hz respectant le critère de Shannon.</p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
           <div class="ac-card">
-            <i class="bi bi-terminal ac-bg-icon"></i>
-            <div class="ac-code">AC11.02</div>
-            <h5>Comprendre l’architecture et les fondements des systèmes numériques, les principes du codage de l’information, des communications et de l’Internet</h5>
-            <p>L’utilisation d’outils comme ping, traceroute, ipconfig ou ifconfig m’a permis de mieux comprendre l’architecture d’un réseau et le cheminement des données sur Internet. J’ai appris à interpréter les résultats de ces commandes pour diagnostiquer l’état d’une connexion et identifier les éventuels points de rupture dans un réseau.</p>
+            <i class="bi bi-filter-circle ac-bg-icon"></i>
+            <div class="ac-code">AC12.02</div>
+            <h5>Caractériser des systèmes de transmissions élémentaires et découvrir la modélisation mathématique de leur fonctionnement</h5>
+            <p>Calcul complet des coefficients du filtre passe-bande d'ordre 2 : <code>ω₀ ≈ 1,005 rad</code>, <code>α ≈ 0,141</code>, coefficients normalisés b0, b1, b2, a1, a2 appliqués dans l'équation aux différences récursive.</p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
           <div class="ac-card">
-            <i class="bi bi-diagram-3 ac-bg-icon"></i>
-            <div class="ac-code">AC11.03</div>
-            <h5> Configurer les fonctions de base du réseau local</h5>
-            <p>Les travaux pratiques de configuration réseau m’ont permis de mettre en place un réseau local fonctionnel en attribuant correctement des adresses IP et des masques de sous-réseau. J’ai également appris à configurer des switchs, puis à détecter et corriger des erreurs courantes comme les conflits d’adresses ou les problèmes de configuration, en adoptant une démarche de diagnostic structurée.</p>
+            <i class="bi bi-lightning-charge ac-bg-icon"></i>
+            <div class="ac-code">AC12.03</div>
+            <h5>Déployer des supports de transmission</h5>
+            <p>Implémentation du calcul d'énergie moyenne sur des fenêtres de N = 100 échantillons (100 ms à 1000 Hz) : accumulation de y²[n], normalisation et comparaison à un seuil calibré sur le bruit de fond ambiant.</p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
           <div class="ac-card">
-            <i class="bi bi-hdd-network ac-bg-icon"></i>
-            <div class="ac-code">AC11.04</div>
-            <h5>Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour
-la configuration et l’administration des réseaux et services fournis</h5>
-            <p>Cette compétence m’a permis de prendre en main les systèmes d’exploitation afin de configurer et administrer des équipements réseau. J’ai notamment appris à configurer des interfaces réseau, des passerelles par défaut et à comprendre le rôle des services systèmes dans la communication entre machines.</p>
+            <i class="bi bi-check2-all ac-bg-icon"></i>
+            <div class="ac-code">AC12.05</div>
+            <h5>Communiquer avec un tiers (client, collaborateur...) et adapter son discours et sa langue à son interlocuteur</h5>
+            <p>Validation de la détection uniquement si 3 fenêtres consécutives dépassent le seuil (300 ms de signal continu) — technique permettant de discriminer un vol de frelon d'un bruit ponctuel ou d'un choc bref.</p>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="ac-card">
-            <i class="bi bi-hdd-network ac-bg-icon"></i>
-            <div class="ac-code">AC11.05</div>
-            <h5>Identifier les dysfonctionnements du réseau local et savoir les signaler</h5>
-            <p>J’ai développé une méthode d’analyse pour repérer les dysfonctionnements dans un réseau local, comme une coupure de liaison, une mauvaise configuration IP ou un équipement défaillant. J’ai appris à utiliser des outils de diagnostic et à signaler clairement les problèmes rencontrés afin de faciliter leur résolution.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="ac-card">
-            <i class="bi bi-hdd-network ac-bg-icon"></i>
-            <div class="ac-code">AC11.05</div>
-            <h5>Installer un poste client, expliquer la procédure mise en place</h5>
-            <p>J’ai appris à installer et configurer un poste client sur un réseau, en suivant une procédure structurée : configuration réseau, vérification de la connectivité et tests de communication. J’ai également été capable d’expliquer chaque étape réalisée, ce qui m’a permis de mieux comprendre le fonctionnement global d’un environnement réseau</p>
-          </div>
-        </div>
-
-
       </div>
     </div>
 
+  </div>
+</section>
 
 
 <!-- ════════════════════════════════════
@@ -403,8 +379,8 @@ la configuration et l’administration des réseaux et services fournis</h5>
     <span class="section-label">Recul &amp; apprentissage</span>
     <h2 class="text-start mb-2">Analyse réflexive</h2>
     <p class="mb-5" style="max-width:680px; color: var(--bs-secondary-color); font-size:.95rem;">
-      Au-delà de la simple exécution de la SAÉ, voici comment ce travail pratique a transformé
-      ma représentation des réseaux et m'a donné confiance dans la manipulation d'équipements réels.
+      Au-delà de la programmation Arduino, voici comment cette SAÉ a transformé ma compréhension
+      du traitement du signal et de la conception de systèmes embarqués contraints.
     </p>
 
     <div class="row g-4 mb-4">
@@ -413,7 +389,7 @@ la configuration et l’administration des réseaux et services fournis</h5>
         <div class="reflect-card">
           <span class="reflect-ico">🔍</span>
           <h5>Ce que j'ai vraiment appris</h5>
-          <p>J'avais une vision très abstraite du réseau avant cette SAÉ. Tenir un câble RJ45, brancher un switch et voir deux machines se pinguer pour la première fois est une expérience concrète qui ancre définitivement les notions théoriques. On comprend ce qu'est une adresse IP quand on en configure une soi-même.</p>
+          <p>Cette SAÉ m'a révélé que détecter un son, c'est d'abord un problème de physique avant d'être un problème de code. Comprendre pourquoi un frelon produit du 160 Hz, comment un filtre biquad fonctionne mathématiquement, et pourquoi on a besoin de 3 fenêtres consécutives — chaque brique a un sens. Ce lien entre théorie et implémentation embarquée est ce qui m'a le plus marqué.</p>
         </div>
       </div>
 
@@ -421,7 +397,7 @@ la configuration et l’administration des réseaux et services fournis</h5>
         <div class="reflect-card">
           <span class="reflect-ico">⚠️</span>
           <h5>Les difficultés rencontrées</h5>
-          <p>La configuration de l’adressage IP a été la principale difficulté rencontrée. Les erreurs de passerelle par défaut ou de configuration réseau étaient parfois difficiles à diagnostiquer sans méthode. J’ai appris à procéder étape par étape, en vérifiant d’abord la couche physique avant d’analyser la configuration réseau et la communication entre les équipements.</p>
+          <p>La principale difficulté a été le calcul et la normalisation des coefficients du filtre biquad. Une erreur sur α ou ω₀ donne un filtre décalé ou instable, et le debug est difficile sans visualisation spectrale. J'ai aussi trouvé dans le code fourni une erreur de mise à jour mémoire (<code>sk_1 = ek</code> au lieu de <code>sk_1 = sk</code>) qu'il a fallu identifier et corriger.</p>
         </div>
       </div>
 
@@ -429,7 +405,7 @@ la configuration et l’administration des réseaux et services fournis</h5>
         <div class="reflect-card">
           <span class="reflect-ico">🚀</span>
           <h5>Ce que je ferais différemment</h5>
-          <p>J'aurais pris davantage le temps de schématiser le réseau avant de câbler, au lieu de me lancer directement dans la manipulation. Un schéma logique bien pensé en amont évite la majorité des erreurs de configuration et accélère le débogage en cas de problème.</p>
+          <p>J'aurais ajouté une visualisation du spectre en temps réel via le moniteur série ou Processing pour voir directement l'effet du filtre et faciliter le réglage du seuil. J'aurais aussi testé plusieurs valeurs de Q pour observer l'impact sur la sélectivité, et implémenté un seuil adaptatif basé sur la moyenne glissante du bruit de fond.</p>
         </div>
       </div>
 
@@ -437,7 +413,7 @@ la configuration et l’administration des réseaux et services fournis</h5>
         <div class="reflect-card">
           <span class="reflect-ico">🔗</span>
           <h5>Lien avec la formation R&amp;T</h5>
-          <p>Cette SAÉ est le socle sur lequel repose l'ensemble du cursus : chaque futur projet impliquant un service réseau, une VM, un déploiement ou une configuration part des mêmes fondamentaux. Ne pas les maîtriser rendrait les SAÉ suivantes beaucoup plus difficiles à appréhender.</p>
+          <p>Cette SAÉ fait le pont entre le traitement du signal (cours de mathématiques et physique), la programmation embarquée (C/Arduino) et la lecture de fiches techniques (SNR, bande passante, consommation). C'est un exemple concret où des connaissances de plusieurs disciplines convergent pour résoudre un problème réel à contraintes fortes.</p>
         </div>
       </div>
 
@@ -445,7 +421,7 @@ la configuration et l’administration des réseaux et services fournis</h5>
         <div class="reflect-card">
           <span class="reflect-ico">🎯</span>
           <h5>Compétences transférables</h5>
-          <p>La démarche de dépannage méthodique (isoler, tester, corriger) est universelle. Qu'il s'agisse d'un réseau, d'un bug logiciel ou d'un problème système, la logique de résolution par élimination que cette SAÉ m'a inculquée est un outil intellectuel durable.</p>
+          <p>Savoir lire une fiche technique de capteur, calculer des coefficients de filtre, implémenter un algorithme temps réel sur microcontrôleur et calibrer un seuil expérimentalement — ce sont des compétences directement mobilisables dans l'IoT, la domotique, les systèmes embarqués industriels ou tout projet nécessitant de l'acquisition de signal.</p>
         </div>
       </div>
 
@@ -453,7 +429,7 @@ la configuration et l’administration des réseaux et services fournis</h5>
         <div class="reflect-card">
           <span class="reflect-ico">📈</span>
           <h5>Progression personnelle</h5>
-          <p>J'ai gagné en assurance face aux équipements physiques. Ce qui me semblait intimidant (ouvrir une armoire réseau, brancher un patch panel, configurer un port en CLI) est devenu familier. Cette confiance pratique est, à mes yeux, le bénéfice le plus précieux de ce premier travail sur le terrain.</p>
+          <p>J'ai développé le réflexe de valider chaque bloc de la chaîne de traitement indépendamment avant de les assembler : d'abord vérifier le filtrage seul, puis le calcul RMS, puis la logique de décision. Cette approche par étapes m'a permis d'isoler les problèmes rapidement et de gagner du temps sur le débogage.</p>
         </div>
       </div>
 
@@ -464,10 +440,10 @@ la configuration et l’administration des réseaux et services fournis</h5>
       <div class="col-lg-8 offset-lg-2">
         <div class="citation-block">
           <blockquote>
-            "On peut lire des dizaines de pages sur le modèle OSI, mais c'est en câblant
-            son premier réseau qu'on comprend vraiment ce que signifie 'couche physique'."
+            "Détecter un son, ce n'est pas écouter — c'est choisir quoi entendre,
+            mesurer combien de temps ça dure, et décider si c'est vraiment là."
           </blockquote>
-          <cite>— Réflexion personnelle à l'issue de la SAÉ 1.02</cite>
+          <cite>— Réflexion personnelle à l'issue de la SAÉ 2.02</cite>
         </div>
       </div>
     </div>
@@ -475,14 +451,14 @@ la configuration et l’administration des réseaux et services fournis</h5>
     <!-- Points forts -->
     <span class="section-label mb-3 d-block">Points forts acquis en synthèse</span>
     <div class="d-flex flex-wrap gap-2">
-      <span class="strength-pill"><i class="bi bi-ethernet"></i> Câblage réseau</span>
-      <span class="strength-pill"><i class="bi bi-grid-1x2"></i> Adressage IPv4</span>
-      <span class="strength-pill"><i class="bi bi-hdd-network"></i> Configuration switch</span>
-      <span class="strength-pill"><i class="bi bi-terminal"></i> Commandes CLI</span>
-      <span class="strength-pill"><i class="bi bi-bug"></i> Dépannage méthodique</span>
-      <span class="strength-pill"><i class="bi bi-file-earmark-text"></i> Documentation technique</span>
-      <span class="strength-pill"><i class="bi bi-diagram-2"></i> Schématisation réseau</span>
-      <span class="strength-pill"><i class="bi bi-layers"></i> Modèle OSI appliqué</span>
+      <span class="strength-pill"><i class="bi bi-filter-circle"></i> Filtrage numérique biquad</span>
+      <span class="strength-pill"><i class="bi bi-soundwave"></i> Traitement du signal</span>
+      <span class="strength-pill"><i class="bi bi-cpu"></i> Arduino / C embarqué</span>
+      <span class="strength-pill"><i class="bi bi-lightning-charge"></i> Calcul RMS</span>
+      <span class="strength-pill"><i class="bi bi-sliders"></i> Calibration expérimentale</span>
+      <span class="strength-pill"><i class="bi bi-check2-all"></i> Décision robuste multi-fenêtres</span>
+      <span class="strength-pill"><i class="bi bi-file-earmark-medical"></i> Lecture de fiche technique</span>
+      <span class="strength-pill"><i class="bi bi-bug"></i> Débogage embarqué</span>
     </div>
 
   </div>
@@ -491,5 +467,6 @@ la configuration et l’administration des réseaux et services fournis</h5>
 
 <br><br>
 
+  </div>
 </div>
 {% endblock %}

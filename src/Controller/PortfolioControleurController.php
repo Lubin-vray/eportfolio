@@ -99,5 +99,18 @@ final class PortfolioControleurController extends AbstractController
             'controller_name' => 'PortfolioControleurController',
         ]);
     }
-   
+    #[Route('/competences/sae2_02', name: 'portfolio_sae2_02')]
+    public function sae2_02(): Response
+    {
+        return $this->render('portfolio_controleur/sae/sae2_02.html.twig', [
+            'controller_name' => 'PortfolioControleurController',
+        ]);
+    }
+    #[Route('/competences/sae2_03', name: 'portfolio_sae2_03')]
+    public function sae2_03(): Response
+    {
+        return $this->render('portfolio_controleur/sae/sae2_03.html.twig', [
+            'controller_name' => 'PortfolioControleurController',
+        ]);
+    }
 }
