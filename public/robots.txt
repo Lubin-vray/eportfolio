@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vray-lubin-eportfolio.vercel.app//sitemap.xml
