@@ -17,8 +17,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 
 ENV APP_ENV=prod
 ENV APP_DEBUG=0
-ENV PORT=8080
-ENV SERVER_NAME=:8080
+ENV PORT=80
+ENV SERVER_NAME=:80
 
 RUN composer install \
     --no-dev \
@@ -35,6 +35,6 @@ RUN php bin/console cache:clear --env=prod --no-debug
 
 COPY Caddyfile /etc/caddy/Caddyfile
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD ["frankenphp", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]

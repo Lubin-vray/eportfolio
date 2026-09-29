@@ -2,7 +2,7 @@
     auto_https off
 }
 
-:8080 {
+:80 {
     root * /app/public
 
     encode gzip
