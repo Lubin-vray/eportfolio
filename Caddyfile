@@ -1,7 +1,11 @@
-:{$PORT} {
+{
+    auto_https off
+}
+
+:8080 {
     root * /app/public
 
-    encode zstd gzip
+    encode gzip
 
     php_server {
         try_files {path} index.php
