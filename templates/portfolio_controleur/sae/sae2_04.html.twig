@@ -1,0 +1,539 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link id="theme" rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+<style>
+  .hero-sae {
+    background: linear-gradient(135deg, var(--bs-gray-900), var(--bg-container-2));
+    border-bottom: 3px solid var(--bs-danger);
+    padding: 60px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .badge-sae {
+    background: var(--bs-danger);
+    color: #fff;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+
+  .hero-imgs img {
+    width: 100%;
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: 0 16px 40px rgba(0,0,0,.45);
+  }
+
+  .hero-imgs img:first-child {
+    transform: rotate(-1.5deg) translateY(10px);
+  }
+
+  .hero-imgs img:last-child {
+    transform: rotate(1deg);
+  }
+
+  .section-label {
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--bs-danger);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .sep-v {
+    width: 1px;
+    background: rgba(255,255,255,.1);
+    align-self: stretch;
+  }
+
+  .btn-proof {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border: 1.5px solid rgba(255,255,255,.25);
+    color: rgba(255,255,255,.8);
+    border-radius: 4px;
+    font-size: .84rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background .2s, border-color .2s, color .2s;
+  }
+
+  .btn-proof:hover {
+    background: rgba(255,255,255,.1);
+    border-color: rgba(255,255,255,.5);
+    color: #fff;
+  }
+
+  .project-card {
+    border-left: 3px solid var(--bs-danger);
+    background: var(--bg-container-2);
+    border-radius: 0 6px 6px 0;
+    padding: 24px 26px;
+    height: 100%;
+    border-top: 1px solid rgba(0,0,0,.3);
+    border-right: 1px solid rgba(0,0,0,.3);
+    border-bottom: 1px solid rgba(0,0,0,.3);
+  }
+
+  .project-card .project-ico {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .project-card h5 {
+    font-size: .95rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: none;
+  }
+
+  .project-card p {
+    font-size: .84rem;
+    line-height: 1.75;
+    margin-bottom: 16px;
+    color: var(--bs-secondary-color);
+  }
+
+  .ac-section {
+    background: var(--bs-gray-900);
+  }
+
+  .comp-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.45);
+  }
+
+  .comp-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,.1);
+  }
+
+  .comp-num {
+    background: var(--bs-danger);
+    color: #fff;
+    font-size: .65rem;
+    font-weight: 800;
+    padding: 3px 9px;
+    border-radius: 2px;
+    letter-spacing: .05em;
+  }
+
+  .ac-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 6px;
+    padding: 20px 22px;
+    height: 100%;
+    position: relative;
+    transition: background .2s, border-color .2s;
+  }
+
+  .ac-card:hover {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.18);
+  }
+
+  .ac-card .ac-code {
+    font-size: .65rem;
+    font-weight: 700;
+    color: var(--bs-danger);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+
+  .ac-card h5 {
+    font-size: .9rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 9px;
+    line-height: 1.3;
+    text-shadow: none;
+  }
+
+  .ac-card p {
+    font-size: .81rem;
+    color: rgba(255,255,255,.55);
+    margin: 0;
+    line-height: 1.65;
+  }
+
+  .ac-card .ac-bg-icon {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    font-size: 1.25rem;
+    opacity: .15;
+  }
+
+  .reflexive-section {
+    background: var(--bs-container-bg);
+    padding: 72px 0 80px;
+  }
+
+  .reflect-card {
+    border-left: 3px solid var(--bs-danger);
+    background: var(--bg-container-2);
+    border-radius: 0 6px 6px 0;
+    padding: 24px 26px;
+    height: 100%;
+    border-top: 1px solid rgba(0,0,0,.3);
+    border-right: 1px solid rgba(0,0,0,.3);
+    border-bottom: 1px solid rgba(0,0,0,.3);
+  }
+
+  .reflect-card .reflect-ico {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .reflect-card h5 {
+    font-size: .95rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: none;
+  }
+
+  .reflect-card p {
+    font-size: .84rem;
+    line-height: 1.75;
+    margin: 0;
+    color: var(--bs-secondary-color);
+  }
+
+  .strength-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-container-2);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 100px;
+    padding: 5px 14px;
+    font-size: .79rem;
+    font-weight: 500;
+    color: rgba(255,255,255,.75);
+  }
+
+  @media (max-width: 768px) {
+    .hero-imgs {
+      display: none;
+    }
+
+    .sep-v {
+      display: none;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+  <div class="container">
+
+    <section class="hero-sae">
+      <div class="container">
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-7">
+            <span class="badge-sae">SAÉ 2.04 · Semestre 2</span>
+            <h1 class="mb-2 text-white text-start">
+              Construire et déployer une infrastructure pour un atelier d'artistes
+            </h1>
+            <p class="text-muted mb-0">
+              BUT Réseaux & Télécommunications · IUT de Roanne · Semestre 2
+            </p>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="hero-imgs d-flex gap-2 justify-content-end">
+              <img src="{{ asset('image/oeuvre_4k_etudiant.jpg') }}" alt="Œuvre d'art algorithmique générée en Python">
+              <img src="{{ asset('image/oeuvre_proche_original.jpg') }}" alt="Œuvre de référence pour le projet d'art mathématique">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════
+         CONTEXTE / OBJECTIF / RÉALISATIONS
+    ════════════════════════════════════ -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row gy-4 align-items-start">
+          <div class="col-md">
+            <span class="section-label">Contexte</span>
+            <h2 class="h4 text-start mb-3">Pourquoi cette SAÉ ?</h2>
+            <p class="mb-0">
+              La SAÉ 2.04 place les étudiants dans une situation proche d'un projet professionnel :
+              répondre aux besoins numériques d'un atelier d'artistes. Le projet rassemble des
+              compétences vues séparément pendant le semestre : administration Linux, réseau,
+              programmation, développement Web, conteneurisation, partage de fichiers et ToIP.
+            </p>
+          </div>
+
+          <div class="sep-v d-none d-md-block"></div>
+
+          <div class="col-md">
+            <span class="section-label">Objectif</span>
+            <h2 class="h4 text-start mb-3">Ce qu'on nous demande</h2>
+            <p class="mb-0">
+              Installer et adapter un serveur Web, programmer et intégrer une œuvre d'art
+              algorithmique, créer une infrastructure de partage de fichiers avec Samba et Docker,
+              puis déployer une solution de téléphonie IP. Chaque service doit être configuré,
+              testé, sauvegardé et expliqué dans un compte rendu détaillé.
+            </p>
+          </div>
+
+          <div class="sep-v d-none d-md-block"></div>
+
+          <div class="col-md">
+            <span class="section-label">Réalisations</span>
+            <h2 class="h4 text-start mb-3">Ce que j'ai produit</h2>
+            <p class="mb-0">
+              J'ai déployé un serveur Debian avec Symfony et Apache, créé une œuvre générative
+              avec Python/Pygame, automatisé des partages Samba avec Docker Compose et configuré
+              un IPBX Asterisk sur AWS avec IVR, SDA, messagerie vocale et softphones SIP.
+            </p>
+            <br>
+            <a href="https://github.com/Lubin-vray/sae-2.03" target="_blank" class="btn-proof">
+                <i class="bi bi-github"></i> Dépôt GitHub du projet complet
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════
+         LES QUATRE PARTIES / COMPTES RENDUS
+    ════════════════════════════════════ -->
+    <section class="py-5">
+      <div class="container">
+        <span class="section-label">Réalisations détaillées</span>
+        <h2 class="text-start mb-2">Les quatre parties de la SAÉ 2.04</h2>
+        <p class="mb-5" style="max-width:760px; color: var(--bs-secondary-color); font-size:.95rem;">
+          Chaque partie répond à un besoin concret de l'atelier. Les comptes rendus associés
+          présentent les choix techniques, les configurations réalisées, les tests effectués
+          et les difficultés rencontrées.
+        </p>
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="project-card">
+              <span class="project-ico">🌐</span>
+              <span class="section-label">Partie 1 · Serveur Web</span>
+              <h5>Installation et adaptation d'un site Symfony</h5>
+              <p>
+                J'ai créé une machine virtuelle Debian 11 sur la baie de virtualisation,
+                configuré l'accès réseau et SSH, puis installé Apache, Symfony, Composer,
+                Python et les dépendances nécessaires. Le site ArtMathématique a été installé
+                dans <code>/var/www/html</code> et configuré avec un VirtualHost Apache.
+              </p>
+              <p>
+                J'ai ensuite modifié le formulaire Twig et le contrôleur Symfony afin d'appeler
+                un script Python générant une nouvelle œuvre. J'ai ajouté des curseurs JavaScript,
+                un compteur d'images, le téléchargement du résultat et une protection par mot de
+                passe avec <code>.htaccess</code>.
+              </p>
+              <a href="{{ asset('portfolio/SAE24/Compte-Rendu-SAE24-VRAY-Lubin.pdf') }}" target="_blank" class="btn-proof">
+                <i class="bi bi-file-earmark-text"></i> Compte rendu serveur Web
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="project-card">
+              <span class="project-ico">🎨</span>
+              <span class="section-label">Partie 2 · Programmation</span>
+              <h5>Création d'une œuvre d'art mathématique</h5>
+              <p>
+                J'ai programmé une œuvre numérique inspirée du <em>plotter art</em> et du travail
+                de Georg Nees. Le programme Python, utilisant Pygame, produit une image haute
+                définition de 4000 × 4800 pixels composée d'une grille de 14 colonnes et 19 lignes.
+              </p>
+              <p>
+                Dans chaque case, une figure est créée à partir de segments horizontaux, verticaux
+                ou diagonaux. Les tirages aléatoires rendent chaque forme unique. Le programme
+                permet de faire varier les paramètres de la grille, le nombre de segments et le
+                niveau de désordre afin de créer une œuvre personnelle, tout en conservant une
+                logique géométrique.
+              </p>
+              <a href="{{ asset('portfolio/SAE24/Compte_rendu_art_algorithmique.pdf') }}" target="_blank" class="btn-proof">
+                <i class="bi bi-file-earmark-code"></i> Compte rendu art algorithmique
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="project-card">
+              <span class="project-ico">📁</span>
+              <span class="section-label">Partie 3 · Docker & Samba</span>
+              <h5>Infrastructure de partages de fichiers</h5>
+              <p>
+                J'ai créé une infrastructure Samba dans Docker avec un fichier
+                <code>docker-compose.yml</code>. Le conteneur crée les utilisateurs
+                <code>moi</code>, <code>toi</code> et <code>nous</code>, ainsi que les partages
+                <code>public</code>, <code>amoi</code>, <code>atoi</code>, <code>anous</code>
+                et les espaces d'échange demandés dans le cahier des charges.
+              </p>
+              <p>
+                Le dossier local <code>./data</code> est monté dans le conteneur afin de conserver
+                les fichiers après un arrêt ou une recréation. J'ai contrôlé les droits de lecture
+                et d'écriture avec <code>smbclient</code> depuis WSL sous Windows, notamment pour
+                vérifier qu'un utilisateur ne pouvait pas écrire dans un partage non autorisé.
+              </p>
+              <a href="{{ asset('portfolio/SAE24/compte_rendu_SAE24_Samba.pdf') }}" target="_blank" class="btn-proof">
+                <i class="bi bi-folder-symlink"></i> Compte rendu Samba
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="project-card">
+              <span class="project-ico">📞</span>
+              <span class="section-label">Partie 4 · Téléphonie IP</span>
+              <h5>IPBX Asterisk dans le cloud AWS</h5>
+              <p>
+                J'ai choisi Asterisk sans interface graphique et l'ai installé sur une instance
+                Debian AWS. Cette solution permet de maîtriser directement les fichiers
+                <code>pjsip.conf</code>, <code>extensions.conf</code> et <code>voicemail.conf</code>
+                tout en répondant au cahier des charges de l'atelier d'artistes.
+              </p>
+              <p>
+                J'ai configuré les extensions 200 à 203, le numéro principal avec serveur vocal
+                interactif, les SDA de Léon et Mickael, les annonces hors horaires et vacances,
+                le mode absent et la messagerie vocale. Des tests ont été réalisés pour les appels
+                internes, l'IVR, les SDA, les horaires et les boîtes vocales.
+              </p>
+              <a href="{{ asset('portfolio/SAE24/rapport_telephonie_sae24_VRAY_Lubin.pdf') }}" target="_blank" class="btn-proof">
+                <i class="bi bi-telephone"></i> Compte rendu téléphonie Asterisk
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════
+         APPRENTISSAGES CRITIQUES
+    ════════════════════════════════════ -->
+    <section class="ac-section py-5">
+      <div class="container">
+        <span class="section-label">Compétences du BUT R&T</span>
+        <h2 class="text-white text-start mb-5">Apprentissages critiques mobilisés</h2>
+
+        <!-- RT1 -->
+        <div class="mb-5">
+          <div class="comp-header">
+            <span class="comp-num">RT1</span>
+            Administrer les réseaux et l'Internet
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6 col-lg-4"><div class="ac-card"><i class="bi bi-lightning-charge ac-bg-icon"></i><div class="ac-code">AC11.01</div><h5>Maîtriser les lois fondamentales de l'électricité</h5><p>Compréhension du rôle de l'alimentation et du matériel dans le fonctionnement des équipements réseau et de télécommunications utilisés dans une infrastructure.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="ac-card"><i class="bi bi-cpu ac-bg-icon"></i><div class="ac-code">AC11.02</div><h5>Comprendre les systèmes numériques, les communications et Internet</h5><p>Étude pratique du modèle client-serveur et des échanges IP à travers SSH, HTTP, SMB, SIP et RTP lors du déploiement des différents services.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="ac-card"><i class="bi bi-diagram-3 ac-bg-icon"></i><div class="ac-code">AC11.03</div><h5>Configurer les fonctions de base du réseau local</h5><p>Configuration IP des machines virtuelles, publication de ports Docker, accès SSH et ouverture des flux SIP, RTP et HTTP nécessaires aux services.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="ac-card"><i class="bi bi-terminal ac-bg-icon"></i><div class="ac-code">AC11.04</div><h5>Administrer les systèmes d'exploitation</h5><p>Installation et administration de Debian : paquets, services systemd, utilisateurs, permissions, Apache, Python, Docker, Samba et Asterisk.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="ac-card"><i class="bi bi-bug ac-bg-icon"></i><div class="ac-code">AC11.05</div><h5>Identifier les dysfonctionnements du réseau local</h5><p>Recherche des erreurs grâce aux logs, à <code>docker logs</code>, aux tests SMB, aux commandes Asterisk et aux vérifications de connectivité réseau.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="ac-card"><i class="bi bi-pc-display ac-bg-icon"></i><div class="ac-code">AC11.06</div><h5>Installer un poste client</h5><p>Installation de WSL et de <code>smbclient</code> pour les tests Samba, configuration des softphones SIP et utilisation de clients SSH pour administrer les serveurs.</p></div></div>
+          </div>
+        </div>
+
+        <!-- RT2 -->
+        <div class="mb-5">
+          <div class="comp-header">
+            <span class="comp-num">RT2</span>
+            Connecter les entreprises et les usagers
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6 col-lg-4"><div class="ac-card"><i class="bi bi-activity ac-bg-icon"></i><div class="ac-code">AC12.01</div><h5>Mesurer, analyser et commenter les signaux</h5><p>Analyse des journaux et des comportements d'appel afin de vérifier la signalisation SIP, les communications et le bon acheminement des flux VoIP.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="ac-card"><i class="bi bi-graph-up ac-bg-icon"></i><div class="ac-code">AC12.02</div><h5>Caractériser des systèmes de transmission</h5><p>Compréhension du rôle de SIP pour la signalisation, de RTP pour l'audio, des codecs et des paramètres réseau nécessaires aux communications téléphoniques IP.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="ac-card"><i class="bi bi-router ac-bg-icon"></i><div class="ac-code">AC12.03</div><h5>Déployer des supports de transmission</h5><p>Mise en œuvre de services utilisant le réseau IP, configuration des ports et règles de sécurité permettant les communications entre clients et serveurs.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="ac-card"><i class="bi bi-telephone-forward ac-bg-icon"></i><div class="ac-code">AC12.04</div><h5>Connecter les systèmes de ToIP</h5><p>Configuration d'Asterisk, de comptes PJSIP et de softphones, création du dialplan, IVR, SDA, annonces, horaires, renvoi absent et messagerie vocale.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="ac-card"><i class="bi bi-chat-dots ac-bg-icon"></i><div class="ac-code">AC12.05</div><h5>Communiquer avec un tiers</h5><p>Rédaction de comptes rendus structurés, présentation des solutions et adaptation des explications techniques afin de rendre les procédures compréhensibles.</p></div></div>
+          </div>
+        </div>
+
+        <!-- RT3 -->
+        <div>
+          <div class="comp-header">
+            <span class="comp-num">RT3</span>
+            Créer des outils et des applications pour les R&T
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6 col-lg-4"><div class="ac-card"><i class="bi bi-tools ac-bg-icon"></i><div class="ac-code">AC13.01</div><h5>Utiliser un système informatique et ses outils</h5><p>Utilisation de VMware, Debian, SSH, Visual Studio Code, Git, Docker, Docker Compose, AWS, Apache, Symfony, Python et des outils de diagnostic.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="ac-card"><i class="bi bi-code-slash ac-bg-icon"></i><div class="ac-code">AC13.02</div><h5>Lire, exécuter, corriger et modifier un programme</h5><p>Lecture et adaptation de scripts Python, de contrôleurs Symfony, de templates Twig, d'un fichier Docker Compose et des fichiers de configuration Asterisk.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="ac-card"><i class="bi bi-file-earmark-code ac-bg-icon"></i><div class="ac-code">AC13.03</div><h5>Traduire un algorithme dans un langage et un environnement</h5><p>Écriture d'un programme Python/Pygame de génération artistique : création d'une grille, génération de segments, gestion du hasard et export d'une image PNG.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="ac-card"><i class="bi bi-globe ac-bg-icon"></i><div class="ac-code">AC13.04</div><h5>Connaître l'architecture et les technologies d'un site Web</h5><p>Compréhension de l'architecture Apache / Symfony / Twig / Python : VirtualHost, routes, contrôleur, formulaire HTTP, génération de fichier et affichage dynamique.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="ac-card"><i class="bi bi-database ac-bg-icon"></i><div class="ac-code">AC13.05</div><h5>Choisir les mécanismes de gestion de données adaptés</h5><p>Utilisation de volumes Docker pour assurer la persistance des fichiers Samba et organisation des données et des paramètres nécessaires à la génération des œuvres.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="ac-card"><i class="bi bi-people ac-bg-icon"></i><div class="ac-code">AC13.06</div><h5>S'intégrer dans un environnement propice au travail collaboratif</h5><p>Utilisation de Git/GitHub, de fichiers de configuration réutilisables, de comptes rendus détaillés et de sauvegardes régulières afin de rendre les réalisations traçables et partageables.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════
+         ANALYSE RÉFLEXIVE
+    ════════════════════════════════════ -->
+    <section class="reflexive-section">
+      <div class="container">
+        <span class="section-label">Recul & apprentissage</span>
+        <h2 class="text-start mb-2">Analyse réflexive</h2>
+        <p class="mb-5" style="max-width:680px; color: var(--bs-secondary-color); font-size:.95rem;">
+          La SAÉ 2.04 m'a permis de relier dans un même projet l'administration système,
+          le Web, la programmation, la conteneurisation et la téléphonie IP. Voici les
+          principaux apprentissages que j'en retiens.
+        </p>
+
+        <div class="row g-4 mb-4">
+          <div class="col-md-6 col-lg-4"><div class="reflect-card"><span class="reflect-ico">🔍</span><h5>Ce que j'ai vraiment appris</h5><p>J'ai compris qu'un projet informatique complet ne consiste pas seulement à faire fonctionner un service. Il faut aussi choisir une solution adaptée, la documenter, la tester, prévoir les sauvegardes et être capable de la reconstruire après une erreur.</p></div></div>
+          <div class="col-md-6 col-lg-4"><div class="reflect-card"><span class="reflect-ico">⚠️</span><h5>Les difficultés rencontrées</h5><p>Les difficultés principales concernaient les permissions Linux, la configuration Apache, les dépendances Python, les droits Samba, la persistance des volumes Docker et l'ouverture des flux SIP et RTP sur l'instance AWS.</p></div></div>
+          <div class="col-md-6 col-lg-4"><div class="reflect-card"><span class="reflect-ico">🚀</span><h5>Ce que je ferais différemment</h5><p>Je préparerais dès le départ une documentation plus centralisée, une convention de nommage commune et une stratégie de sauvegarde pour chaque partie. J'automatiserais également davantage le déploiement avec des scripts ou Ansible.</p></div></div>
+          <div class="col-md-6 col-lg-4"><div class="reflect-card"><span class="reflect-ico">🔗</span><h5>Lien avec la formation R&T</h5><p>Cette SAÉ est une synthèse des apprentissages du BUT R&T : administrer Linux, configurer un réseau, développer une application, déployer des conteneurs, connecter des postes et mettre en place une solution de téléphonie IP.</p></div></div>
+          <div class="col-md-6 col-lg-4"><div class="reflect-card"><span class="reflect-ico">🎯</span><h5>Compétences transférables</h5><p>Configurer un serveur, lire des logs, corriger une erreur, écrire une configuration, tester un service et rédiger une documentation sont des compétences utiles pour des missions d'administration système, de développement Web ou de DevOps.</p></div></div>
+          <div class="col-md-6 col-lg-4"><div class="reflect-card"><span class="reflect-ico">📈</span><h5>Progression personnelle</h5><p>J'ai gagné en autonomie dans la recherche de pannes et dans la lecture de documentation technique. J'ai également amélioré ma capacité à expliquer les étapes d'installation et à justifier mes choix techniques dans un rapport.</p></div></div>
+        </div>
+
+        <span class="section-label mb-3 d-block">Points forts acquis en synthèse</span>
+        <div class="d-flex flex-wrap gap-2">
+          <span class="strength-pill"><i class="bi bi-server"></i> Administration Debian</span>
+          <span class="strength-pill"><i class="bi bi-globe"></i> Apache & Symfony</span>
+          <span class="strength-pill"><i class="bi bi-file-earmark-code"></i> Python & Pygame</span>
+          <span class="strength-pill"><i class="bi bi-box-seam"></i> Docker & Docker Compose</span>
+          <span class="strength-pill"><i class="bi bi-folder-symlink"></i> Samba & SMB</span>
+          <span class="strength-pill"><i class="bi bi-telephone"></i> Asterisk & ToIP</span>
+          <span class="strength-pill"><i class="bi bi-cloud"></i> AWS</span>
+          <span class="strength-pill"><i class="bi bi-terminal"></i> Tests & diagnostic</span>
+          <span class="strength-pill"><i class="bi bi-github"></i> Git & documentation</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+{% endblock %}

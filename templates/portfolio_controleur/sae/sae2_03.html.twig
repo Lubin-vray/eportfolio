@@ -295,14 +295,14 @@
           prestations avec base de données MariaDB.
         </p>
         <div class="d-flex flex-column gap-2">
-          <a href="{{ asset('portfolio/SAE2.03/install_vray.ps1') }}" target="_blank" class="btn-proof">
-            <i class="bi bi-terminal"></i> Script PowerShell d'installation
+          <a href="{{ asset('portfolio/SAE2.03/SAE2.03.rar') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-terminal"></i> Dossier du projet avec scripts PowerShell
           </a>
-          <a href="{{ asset('portfolio/SAE2.03/Dockerfile') }}" target="_blank" class="btn-proof">
-            <i class="bi bi-box"></i> Dockerfile image Portfolio
+          <a href="{{ asset('portfolio/SAE2.03/README.md') }}" target="_blank" class="btn-proof">
+            <i class="bi bi-box"></i> Fichier readme qui explique comment consruire le projet
           </a>
-          <a href="https://github.com/Lubin-vray/eportfolio.git" target="_blank" class="btn-proof">
-            <i class="bi bi-github"></i> Dépôt GitHub du portfolio
+          <a href="https://github.com/Lubin-vray/sae-2.03" target="_blank" class="btn-proof">
+            <i class="bi bi-github"></i> Dépôt GitHub du projet complet
           </a>
         </div>
       </div>
@@ -385,49 +385,6 @@
 
       </div>
     </div>
-
-    <!-- ── C1 : Administration système ── -->
-    <div>
-      <div class="comp-header">
-        <span class="comp-num">RT1</span>
-        Administrer les réseaux et les systèmes
-      </div>
-      <div class="row g-3">
-
-        <div class="col-md-6 col-lg-4">
-          <div class="ac-card">
-            <i class="bi bi-hdd-network ac-bg-icon"></i>
-            <div class="ac-code">AC0114</div>
-            <h5>Maîtriser les systèmes d'exploitation pour l'administration</h5>
-            <p>Création et gestion de conteneurs Docker : <code>docker run</code>, <code>docker exec</code>, <code>docker commit</code>, <code>docker build</code>. Création d'un réseau dédié (<code>docker network create</code>) pour isoler les services et permettre la résolution DNS entre conteneurs.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="ac-card">
-            <i class="bi bi-layers ac-bg-icon"></i>
-            <div class="ac-code">AC0116</div>
-            <h5>Installer et configurer des services réseau</h5>
-            <p>Déploiement de l'infrastructure complète : conteneur MariaDB avec variables d'environnement, conteneur WordPress avec volumes persistants (<code>badowordpress</code> et <code>htmlwordpress</code>), conteneur phpMyAdmin relié au réseau dédié, et conteneur registry pour le dépôt d'images privé.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="ac-card">
-            <i class="bi bi-shield-check ac-bg-icon"></i>
-            <div class="ac-code">Sécurité</div>
-            <h5>Identifier et corriger les failles de sécurité</h5>
-            <p>Identification de la faille d'injection SQL dans les formulaires PHP WordPress, analyse de la solution par requêtes préparées (<code>$wpdb->prepare()</code>), et test de sécurité avec Nikto et Nmap depuis un conteneur Kali Linux connecté via SSH sur port 1000.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
 <!-- ════════════════════════════════════
      ANALYSE RÉFLEXIVE
 ════════════════════════════════════ -->
