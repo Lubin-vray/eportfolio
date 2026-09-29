@@ -1,0 +1,12 @@
+.git
+.github
+.idea
+.vscode
+node_modules
+vendor
+var/cache
+var/log
+.env.local
+.env.*.local
+docker-compose*
+README.md
