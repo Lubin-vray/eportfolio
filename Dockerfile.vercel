@@ -15,23 +15,25 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
     --install-dir=/usr/local/bin \
     --filename=composer
 
+ENV APP_ENV=prod
+ENV APP_DEBUG=0
+ENV PORT=8080
+ENV SERVER_NAME=:8080
+
 RUN composer install \
     --no-dev \
     --no-interaction \
     --no-progress \
     --prefer-dist \
-    --optimize-autoloader
+    --optimize-autoloader \
+    --no-scripts
 
 RUN mkdir -p /app/var/cache /app/var/log \
-    && chown -R www-data:www-data /app/var \
-    && APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear --no-debug
+    && chown -R www-data:www-data /app/var
+
+RUN php bin/console cache:clear --env=prod --no-debug
 
 COPY Caddyfile /etc/caddy/Caddyfile
-
-ENV APP_ENV=prod
-ENV APP_DEBUG=0
-ENV PORT=8080
-ENV SERVER_NAME=:8080
 
 EXPOSE 8080
 
