@@ -1,5 +1,14 @@
+# config/routes.yaml
+
+# Import automatique des contrôleurs avec attributs
 controllers:
     resource:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+# Route pour l'API de contact
+api_contact:
+    path: /api/contact
+    controller: App\Controller\Api\ContactApiController::contact
+    methods: [POST]
