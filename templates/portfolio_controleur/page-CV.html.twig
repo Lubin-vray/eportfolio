@@ -4,22 +4,61 @@
 	<div class="container mt-5">
 		<h1 class="mb-4">Rentrez vos informations pour télécharger le CV</h1>
 
-		<form id="contactForm" action="/cv" class="needs-validation" novalidate>
+		<form
+			id="contactForm"
+			action="{{ path('app_cv') }}"
+			method="post"
+			class="needs-validation"
+			novalidate
+		>
+			<input
+				type="hidden"
+				name="_token"
+				value="{{ csrf_token('cv_download') }}"
+			>
+
 			<div class="mb-3">
 				<label for="inputName" class="form-label">Nom / Prénom</label>
-				<input type="text" class="form-control" id="inputName" name="name" required>
-				<div class="invalid-feedback">Merci d’indiquer votre nom.</div>
+
+				<input
+					type="text"
+					class="form-control"
+					id="inputName"
+					name="name"
+					maxlength="150"
+					required
+				>
+
+				<div class="invalid-feedback">
+					Merci d’indiquer votre nom.
+				</div>
 			</div>
 
 			<div class="mb-3">
 				<label for="inputEmail" class="form-label">Email</label>
-				<input type="email" class="form-control" id="inputEmail" name="email" required>
-				<div class="invalid-feedback">Merci d’indiquer une adresse e-mail valide.</div>
+
+				<input
+					type="email"
+					class="form-control"
+					id="inputEmail"
+					name="email"
+					maxlength="180"
+					required
+				>
+
+				<div class="invalid-feedback">
+					Merci d’indiquer une adresse e-mail valide.
+				</div>
 			</div>
 
+			<p class="form-text">
+				Vos informations sont utilisées uniquement pour comptabiliser les téléchargements du CV.
+			</p>
 
-			<button type="submit" class="btn btn-primary">Envoyer</button>
-		</form>
+			<button type="submit" class="btn btn-primary">
+				Télécharger le CV
+			</button>
+		</form>		
 		<br><br><br><br>
 	</div>
 	<br><br><br><br><br><br><br><br><br>
