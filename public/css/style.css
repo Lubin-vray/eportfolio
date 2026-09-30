@@ -378,6 +378,8 @@ sub {
   bottom: -0.25em;
 }
 
+
+
 sup {
   top: -0.5em;
 }
@@ -12748,3 +12750,4 @@ input:checked + .slider:before {
   align-items: center;      /* centre verticalement si nécessaire */
   margin: 20px 0;
 }
+
